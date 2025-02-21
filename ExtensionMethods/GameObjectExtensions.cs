@@ -61,7 +61,6 @@ namespace IuvoUnity
 
 
 
-
         /// <summary>
         /// Finds a child GameObject by its tag.
         /// </summary>
@@ -81,8 +80,6 @@ namespace IuvoUnity
         }
 
 
-
-
         /// <summary>
         /// Checks if a GameObject has a component of type T.
         /// </summary>
@@ -93,8 +90,6 @@ namespace IuvoUnity
         {
             return gameObject.GetComponent<T>() != null;
         }
-
-
 
 
         /// <summary>
@@ -110,8 +105,6 @@ namespace IuvoUnity
                 Debug.Log(component);
             }
         }
-
-
 
 
         /// <summary>
@@ -130,7 +123,6 @@ namespace IuvoUnity
 
 
 
-
         /// <summary>
         /// Checks if the GameObject is a descendant of another GameObject.
         /// </summary>
@@ -141,8 +133,6 @@ namespace IuvoUnity
         {
             return gameObject.transform.IsChildOf(parent.transform);
         }
-
-
 
 
         /// <summary>
@@ -156,9 +146,6 @@ namespace IuvoUnity
         }
 
 
-
-
-
         /// <summary>
         /// Gets the Collider2D attached to the GameObject.
         /// </summary>
@@ -170,9 +157,6 @@ namespace IuvoUnity
         }
 
 
-
-
-
         /// <summary>
         /// Checks if the GameObject has a Rigidbody component.
         /// </summary>
@@ -182,8 +166,6 @@ namespace IuvoUnity
         {
             return gameObject.GetComponent<Rigidbody>() != null;
         }
-
-
 
 
         /// <summary>
@@ -201,8 +183,6 @@ namespace IuvoUnity
         }
 
 
-
-
         /// <summary>
         /// Disables the specified component on the GameObject.
         /// </summary>
@@ -218,8 +198,6 @@ namespace IuvoUnity
         }
 
 
-
-
         /// <summary>
         /// Sets the material color of the GameObject's Renderer.
         /// </summary>
@@ -233,8 +211,6 @@ namespace IuvoUnity
                 renderer.material.color = color;
             }
         }
-
-
 
 
         /// <summary>
@@ -253,9 +229,6 @@ namespace IuvoUnity
         }
 
 
-
-
-
         /// <summary>
         /// Checks if the GameObject is colliding with another GameObject.
         /// </summary>
@@ -268,8 +241,6 @@ namespace IuvoUnity
             Collider otherCollider = other.GetComponent<Collider>();
             return collider != null && otherCollider != null && collider.bounds.Intersects(otherCollider.bounds);
         }
-
-
 
 
         /// <summary>
@@ -285,8 +256,6 @@ namespace IuvoUnity
         }
 
 
-
-
         /// <summary>
         /// Rotates the GameObject to face the target GameObject.
         /// </summary>
@@ -298,8 +267,6 @@ namespace IuvoUnity
         }
 
 
-
-
         /// <summary>
         /// Rotates the GameObject to face the target Transform.
         /// </summary>
@@ -309,8 +276,6 @@ namespace IuvoUnity
         {
             gameObject.RotateToFace(target.position);
         }
-
-
 
 
         /// <summary>
@@ -330,8 +295,6 @@ namespace IuvoUnity
         }
 
 
-
-
         /// <summary>
         /// Adds a ParticleSystemRenderer component to the GameObject.
         /// </summary>
@@ -341,9 +304,6 @@ namespace IuvoUnity
         {
             return gameObject.GetOrAddComponent<ParticleSystemRenderer>();
         }
-
-
-
 
 
         /// <summary>
@@ -376,8 +336,6 @@ namespace IuvoUnity
             }
 
         }
-
-
 
 
         /// <summary>
