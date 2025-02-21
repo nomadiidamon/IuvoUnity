@@ -2,6 +2,6 @@
 
 public interface IStateACondition : IBooleanCondition
 {
-    public bool IsConditionMet();
+    bool IsConditionMet();
 }
 

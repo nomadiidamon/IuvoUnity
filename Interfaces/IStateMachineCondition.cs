@@ -1,7 +1,8 @@
 ﻿using System;
+using IuvoUnity.IuvoStateMachine;
 
 public interface IStateMachineCondition 
 {
-	public bool IsConditionMet(StateMachine stateMachine);
+	bool IsConditionMet(StateMachine stateMachine);
 	
 }

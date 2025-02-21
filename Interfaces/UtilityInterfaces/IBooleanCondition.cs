@@ -2,5 +2,5 @@
 
 public interface IBooleanCondition : IConditional
 {
-    public bool Evaluate();
+    bool Evaluate();
 }
