@@ -41,15 +41,6 @@ namespace IuvoUnity
             camera.transform.position = originalPosition;
         }
 
-        /// <summary>
-        /// Sets the camera's field of view.
-        /// </summary>
-        /// <param name="camera">The camera whose field of view is to be set.</param>
-        /// <param name="fov">The field of view to set, in degrees.</param>
-        public static void SetFieldOfView(this Camera camera, float fov)
-        {
-            camera.fieldOfView = fov;
-        }
 
         /// <summary>
         /// Sets the camera's background color.

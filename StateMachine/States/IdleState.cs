@@ -6,7 +6,7 @@ namespace IuvoUnity
     namespace IuvoStateMachine
     {
         [CreateAssetMenu(fileName = "IdleState", menuName = "StateMachine/States/IdleState")]
-        public class IdleState : State
+        public abstract class IdleState : State
         {
             public override void OnEnter(StateMachine stateMachine)
             {
@@ -29,6 +29,8 @@ namespace IuvoUnity
                 Debug.Log("Exiting Idle State");
 
             }
+
+            public abstract override bool IsConditionMet(StateMachine stateMachine);
         }
 
 

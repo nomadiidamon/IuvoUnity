@@ -44,9 +44,13 @@ namespace IuvoUnity
 
             public void TryChangeState(State newState)
             {
-                if (newState != null && newState.CanEnter(this))
+                
+                if (newState != null && newState.IsConditionMet(this))
                 {
-                    ChangeState(newState);
+                    if (newState.CanEnter(this))
+                    {
+                        ChangeState(newState);
+                    }
                 }
                 else
                 {

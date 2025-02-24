@@ -6,7 +6,7 @@ namespace IuvoUnity
     namespace IuvoStateMachine
     {
         [CreateAssetMenu(fileName = "MoveState", menuName = "StateMachine/States/MoveState")]
-        public class MoveState : State
+        public abstract class MoveState : State
         {
             public float speed = 5f;
 
@@ -31,6 +31,8 @@ namespace IuvoUnity
                 Debug.Log("Exiting Move State");
 
             }
+
+            public abstract override bool IsConditionMet(StateMachine stateMachine);
         }
 
 
