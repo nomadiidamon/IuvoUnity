@@ -14,11 +14,11 @@ This project bootstraps your Unity-compatible DLL project with:
 3. Run:
 
 ```bash
-./bootstrap.sh
+./setup
 ```
 
 ## Notes
 
-- `bootstrap.sh` handles all build, test, and commit logic.
+- `setup` handles all build, test, and commit logic.
 - `scripts/utilities.sh` contains reusable Git+CMake helpers.
-- Adjust `CMakeLists.txt` and `utilities.sh` as needed for other submodules.
+- Adjust `CMakeLists.txt` and `helpers` as needed for other submodules.

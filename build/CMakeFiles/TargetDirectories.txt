@@ -1,0 +1,4 @@
+D:/Unity/IuvoUnity/build/CMakeFiles/IuvoUnity_build.dir
+D:/Unity/IuvoUnity/build/CMakeFiles/RUN_TESTS.dir
+D:/Unity/IuvoUnity/build/CMakeFiles/ALL_BUILD.dir
+D:/Unity/IuvoUnity/build/CMakeFiles/ZERO_CHECK.dir
