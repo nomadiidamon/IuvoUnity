@@ -1,6 +1,10 @@
 ﻿using System;
 
-public interface IBooleanCondition : IConditional
+namespace IuvoUnity
 {
-    bool Evaluate();
+
+    public interface IBooleanCondition : IConditional
+    {
+        bool Evaluate();
+    }
 }

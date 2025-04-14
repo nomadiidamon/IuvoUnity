@@ -9,9 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IuvoUnity</RootNamespace>
     <AssemblyName>IuvoUnity</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,7 +22,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -116,26 +118,58 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethods\AnimatorExtension.cs" />
-    <Compile Include="ExtensionMethods\CameraExtensions.cs" />
-    <Compile Include="ExtensionMethods\GameObjectExtensions.cs" />
-    <Compile Include="Interfaces\IConditional.cs" />
-    <Compile Include="Interfaces\IStateACondition.cs" />
-    <Compile Include="Interfaces\IStateMachineCondition.cs" />
-    <Compile Include="Interfaces\UtilityInterfaces\IBooleanCondition.cs" />
-    <Compile Include="Interfaces\UtilityInterfaces\IGenericCondition.cs" />
-    <Compile Include="Interfaces\UtilityInterfaces\IProximityCondition.cs" />
-    <Compile Include="Interfaces\UtilityInterfaces\IThresholdCondition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateMachine\States\IdleState.cs" />
-    <Compile Include="StateMachine\States\MoveState.cs" />
-    <Compile Include="StateMachine\State.cs" />
-    <Compile Include="StateMachine\StateMachine.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="src\ExtensionMethods\AnimatorExtensions.cs" />
+    <Compile Include="src\ExtensionMethods\CameraExtensions.cs" />
+    <Compile Include="src\ExtensionMethods\BoxColliderExtensions.cs" />
+    <Compile Include="src\ExtensionMethods\GameObjectExtensions.cs" />
+    <Compile Include="src\Interfaces\ICauseReaction.cs" />
+    <Compile Include="src\Interfaces\IConditional.cs" />
+    <Compile Include="src\Interfaces\IObservable.cs" />
+    <Compile Include="src\Interfaces\IObserver.cs" />
+    <Compile Include="src\Interfaces\IReactable.cs" />
+    <Compile Include="src\Interfaces\IStateACondition.cs" />
+    <Compile Include="src\Interfaces\UtilityInterfaces\IBooleanCondition.cs" />
+    <Compile Include="src\Interfaces\UtilityInterfaces\IGenericCondition.cs" />
+    <Compile Include="src\Interfaces\UtilityInterfaces\IProximityCondition.cs" />
+    <Compile Include="src\Interfaces\UtilityInterfaces\IThresholdCondition.cs" />
+    <Compile Include="src\IuvoBaseClasses\ObservableClass.cs" />
+    <Compile Include="src\IuvoBaseClasses\ObserverClass.cs" />
+    <Compile Include="src\IuvoColor\LerpColor.cs" />
+    <Compile Include="src\IuvoDebug\IuvoDebug.cs" />
+    <Compile Include="src\IuvoECS\IuvoComponent\ComponentManager.cs" />
+    <Compile Include="src\IuvoECS\IuvoComponent\IuvoComponents.cs" />
+    <Compile Include="src\IuvoECS\IuvoEntity\IuvoEntity.cs" />
+    <Compile Include="src\IuvoECS\IuvoEntity\IuvoEntityRegistry.cs" />
+    <Compile Include="src\IuvoECS\IuvoEntity\IuvoEntityView.cs" />
+    <Compile Include="src\IuvoECS\IuvoSystem\IuvoSystem.cs" />
+    <Compile Include="src\IuvoECS\IuvoSystem\IuvoSystemRegistry.cs" />
+    <Compile Include="src\IuvoStateMachine\IStateMachineCondition.cs" />
+    <Compile Include="src\IuvoStateMachine\StateMachineAnalyzer.cs" />
+    <Compile Include="src\IuvoStateMachine\StateMachine\GenericStateMachine.cs" />
+    <Compile Include="src\IuvoStateMachine\StateMachine\HumanoidStateMachine.cs" />
+    <Compile Include="src\IuvoStateMachine\States\GenericState.cs" />
+    <Compile Include="src\IuvoStateMachine\States\IdleStates\GenericIdleState.cs" />
+    <Compile Include="src\IuvoStateMachine\States\MoveStates\GenericMoveState.cs" />
+    <Compile Include="src\IuvoTime\IuvoTime.cs" />
+    <Compile Include="src\IuvoTime\IuvoTimer.cs" />
+    <Compile Include="src\IuvoTime\IuvoTimerComponents.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AI\" />
-    <Folder Include="ProceduralGeneration\" />
-    <Folder Include="Time\" />
+    <Folder Include="src\AI\" />
+    <Folder Include="src\ProceduralGeneration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

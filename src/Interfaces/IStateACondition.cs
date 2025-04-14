@@ -1,7 +1,10 @@
 ﻿using System;
 
-public interface IStateACondition : IBooleanCondition
+namespace IuvoUnity
 {
-    bool IsConditionMet();
-}
+    public interface IStateACondition : IBooleanCondition
+    {
+        bool IsConditionMet();
+    }
 
+}

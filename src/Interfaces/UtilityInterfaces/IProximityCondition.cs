@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public interface IProximityCondition : IStateACondition
-{
-    float GetDistance();
-    object GetTarget();
+namespace IuvoUnity {
+    public interface IProximityCondition : IStateACondition
+    {
+        float GetDistance();
+        object GetTarget();
+    }
 }

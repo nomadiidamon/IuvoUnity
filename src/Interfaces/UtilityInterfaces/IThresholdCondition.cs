@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
-public interface IThresholdCondition : IStateACondition
+namespace IuvoUnity
 {
-    float GetThresholdValue();
-    float GetCurrentValue();
-}
+    public interface IThresholdCondition : IStateACondition
+    {
+        float GetThresholdValue();
+        float GetCurrentValue();
+    }
 
+}
