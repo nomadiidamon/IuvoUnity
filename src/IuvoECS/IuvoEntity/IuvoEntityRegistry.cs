@@ -113,7 +113,7 @@ namespace IuvoUnity
                     List<IuvoComponent> comps = entity._ComponentManager.GetAllComponents();
                     for (int i = 0; i < comps.Count; i++)
                     {
-                        comps[i].OnAdd(entity);
+
                     }
                 }
 
@@ -122,7 +122,7 @@ namespace IuvoUnity
                     List<IuvoComponent> comps = entity._ComponentManager.GetAllComponents();
                     for (int i = 0; i < comps.Count; i++)
                     {
-                        comps[i].OnRemove(entity);
+
                     }
                 }
 

@@ -21,7 +21,7 @@ namespace IuvoUnity
                 public void AddComponent<T>(T component) where T : IuvoComponent
                 {
                     _components[typeof(T)] = component;
-                    component.OnAdd(_myIuvoEntity);
+                    //component.OnAdd(_myIuvoEntity);
                 }
 #nullable enable
                 public T? GetComponent<T>() where T : IuvoComponent
@@ -50,7 +50,7 @@ namespace IuvoUnity
                 {
                     if (_components.TryGetValue(typeof(T), out var component))
                     {
-                        component.OnRemove(_myIuvoEntity);
+                        //component.OnRemove(_myIuvoEntity);
                         _components.Remove(typeof(T));
                     }
                 }
@@ -73,7 +73,7 @@ namespace IuvoUnity
                 {
                     foreach (var component in _components.Values)
                     {
-                        component.OnRemove(entity);
+                        //component.OnRemove(entity);
                     }
                     _components.Clear();
                 }

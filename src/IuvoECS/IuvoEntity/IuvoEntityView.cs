@@ -6,7 +6,7 @@ namespace IuvoUnity.IuvoECS
     {
         public class EntityView : MonoBehaviour
         {
-            IuvoEntity _Entity { get; set; }
+            public IuvoEntity _Entity { get; private set; }
 
             public void Initialize(IuvoEntity entity)
             {

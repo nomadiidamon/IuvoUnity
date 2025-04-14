@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using IuvoUnity.IuvoECS.IuvoComponents.IuvoComponentInterfaces;
 
 namespace IuvoUnity
 {
@@ -10,27 +11,28 @@ namespace IuvoUnity
         {
             public abstract class IuvoComponent
             {
-                public virtual void OnAdd(IuvoEntity.IuvoEntity entity) { }
-                public virtual void OnRemove(IuvoEntity.IuvoEntity entity) { }
+               // public virtual void OnAdd(IuvoEntity.IuvoEntity entity) { }
+
+               // public virtual void OnRemove(IuvoEntity.IuvoEntity entity) { }
             }
 
-            public abstract class Configuration : IuvoComponent
+
+            public abstract class Configuration : IuvoComponent, IConfigure, IReconfigure
             {
                 // base class for the configurations of various objects
                 public virtual void OnConfigure(IuvoEntity.IuvoEntity entity) { }
-                public virtual void Reconfigure(IuvoEntity.IuvoEntity entity) { }
+                public virtual void OnReconfigure(IuvoEntity.IuvoEntity entity) { }
             }
 
             public class NameComponent : IuvoComponent
             {
-
                 string _name { get; set; }
             }
 
             public class TagComponent : IuvoComponent
             {
 
-                string _name { get; set; }
+                string _tag { get; set; }
             }
 
             public class IDNumberComponent : IuvoComponent
@@ -103,6 +105,42 @@ namespace IuvoUnity
                 public Quaternion _rotation;
             }
 
+            public class EasyRotationComponent : IuvoComponent
+            {
+                public Quaternion _quaternion;
+                public  Vector3 _eulerAngles;
+
+                public Quaternion Quaternion
+                {
+                    get => _quaternion;
+                    set
+                    {
+                        _quaternion = value;
+                        _eulerAngles = _quaternion.eulerAngles;
+                    }
+                }
+
+                public Vector3 EulerAngles
+                {
+                    get => _eulerAngles;
+                    set
+                    {
+                        _eulerAngles = value;
+                        _quaternion = Quaternion.Euler(_eulerAngles);
+                    }
+                }
+
+                public void ApplyTo(Transform transform)
+                {
+                    transform.rotation = _quaternion;
+                }
+
+                public void FromTransform(Transform transform)
+                {
+                    Quaternion = transform.rotation;
+                }
+            }
+
             public class ScaleComponent : IuvoComponent
             {
                 public Vector3 _scale;
@@ -115,7 +153,7 @@ namespace IuvoUnity
                 public ScaleComponent Scale;
             }
 
-            public class PatrolRouteComponent
+            public class PatrolRouteComponent : IuvoComponent
             {
                 public List<PositionComponent> _positions;
             }

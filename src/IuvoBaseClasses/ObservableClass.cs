@@ -1,31 +1,35 @@
 using System.Collections.Generic;
-using UnityEngine;
-
 
 namespace IuvoUnity
 {
-    public class ObservableClass : MonoBehaviour, IObservable
+    namespace IuvoECS
     {
-        public List<IObserver> Observers { get; } = new List<IObserver>();
-
-        public void AddObserver(IObserver observer)
+        namespace IuvoEntity
         {
-            if (!Observers.Contains(observer)) { Observers.Add(observer); }
-        }
-
-        public void RemoveObserver(IObserver observer)
-        {
-            if (Observers.Contains(observer)) { Observers.Remove(observer); }
-        }
-
-        public void NotifyObservers()
-        {
-            foreach (IObserver visitor in Observers)
+            public class ObservableClass : EntityView, IObservable
             {
+                public List<IObserver> Observers { get; } = new List<IObserver>();
 
-                if (visitor != null && visitor.IsConditionMet(this))
+                public void AddObserver(IObserver observer)
                 {
-                    visitor.OnNotify(this);
+                    if (!Observers.Contains(observer)) { Observers.Add(observer); }
+                }
+
+                public void RemoveObserver(IObserver observer)
+                {
+                    if (Observers.Contains(observer)) { Observers.Remove(observer); }
+                }
+
+                public void NotifyObservers()
+                {
+                    foreach (IObserver visitor in Observers)
+                    {
+
+                        if (visitor != null && visitor.IsConditionMet(this))
+                        {
+                            visitor.OnNotify(this);
+                        }
+                    }
                 }
             }
         }
