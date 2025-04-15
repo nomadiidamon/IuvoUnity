@@ -40,10 +40,10 @@ namespace IuvoUnity
             }
             public abstract class StatComponent : LevelValueComponent
             {
-                NameComponent _name;
-                DescriptionComponent _description;
-                IuvoMinMax_INT_Component softCap;
-                IuvoMinMax_INT_Component hardCap;
+                public NameComponent _name;
+                public DescriptionComponent _description;
+                public IuvoMinMax_INT_Component softCap;
+                public IuvoMinMax_INT_Component hardCap;
             }
             public class RechargeRateComponent : RPGComponent
             {
@@ -65,9 +65,9 @@ namespace IuvoUnity
             public class Stamina : StatComponent
             {
                 public int _currentStamina;
-                IuvoMinMax_INT_Component minMaxStamina;
-                RechargeRateComponent _rechargeRate;
-                StunComponent _stunComponent;
+                public IuvoMinMax_INT_Component minMaxStamina;
+                public RechargeRateComponent _rechargeRate;
+                public StunComponent _stunComponent;
             }
             public class StaminaCost
             {
@@ -77,9 +77,9 @@ namespace IuvoUnity
             {
                 public int _currentHealth;
                 public IuvoMinMax_INT_Component minMaxHealth;
-                RechargeRateComponent _rechargeRate;
-                RechargeMaxPercentage _maxRecharge;
-                RechargeMaxValue _maxRechargeValue;
+                public RechargeRateComponent _rechargeRate;
+                public RechargeMaxPercentage _maxRecharge;
+                public RechargeMaxValue _maxRechargeValue;
             }
 
             public class DamageTypeComponent : RPGComponent
@@ -111,7 +111,7 @@ namespace IuvoUnity
             public class ItemTypeComponent : RPGComponent
             {
                 public enum ItemType { BASIC_ITEM, KEY_ITEM, MATERIAL_ITEM, EQUIPMENT_ITEM, CONSUMABLE_ITEM }
-               ItemType _Type;
+               public ItemType _type;
             }
 
             public class CurrencyComponent : RPGComponent
@@ -147,7 +147,7 @@ namespace IuvoUnity
                 public IuvoMinMax_INT_Component _minMax;
             }
 
-            public class StatBonusComoponent : RPGComponent
+            public class StatBonusComponent : RPGComponent
             {
                 public int _bonus;
             }
@@ -162,21 +162,57 @@ namespace IuvoUnity
                 public int _accuracy;
             }
 
-            public class EquipmentTagComponent : ItemComponent
+            public class RangeComponent : RPGComponent
             {
-                public bool _isAWeapon;
+                public int _range;
             }
 
-            public class WeaponTagComponenet : EquipmentTagComponent
+            public class EquipmentTagComponent : ItemComponent
             {
-                public bool _isTwoHanded;
+            }
+
+            public class CanBeTwoHandedComponent : EquipmentTagComponent
+            {
+                public bool _isTwoHandable;
+            }
+            
+            public class WeaponSlotComponent : CanBeTwoHandedComponent
+            {
+                public bool _isTwoHandedWeapon;
+            }
+#nullable enable
+            public class LeftHandComponent : WeaponSlotComponent
+            {
+                CanBeTwoHandedComponent? _leftHand;
+            }
+
+            public class RightHandComponent : WeaponSlotComponent
+            {
+                CanBeTwoHandedComponent? _rightHand;
+            }
+
+#nullable disable
+            public class ShieldSlotComponent : CanBeTwoHandedComponent
+            {
+                public bool _canTwoHandSheild;
             }
 
             public class ArmorSlotComponent : EquipmentTagComponent
             {
                 public enum ArmorSlot { HEAD, CHEST, ARMS, LEGS }
-                ArmorSlot _armorSlot;
+                public ArmorSlot _armorSlot;
             }
+
+            public class AccessorySlotComponent : EquipmentTagComponent
+            {
+                public enum AccessorySlot {
+                    VEIL, CROWN, CAPE, NECKLACE, LEFT_EARRING, RIGHT_EARRING,
+                    COLLAR, LEFT_WRIST, RIGHT_WRIST, LEFT_RING, RIGHT_RING }
+
+                public AccessorySlot _accessorySlot;
+            }
+
+
         }
     }
 }

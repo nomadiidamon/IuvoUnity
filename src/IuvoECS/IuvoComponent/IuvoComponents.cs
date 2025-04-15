@@ -11,9 +11,9 @@ namespace IuvoUnity
         {
             public abstract class IuvoComponent
             {
-               // public virtual void OnAdd(IuvoEntity.IuvoEntity entity) { }
+                //public virtual void OnAdd(IuvoEntity.IuvoEntity entity) { }
 
-               // public virtual void OnRemove(IuvoEntity.IuvoEntity entity) { }
+                //public virtual void OnRemove(IuvoEntity.IuvoEntity entity) { }
             }
             
 

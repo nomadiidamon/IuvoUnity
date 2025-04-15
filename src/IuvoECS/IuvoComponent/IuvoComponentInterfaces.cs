@@ -32,6 +32,17 @@ namespace IuvoUnity
                 {
                     public abstract void NotifyOnChange(IuvoEntity.IuvoEntity entity);
                 }
+
+                public interface IOnActivate
+                {
+                    public abstract void OnActivate(IuvoEntity.IuvoEntity entity);
+
+                }
+
+                public interface IOnDeactivate
+                {
+                    public abstract void OnDeactivate(IuvoEntity.IuvoEntity entity);
+                }
             }
         }
     }
