@@ -7,6 +7,7 @@ namespace IuvoUnity
         {
             namespace IuvoComponentInterfaces
             {
+
                 public interface IOnAdd
                 {
                     public abstract void OnAdd(IuvoEntity.IuvoEntity entity);
@@ -25,6 +26,11 @@ namespace IuvoUnity
                 public interface IReconfigure
                 {
                     public abstract void OnReconfigure(IuvoEntity.IuvoEntity entity);
+                }
+
+                public interface INotifyOnChange
+                {
+                    public abstract void NotifyOnChange(IuvoEntity.IuvoEntity entity);
                 }
             }
         }

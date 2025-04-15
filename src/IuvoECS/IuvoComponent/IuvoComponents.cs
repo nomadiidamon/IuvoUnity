@@ -15,7 +15,7 @@ namespace IuvoUnity
 
                // public virtual void OnRemove(IuvoEntity.IuvoEntity entity) { }
             }
-
+            
 
             public abstract class Configuration : IuvoComponent, IConfigure, IReconfigure
             {
@@ -27,6 +27,17 @@ namespace IuvoUnity
             public class NameComponent : IuvoComponent
             {
                 string _name { get; set; }
+            }
+
+            public class DescriptionComponent : IuvoComponent
+            {
+                public string _description { get; set; }
+            }
+
+            public class Name_DescriptionComponent : IuvoComponent
+            {
+                public NameComponent _name { get; set; }
+                public DescriptionComponent _description { get; set; }
             }
 
             public class TagComponent : IuvoComponent
@@ -149,8 +160,16 @@ namespace IuvoUnity
             public class TransformComponent : IuvoComponent
             {
                 public PositionComponent Position;
-                public RotationComponent Rotation;
+                public EasyRotationComponent Rotation;
                 public ScaleComponent Scale;
+            }
+
+            public class EasyTransformComponent : IuvoComponent
+            {
+                public PositionComponent _myPosition;
+                public EasyRotationComponent _myRotation;
+                public ScaleComponent _myScale;
+                public ScaleComponent _myWorldScale;
             }
 
             public class PatrolRouteComponent : IuvoComponent
