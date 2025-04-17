@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using IuvoUnity.IuvoECS.IuvoComponents;
 
@@ -7,6 +8,11 @@ namespace IuvoUnity
     {
         namespace IuvoEntity
         {
+            public class ComponentFilter
+            {
+                Type[] archetype;
+            }
+
             public class IuvoEntityRegistry
             {
                 public static int _myRegistryID { get; set; } = 0;
@@ -14,6 +20,8 @@ namespace IuvoUnity
                 private static int _nextTimerID = 0;
                 public static Dictionary<int, IuvoEntity> _myRegisteredEntities = new Dictionary<int, IuvoEntity>();
                 public static Dictionary<int, IuvoEntity> _myRegisteredTimers = new Dictionary<int, IuvoEntity>();
+
+
 
                 public static IuvoEntity CreateEntity(bool debugOn = true)
                 {
