@@ -10,8 +10,29 @@ namespace IuvoUnity
         {
             public class ComponentFilter
             {
-                Type[] archetype;
+                public IEnumerable<Type> archetype;
+
+                public static IEnumerable<Type> GetAllComponentsEnumerable(IuvoEntity entity)
+                {
+                    return (IEnumerable<Type>)entity._ComponentManager.GetAllComponents();
+                }
+
+                public static Type[] GetAllComponentsArray(IuvoEntity entity)
+                {
+                    List<IuvoComponent> result = new List<IuvoComponent>();
+                    result = entity._ComponentManager.GetAllComponents();
+
+                    Type[] archetype = new Type[result.Count];
+                    for (int i = 0; i < result.Count; i++)
+                    {
+                        archetype[i] = result[i].GetType();
+                    }
+                    return archetype;
+                }
             }
+
+
+
 
             public class IuvoEntityRegistry
             {

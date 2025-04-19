@@ -11,9 +11,7 @@ namespace IuvoUnity
         {
             public abstract class IuvoComponent
             {
-                //public virtual void OnAdd(IuvoEntity.IuvoEntity entity) { }
 
-                //public virtual void OnRemove(IuvoEntity.IuvoEntity entity) { }
             }
             
 
@@ -42,13 +40,12 @@ namespace IuvoUnity
 
             public class TagComponent : IuvoComponent
             {
-
                 string _tag { get; set; }
             }
 
             public class IDNumberComponent : IuvoComponent
             {
-                public int _id;
+                public int _id { get; set; }
             }
 
             public class IuvoRegistryID : IDNumberComponent
@@ -64,62 +61,62 @@ namespace IuvoUnity
 
             public class IuvoWorldID : IuvoComponent
             {
-                public IuvoRegistryID _registryID;
-                public IuvoTimerID _timerID;
-                public IuvoEntity.IuvoEntity _entity;
+                public IuvoRegistryID _registryID { get; set; }
+                public IuvoTimerID _timerID { get; set; }
+                public IuvoEntity.IuvoEntity _entity { get; set; }
             }
 
             public class IuvoMin_INT_Component : IuvoComponent
             {
-                public int _min;
+                public int _min {  get; set; }
             }
 
             public class IuvoMax_INT_Component : IuvoComponent
             {
-                public int _max;
+                public int _max { get; set; }
             }
 
             public class IuvoMinMax_INT_Component : IuvoComponent
             {
-                public IuvoMin_INT_Component Minimum;
-                public IuvoMax_INT_Component Maximum;
+                public IuvoMin_INT_Component Minimum { get; set; }
+                public IuvoMax_INT_Component Maximum { get; set; }
             }
 
             public class IuvoMin_FLOAT_Component : IuvoComponent
             {
-                public float min;
+                public float min {  get; set; }
             }
 
             public class IuvoMax_FLOAT_Component : IuvoComponent
             {
-                public float max;
+                public float max {  get; set; }
             }
 
             public class IuvoMinMax_FLOAT : IuvoComponent
             {
-                public IuvoMin_FLOAT_Component Minimum;
-                public IuvoMax_FLOAT_Component Maximum;
+                public IuvoMin_FLOAT_Component Minimum { get; set; }
+                public IuvoMax_FLOAT_Component Maximum { get; set; }
             }
 
             public class TargetComponent : IuvoComponent
             {
-                public IuvoEntity.IuvoEntity _targetEntity;
+                public IuvoEntity.IuvoEntity _targetEntity {  get; set; }
             }
 
             public class PositionComponent : IuvoComponent
             {
-                public Vector3 _position;
+                public Vector3 _position {  get; set; }
             }
 
             public class RotationComponent : IuvoComponent
             {
-                public Quaternion _rotation;
+                public Quaternion _rotation {  get; set; }
             }
 
             public class EasyRotationComponent : IuvoComponent
             {
                 public Quaternion _quaternion;
-                public  Vector3 _eulerAngles;
+                public Vector3 _eulerAngles;
 
                 public Quaternion Quaternion
                 {
@@ -154,43 +151,43 @@ namespace IuvoUnity
 
             public class ScaleComponent : IuvoComponent
             {
-                public Vector3 _scale;
+                public Vector3 _scale { get; set; }
             }
 
             public class TransformComponent : IuvoComponent
             {
-                public PositionComponent Position;
-                public EasyRotationComponent Rotation;
-                public ScaleComponent Scale;
+                public PositionComponent Position { get; set; }
+                public EasyRotationComponent Rotation { get; set; }
+                public ScaleComponent Scale { get; set; }
             }
 
             public class EasyTransformComponent : IuvoComponent
             {
-                public PositionComponent _myPosition;
-                public EasyRotationComponent _myRotation;
-                public ScaleComponent _myScale;
-                public ScaleComponent _myWorldScale;
+                public PositionComponent _myPosition { get; set; }
+                public EasyRotationComponent _myRotation { get; set; }
+                public ScaleComponent _myScale { get; set; }
+                public ScaleComponent _myWorldScale { get; set; }
             }
 
             public class PatrolRouteComponent : IuvoComponent
             {
-                public List<PositionComponent> _positions;
+                public List<PositionComponent> _positions {  get; set; }
             }
 
             public class VelocityComponent : IuvoComponent
             {
-                public Vector3 Velocity;
+                public Vector3 Velocity { get; set; }
             }
 
             public class InteractionComponent : IuvoComponent
             {
-                public Action<IuvoEntity.IuvoEntity> OnInteract;
+                public Action<IuvoEntity.IuvoEntity> OnInteract { get; set; }
             }
 
             public class MagnetizeComponent : IuvoComponent
             {
-                public float _magneticStrength;
-                public bool _isMagnetic;
+                public float _magneticStrength { get; set; }
+                public bool _isMagnetic { get; set; }
             }
         }
 

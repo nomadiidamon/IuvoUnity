@@ -30,7 +30,7 @@ namespace IuvoUnity
 
                 public interface INotifyOnChange
                 {
-                    public abstract void NotifyOnChange(IuvoEntity.IuvoEntity entity);
+                    public abstract void Notify(IuvoEntity.IuvoEntity entity);
                 }
 
                 public interface IOnActivate
