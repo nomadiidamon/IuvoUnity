@@ -2,7 +2,7 @@
 
 namespace IuvoUnity
 {
-    namespace IuvoProdeduralGeneration
+    namespace IuvoProceduralGeneration
     {
         namespace Dungeons
         {
