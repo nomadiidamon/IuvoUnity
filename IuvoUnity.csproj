@@ -130,7 +130,7 @@
     <Compile Include="src\IuvoRPG\_RPGInterfaces\IReactable.cs" />
     <Compile Include="src\IuvoRPG\_RPGInterfaces\IStunnable.cs" />
     <Compile Include="src\IuvoRPG\_RPGInterfaces\ISurface.cs" />
-    <Compile Include="src\IuvoRPG_ECS\IuvoRPGComponent.cs" />
+    <Compile Include="src\IuvoRPG_ECS\IuvoRPGComponents_ECS.cs" />
     <Compile Include="src\_ExtensionMethods\GameObjectExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\GenericExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\LightExtensions.cs" />
