@@ -124,6 +124,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="src\IuvoProceduralGeneration\_ProceduralMesh\ProceduralGridMesh.cs" />
+    <Compile Include="src\IuvoProceduralGeneration\_ProceduralMesh\ProceduralMazeGeneration.cs" />
+    <Compile Include="src\IuvoProceduralGeneration\_ProceduralMesh\ProceduralMesh.cs" />
+    <Compile Include="src\IuvoProceduralGeneration\_ProceduralMesh\ProceduralShapes\ProceduralCylinder.cs" />
+    <Compile Include="src\IuvoProceduralGeneration\_ProceduralMesh\ProceduralStripMesh.cs" />
+    <Compile Include="src\IuvoProceduralGeneration\_ProceduralMesh\TerrainGenerator.cs" />
     <Compile Include="src\IuvoRPG\_AbilitySystem\IAbility.cs" />
     <Compile Include="src\IuvoRPG\_RPGInterfaces\ICauseReaction.cs" />
     <Compile Include="src\IuvoRPG\_RPGInterfaces\IDealDamage.cs" />
@@ -194,6 +200,7 @@
     <Compile Include="src\IuvoRPG\_AbilitySystem\BaseAbility.cs" />
     <Compile Include="src\IuvoRPG\_AbilitySystem\DashAbility.cs" />
     <Compile Include="src\IuvoRPG\_AbilitySystem\JumpAbility.cs" />
+    <Compile Include="src\_Physics\PhysicsHelpers.cs" />
     <Compile Include="src\_Singletons\_Managers\CameraManager.cs" />
     <Compile Include="src\_Singletons\_Managers\EnemyManager.cs" />
     <Compile Include="src\_Singletons\_Managers\PlayerManager.cs" />
