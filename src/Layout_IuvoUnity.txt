@@ -1,0 +1,34 @@
+namespace UnityHelperLibrary
+{
+    namespace _DataStructs{}
+
+    namespace _Interfaces{}
+
+    namespace _BaseClasses
+    {
+		namespace _ProgrammingPatternBases {}
+        namespace _SingletonBases {}
+        namespace _InputBases {}
+        namespace _StateMachineBases {}
+        namespace _ECSBases {}
+        namespace _RPGBases {}
+        namespace _ProceduralGenerationBases {}
+        namespace _TimeBases {}
+    }
+
+    namespace _ProgrammingPatterns {}
+    namespace _Singletons {}
+    namespace _Input
+    {
+        namespace _Controllers {}
+    }
+    namespace _StateMachine {}
+    namespace _ECS {}
+    namespace _RPG {}
+    namespace _ProceduralGeneration {}
+    namespace _Time {}
+    namespace _ExtensionMethods {}
+    namespace _Debug {}
+    namespace _Physics {}
+    namespace _OverrideClasses {}
+}
