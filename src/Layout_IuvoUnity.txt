@@ -1,34 +1,231 @@
+//UnityHelperLibrary Layout Document
+
+enum {
+[Release]
+[Testing]
+[Implemented]
+[Experimental
+[InProgress]
+}
+
 namespace UnityHelperLibrary
 {
-    namespace _DataStructs{}
+	namespace _AI 
+	{
+		// TODO [InProgress]: Sound detection
+		// TODO [InProgress]: Line of Sight detection 
+		// TODO[InProgress]: In Range Of (IRO) detection
+			// TODO [InProgress]: IRO Ally detection
+			// TODO [InProgress]: IRO Enemy detection
+			// TODO [InProgress]: IRO Interactable detection
+		
+		// TODO [InProgress]: ai sensor base class or template
+		// TODO [InProgress]: Spehere Sensor (sound, sight, or IRO)
+			// TODO [InProgress]: Multi-Sphere Sensor (sound, sight, or IRO)
+		// TODO [InProgress]: Capsule Sensor (sound, sight, or IRO)
+			// TODO [InProgress]: Multi-Capsule Sensor (sound, sight, or IRO)
+		// TODO [InProgress]: Implement other mesh types	
+		
+		// TODO [InProgress]: BaseAIBehavior
+		// TODO [InProgress]: Patrol Behavior
+		// TODO [InProgress]: AIDecisionTree
+		// TODO [InProgress]: AIMemory
+		// TODO [InProgress]: AIGoal
+		// TODO [InProgress]: AIEmotion
+		// TODO [InProgress]: AIReaction
+		// TODO [InProgress]: AIAwareness
+		// TODO [InProgress]: AIAction
+		// TODO [InProgress]: AIBelief
+		// TODO [InProgress]: AIBelief
+		// TODO [InProgress]: AIConsequence
+		// TODO [InProgress]: AIDecision
+		// TODO [InProgress]: AIIncentive
+		// Todo [InProgress]: AIScore
+		
+		}
+	namespace _Animation 
+	{
+		// TODO [InProgress]: PlaySoundOnEvent
+		// TODO [InProgress]: Playables
+		// TODO [InProgress]: IKPosition/ all changes
+		// TODO [InProgress]: IKTarget / where the changes take place
+		// TODO [InProgress]: IKPair (IKPosition & IKTarget)
+		// TODO [InProgress]: AnimationCurve
 
-    namespace _Interfaces{}
-
+	}
+	namespace _Audio 
+	{
+		// TODO [InProgress]: Audio pooling
+		// TODO [InProgress]: Global volume manager
+		// TODO [InProgress]: 3d Spatial Audio
+		// TODO [InProgress]: Music Transition
+		// TODO [InProgress]: Musical Environment
+		
+	}
     namespace _BaseClasses
     {
-		namespace _ProgrammingPatternBases {}
-        namespace _SingletonBases {}
-        namespace _InputBases {}
-        namespace _StateMachineBases {}
         namespace _ECSBases {}
-        namespace _RPGBases {}
+		namespace _EventBases {}
+        namespace _InputBases {}
         namespace _ProceduralGenerationBases {}
+        namespace _ProgrammingPatternBases 
+		{
+			// TODO [InProgress]: object pooling
+			// TODO [InProgress]: factory pattern
+			// TODO [InProgress]: fluent builder
+		}
+        namespace _RPGBases {}
+        namespace _SingletonBases {}
+        namespace _StateMachineBases {}
         namespace _TimeBases {}
+		namespace _UIBases {}
     }
-
-    namespace _ProgrammingPatterns {}
-    namespace _Singletons {}
+	namespace _Camera 
+	{
+		// TODO [InProgress]: camera collision handler
+		// TODO [InProgress]: camera shake
+		// TODO [InProgress]: camera follow
+		// TODO [InProgress]: Dynamic Zoom
+		// TODO [InProgress]: Arc out
+		// TODO [InProgress]: Arc in
+		
+	}
+	namespace _Collider {}
+	namespace _Color {}
+	namespace _Constants 
+	{
+		// TODO [InProgress]: tag
+		// TODO [InProgress]: layer
+		// TODO [InProgress]: input actions
+		// TODO [InProgress]: Scene names
+		// TODO [InProgress]: UI Elements
+	}
+	namespace _Coroutines 
+	{
+		// TODO [InProgress]: Coroutine Runner -> singleton
+		// TODO [InProgress]: Wait for Seconds dictionary
+		
+	}
+    namespace _DataStructs 
+	{
+		// TODO [InProgress]: Object State Tracker
+	}
+    namespace _Debug 
+	{
+		// TODO [InProgress]: DrawDebugBox(Vector3 center, Vector3 size);
+	}
+    namespace _ECS {}
+	namespace _Editor 
+	{
+		namespace _EditorTools {}
+		namespace _EditorUtilities 
+		{
+			// TODO [InProgress]: property drawers
+			// TODO [InProgress]: custom class/object serializtion/inspection
+		}
+	}
+	namespace _Events {}
+    namespace _ExtensionMethods {}
     namespace _Input
     {
+		// TODO: Button hold, tap, double-tap abstraction
+		// TODO: Input rebinding helper
         namespace _Controllers {}
     }
-    namespace _StateMachine {}
-    namespace _ECS {}
-    namespace _RPG {}
-    namespace _ProceduralGeneration {}
-    namespace _Time {}
-    namespace _ExtensionMethods {}
-    namespace _Debug {}
-    namespace _Physics {}
+    namespace _Interfaces 
+	{
+		// TODO [InProgress]: IAwake
+		// TODO [InProgress]: IInitialize
+		// TODO [InProgress]: IUpdate
+		
+		// TODO [InProgress]: INotifiable
+		// TODO [InProgress]: INotify
+		// TODO [InProgress]: INotifyOnChange
+		
+		// TODO [InProgress]: IFixedUpdate	
+		
+		// TODO [InProgress]: IRegenerate
+		// TODO [InProgress]: IDebelitate
+		
+		// TODO [InProgress]: ISavable
+		
+		// TODO [Testing]: IConfigure
+		// TODO [InProgress]: IReconfigure
+		// TODO [InProgress]: IConfigurable
+		
+		
+	}
+	namespace _Math {}
+	namespace _Networking {}
     namespace _OverrideClasses {}
+    namespace _Physics 
+	{
+		// TODO [InProgress]: Physics Overlap Helper
+		// TODO [InProgress]: Raycast All Sorted By Distance
+		// TODO [InProgress]: Explosive Force Distributor
+		// TODO [InProgress]: Step height check
+		// TODO [InProgress]: easily influential gravity (world gravity and constant weight scale)
+		// TODO [InProgress]: gravity flipper (takes a vector as new world up)
+		// TODO [InProgress]: magnetic force (attract and repel)
+		// TODO [InProgress]: arc projectile (throw strength and weight based)
+		// TODO [InProgress]: 
+		
+	}
+    namespace _ProceduralGeneration 
+	{
+		// TODO [InProgress]: random template		
+		// TODO [Experimental]: object grid
+		// TODO [Experimental]: multi-layerd object grid
+		// TODO [InProgress]: object grid with effect
+		// TODO [InProgress]: object grid with perlin noise
+		// TODO [InProgress]: heightmap
+		// TODO [InProgress]: world
+		// TODO [InProgress]: cave
+		// TODO [Experimental]: dungeon
+		// TODO [Experimental]: building / structure (made of smaller pieces for modular behavior)
+	}
+    namespace _ProgrammingPatterns {}
+    namespace _RPG 
+	{
+		// TODO [InProgress]: Dialogue system
+		
+	}
+	namespace _Saving 
+	{
+		// TODO [InProgress]: binary saving
+		// TODO [InProgress]: json saving
+		// TODO [InProgress]: auto save trigger
+		// TODO [InProgress]: preference saves
+		// TODO [InProgress]: profile saves
+	}
+	namespace _Scene 
+	{
+		// TODO [InProgress]: Scene transition
+		// TODO [InProgress]: async scene loader
+		// TODO [InProgress]: loading scene
+		// TODO [InProgress]: scene progress and configuration are savable
+	}
+	namespace _ScriptableObjects {}
+    namespace _Singletons {}
+    namespace _StateMachine {}
+	namespace _Testing {}
+    namespace _Time {}
+	namespace _UI 
+	{
+		// TODO [InProgress]: Tooltip system 
+		// TODO [InProgress]: fade transitions
+		// TODO [InProgress]: hud
+		// TODO [InProgress]: hud layout
+		// TODO [InProgress]: hud preferences
+		// TODO [InProgress]: save preferences
+		// TODO [InProgress]: Locallized text
+	}
+	namespace _Utility
+	{
+		// TODO [InProgress]: IsInLayerMask(GameObject obj, LayerMask mask);
+		// TODO [InProgress]: object life time tracker
+		// TODO [InProgress]: object life time manager
+		// TODO [InProgress]: Localization Manager
+		namespace _UtilityInterfaces {}
+	}
 }
