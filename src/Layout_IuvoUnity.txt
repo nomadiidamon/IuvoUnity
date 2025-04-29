@@ -1,12 +1,17 @@
-//UnityHelperLibrary Layout Document
+//UnityHelperLibrary Folder and Namespace Layout Document
 
-enum {
-[Release]
-[Testing]
-[Implemented]
-[Experimental
+enum STATUS {
+
+[Release],
+[Testing],
+[Implemented],
+[Experimental],
 [InProgress]
+
 }
+
+		// TODO [InProgress]:
+
 
 namespace UnityHelperLibrary
 {
@@ -14,37 +19,46 @@ namespace UnityHelperLibrary
 	{
 		// TODO [InProgress]: Sound detection
 		// TODO [InProgress]: Line of Sight detection 
-		// TODO[InProgress]: In Range Of (IRO) detection
+		// TODO [InProgress]: In Range Of (IRO) detection
 			// TODO [InProgress]: IRO Ally detection
 			// TODO [InProgress]: IRO Enemy detection
 			// TODO [InProgress]: IRO Interactable detection
 		
 		// TODO [InProgress]: ai sensor base class or template
-		// TODO [InProgress]: Spehere Sensor (sound, sight, or IRO)
-			// TODO [InProgress]: Multi-Sphere Sensor (sound, sight, or IRO)
-		// TODO [InProgress]: Capsule Sensor (sound, sight, or IRO)
-			// TODO [InProgress]: Multi-Capsule Sensor (sound, sight, or IRO)
-		// TODO [InProgress]: Implement other mesh types	
+			// TODO [InProgress]: AI Sensor (sound, sight, or IRO)
+				// Todo [InProgress]: Multi-AI Sensor 
+			// TODO [InProgress]: Spehere Sensor (sound, sight, or IRO)
+				// TODO [InProgress]: Multi-Sphere Sensor (sound, sight, or IRO)
+			// TODO [InProgress]: Capsule Sensor (sound, sight, or IRO)
+				// TODO [InProgress]: Multi-Capsule Sensor (sound, sight, or IRO)
+			// TODO [InProgress]: Box Sensor (sound, sight, or IRO)
+				// TODO [InProgress]: Multi-Box Sensor (sound, sight, or IRO)
+			// TODO [InProgress]: Custom Sensor (sound, sight, or IRO)
+				// TODO [InProgress]: Multi-Custom Sensor (sound, sight, or IRO)
+
+		// TODO [InProgress]: AI Sensor Manager
+		// TODO [InProgress]: AI Sensor Manager (multi-sensor)
+		// TODO [InProgress]: AI registry to create and manage all active AI and their sensors
 		
 		// TODO [InProgress]: BaseAIBehavior
-		// TODO [InProgress]: Patrol Behavior
+			// TODO [InProgress]: Patrol Behavior
 		// TODO [InProgress]: AIDecisionTree
-		// TODO [InProgress]: AIMemory
-		// TODO [InProgress]: AIGoal
-		// TODO [InProgress]: AIEmotion
-		// TODO [InProgress]: AIReaction
-		// TODO [InProgress]: AIAwareness
-		// TODO [InProgress]: AIAction
-		// TODO [InProgress]: AIBelief
-		// TODO [InProgress]: AIBelief
-		// TODO [InProgress]: AIConsequence
-		// TODO [InProgress]: AIDecision
-		// TODO [InProgress]: AIIncentive
-		// Todo [InProgress]: AIScore
+			// TODO [InProgress]: AIMemory
+			// TODO [InProgress]: AIContext
+			// TODO [InProgress]: AIGoal
+			// TODO [InProgress]: AIBelief
+			// TODO [InProgress]: AIAction
+				// TODO [InProgress]: AIConsequence
+				// TODO [InProgress]: AIReaction
+			// TODO [InProgress]: AIDecision
+			// TODO [InProgress]: AIIncentive
+				// Todo [InProgress]: AIScore
 		
 		}
 	namespace _Animation 
 	{
+		// [NEED_TO_MOVE]
+
 		// TODO [InProgress]: PlaySoundOnEvent
 		// TODO [InProgress]: Playables
 		// TODO [InProgress]: IKPosition/ all changes
@@ -64,7 +78,87 @@ namespace UnityHelperLibrary
 	}
     namespace _BaseClasses
     {
-        namespace _ECSBases {}
+        namespace _ECSBases 
+		{
+		
+			namespace _Components 
+			{
+				// TODO [InProgress]: IComponent
+				// TODO [Implemented]: Component manager 
+				// TODO [Experimental]: Component interfaces
+					 {
+						// TODO [Experimental]: ICreate - OnCreate()
+						// TODO [Experimental]: IDestroy - OnDestroy()
+						// TODO [Experimental]: ICreateable : ICreate, IDestroy
+
+						// TODO [Experimental]: IAwake - OnAwake()
+						// TODO [Experimental]: IInitialize - Initialize()
+						// TODO [Experimental]: IStart - OnStart()
+
+						// TODO [Experimental]: IUpdatable - Update()
+						// TODO [Experimental]: IUpdate - OnUpdate()
+						// TODO [Experimental]: IFixedUpdate - OnFixedUpdate()
+						// TODO [Experimental]: ILateUpdate - OnLateUpdate()
+
+						// TODO [Experimental]: IAdd - OnAdd()
+						// TODO [Experimental]: IRemove - OnRemove()
+						// TODO [Experimental]: IAddable : IAdd, IRemove
+
+						// TODO [Experimental]: IConfigure - OnConfigure()
+						// TODO [Experimental]: IReconfigure - OnReconfigure()
+						// TODO [Experimental]: IConfigurable : IConfigure, IReconfigure
+
+						// TODO [Experimental]: IChange - OnChange()
+						// TODO [Experimental]: INotifyOfChange - OnNotifyOfChange()
+						// TODO [Experimental]: INotifiable : INotifyOfChange, IChange
+
+						// TODO [Experimental]: IActivate - OnActivate()
+						// TODO [Experimental]: IDeactivate - OnDeactivate()
+						// TODO [Experimental]: IActivatable : IActivate, IDeactivate
+
+						// TODO [Experimental]: IEnable - OnEnable()
+						// TODO [Experimental]: IDisable - OnDisable()
+						// TODO [Experimental]: IEnableable : IEnable, IDisable
+
+						// TODO [Experimental]: IToggleable : IEnableable, IActivatable
+						// TODO [Experimental]: IPausable : IToggleable
+
+						// TODO [Experimental]: IReset - OnReset()
+						// TODO [Experimental]: IResetData - current data = resetData
+						// TODO [Experimental]: IResetable : IReset, IResetData
+
+						// TODO [Experimental]: IRegister
+						// TODO [Experimental]: IUnregister
+						// TODO [Experimental]: IRegisterable : IRegister, IUnregister
+					 }
+			}
+
+			namespace _Entitites 
+			{
+				// TODO [InProgress]: Entity
+				// TODO [InProgress]: EntityManager
+			}
+
+			namespace _Registry
+			{
+				// TODO [InProgress]: EntityRegistry
+					// TODO [InProgress]: EntityManager
+				// TODO [InProgress]: ComponentRegistry
+					// TODO [Experimental]: ComponentManager
+				// TODO [InProgress]: SystemRegistry
+					// TODO [InProgress]: SystemManager
+			}
+
+			namespace _Systems 
+			{
+				// TODO [InProgress]: ISystem
+				// TODO [InProgress]: 
+				// TODO [InProgress]:
+				// TODO [InProgress]:
+			}
+
+
+		}
 		namespace _EventBases {}
         namespace _InputBases {}
         namespace _ProceduralGenerationBases {}
@@ -114,7 +208,18 @@ namespace UnityHelperLibrary
 	{
 		// TODO [InProgress]: DrawDebugBox(Vector3 center, Vector3 size);
 	}
-    namespace _ECS {}
+    namespace _ECS 
+	{
+		// TODO [InProgress]:
+		// TODO [InProgress]:
+		// TODO [InProgress]:
+		// TODO [InProgress]:
+		// TODO [InProgress]:
+		// TODO [InProgress]:
+		// TODO [InProgress]:
+		// TODO [InProgress]:
+
+	}
 	namespace _Editor 
 	{
 		namespace _EditorTools {}

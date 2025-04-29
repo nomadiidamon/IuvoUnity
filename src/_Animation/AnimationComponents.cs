@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace IuvoUnity
-{
+{   
     namespace IuvoECS
     {
         namespace IuvoComponents
