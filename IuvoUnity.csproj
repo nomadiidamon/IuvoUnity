@@ -266,6 +266,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\_AI\" />
+    <Folder Include="src\_Audio\" />
     <Folder Include="src\_BaseClasses\_ECSBases\IuvoEntity\_Entities\" />
     <Folder Include="src\_BaseClasses\_ECSBases\IuvoSystem\_Systems\" />
     <Folder Include="src\_BaseClasses\_ECS\IuvoComponent\" />
@@ -273,14 +274,26 @@
     <Folder Include="src\_BaseClasses\_ECS\IuvoSystem\_Systems\" />
     <Folder Include="src\_BaseClasses\_InputBases\" />
     <Folder Include="src\_BaseClasses\_SingletonBases\" />
+    <Folder Include="src\_Constants\" />
+    <Folder Include="src\_Coroutines\" />
     <Folder Include="src\_ECS\" />
+    <Folder Include="src\_Events\" />
     <Folder Include="src\_Input\_Controllers\" />
+    <Folder Include="src\_Math\" />
+    <Folder Include="src\_Networking\" />
     <Folder Include="src\_OverrideClasses\" />
     <Folder Include="src\_ProceduralGeneration\" />
     <Folder Include="src\_ProgrammingPatterns\" />
     <Folder Include="src\_RPG\" />
+    <Folder Include="src\_Saving\" />
+    <Folder Include="src\_Scene\" />
+    <Folder Include="src\_ScriptableObjects\" />
     <Folder Include="src\_Singletons\_Factories\" />
+    <Folder Include="src\_StateMachine\" />
+    <Folder Include="src\_Testing\" />
     <Folder Include="src\_Time\" />
+    <Folder Include="src\_UI\" />
+    <Folder Include="src\_Utility\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
