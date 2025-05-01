@@ -1,12 +1,9 @@
-﻿using IuvoUnity._Interfaces._UtilityInterfaces;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 
 namespace IuvoUnity
 {
     namespace _Interfaces
     {
-
         public interface IAbility
         {
             string AbilityName { get; }
