@@ -1,17 +1,16 @@
-using IuvoUnity.IuvoECS.IuvoEntity;
 using System.Collections.Generic;
 using System;
 
 namespace IuvoUnity
 {
-    namespace IuvoECS
+    namespace _BaseClasses
     {
-        namespace IuvoSystem
+        namespace _ECS
         {
             public abstract class IuvoSystem
             {
                 protected IuvoEntityRegistry registry;
-                protected List<IuvoEntity.IuvoEntity> applicableEntities = new List<IuvoEntity.IuvoEntity>();
+                protected List<IuvoEntity> applicableEntities = new List<IuvoEntity>();
 
                 // Each system declares which components it needs to operate
                 protected abstract Type[] RequiredComponents { get; }
@@ -35,14 +34,14 @@ namespace IuvoUnity
                 // Refreshes the list of entities that match the system's requirements
                 public void RefreshEntityList(IuvoEntityRegistry entityRegistry)
                 {
-  
+
                 }
 
-                protected bool EntityMatchesRequirements(IuvoEntity.IuvoEntity entity)
+                protected bool EntityMatchesRequirements(IuvoEntity entity)
                 {
                     foreach (var type in RequiredComponents)
                     {
-                        if (!entity._ComponentManager.TryGetComponent<IuvoComponents.IuvoComponent>(out var thing))
+                        if (!entity._ComponentManager.TryGetComponent<IuvoComponentBase>(out var thing))
                             return false;
                     }
                     return true;

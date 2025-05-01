@@ -1,170 +1,162 @@
 ﻿
+using IuvoUnity._BaseClasses;
+using System;
+
 namespace IuvoUnity
 {
-    namespace _ECS
-    {
-        namespace _Interfaces
+    namespace _BaseClasses {
+        namespace _ECS
         {
-    
-                public interface ICreate
+            namespace _Interfaces
+            {
+                public interface ICreate : IuvoInterfaceBase
                 {
-                    public abstract void OnCreate(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnCreate(IuvoEntity entity);
                 }
-                public interface IDestroy
+                public interface IDestroy : IuvoInterfaceBase
                 {
-                    public abstract void OnDestroy(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnDestroy(IuvoEntity entity);
                 }
-                public interface ICreatable : ICreate, IDestroy
+                public interface ICreatable : IuvoInterfaceBase, ICreate, IDestroy
                 {
-                    public abstract void Create(IuvoEntity.IuvoEntity entity);
-                    public abstract void Destroy(IuvoEntity.IuvoEntity entity);
-                }
-
-                public interface IAwake
-                {
-                    public abstract void OnAwake(IuvoEntity.IuvoEntity entity);
-                }
-                public interface IInitialize
-                {
-                    public abstract void Initialize(IuvoEntity.IuvoEntity entity);
-                }
-                public interface IStart
-                {
-                    public abstract void OnStart(IuvoEntity.IuvoEntity entity);
+                    public abstract void Create(IuvoEntity entity);
+                    public abstract void Destroy(IuvoEntity entity);
                 }
 
-                public interface IUpdatable
+                public interface IAwake : IuvoInterfaceBase
                 {
-                    public abstract void Update(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnAwake(IuvoEntity entity);
                 }
-                public interface IUpdate
+                public interface IInitialize : IuvoInterfaceBase
                 {
-                    public abstract void OnUpdate(IuvoEntity.IuvoEntity entity);
+                    public abstract void Initialize(IuvoEntity entity);
                 }
-                public interface IFixedUpdate
+                public interface IStart : IuvoInterfaceBase
                 {
-                    public abstract void OnFixedUpdate(IuvoEntity.IuvoEntity entity);
-                }
-                public interface ILateUpdate
-                {
-                    public abstract void OnLateUpdate(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnStart(IuvoEntity entity);
                 }
 
-                public interface IAdd
+                public interface IUpdatable : IuvoInterfaceBase
                 {
-                    public abstract void OnAdd(IuvoEntity.IuvoEntity entity);
+                    public abstract void Update(IuvoEntity entity);
                 }
-                public interface IRemove
+                public interface IUpdate : IUpdatable
                 {
-                    public abstract void OnRemove(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnUpdate(IuvoEntity entity);
                 }
-                public interface IAddable : IAdd, IRemove
+                public interface IFixedUpdate : IUpdatable
                 {
-                    public abstract void OnAdd(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnRemove(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnFixedUpdate(IuvoEntity entity);
                 }
-
-                public interface IConfigure
+                public interface ILateUpdate : IUpdatable
                 {
-                    public abstract void OnConfigure(IuvoEntity.IuvoEntity enity);
-                }
-                public interface IReconfigure
-                {
-                    public abstract void OnReconfigure(IuvoEntity.IuvoEntity entity);
-                }
-                public interface IConfigurable : IConfigure, IReconfigure
-                {
-                    public abstract void OnConfigure(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnReconfigure(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnLateUpdate(IuvoEntity entity);
                 }
 
-                public interface IChange
+                public interface IAdd : IuvoInterfaceBase
+                {
+                    public abstract void OnAdd(IuvoEntity entity);
+                }
+                public interface IRemove : IuvoInterfaceBase
+                {
+                    public abstract void OnRemove(IuvoEntity entity);
+                }
+                public interface IAddable : IuvoInterfaceBase, IAdd, IRemove
+                {
+
+                }
+
+                public interface IConfigure : IuvoInterfaceBase
+                {
+                    public abstract void OnConfigure(IuvoEntity enity);
+                }
+                public interface IReconfigure : IuvoInterfaceBase
+                {
+                    public abstract void OnReconfigure(IuvoEntity entity);
+                }
+                public interface IConfigurable : IuvoInterfaceBase, IConfigure, IReconfigure
+                {
+
+                }
+
+                public interface IChange : IuvoInterfaceBase
                 {
                     public abstract void OnChange(IChange change);
                 }
-                public interface INotifyOfChange
+                public interface INotifyOfChange : IuvoInterfaceBase
                 {
-                    public abstract void OnNotifyOfChange<T>(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnNotifyOfChange<T>(IuvoEntity entity);
                 }
-                public interface INotifiable : INotifyOfChange, IChange
+                public interface INotifiable : IuvoInterfaceBase, INotifyOfChange, IChange
                 {
-                    public abstract void NotifyOfChange<T>(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnChange(IChange change);
-                }
-
-                public interface IActivate
-                {
-                    public abstract void OnActivate(IuvoEntity.IuvoEntity entity);
-                }
-                public interface IDeactivate
-                {
-                    public abstract void OnDeactivate(IuvoEntity.IuvoEntity entity);
-                }
-                public interface IActivatable : IActivate, IDeactivate
-                {
-                    public abstract void OnActivate(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnDeactivate(IuvoEntity.IuvoEntity entity);
+                    public abstract void NotifyOfChange<T>(IuvoEntity entity);
                 }
 
-                public interface IEnable
+                public interface IActivate : IuvoInterfaceBase
                 {
-                    public abstract void OnEnable(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnActivate(IuvoEntity entity);
                 }
-                public interface IDisable
+                public interface IDeactivate : IuvoInterfaceBase
                 {
-                    public abstract void OnDisable(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnDeactivate(IuvoEntity entity);
                 }
-                public interface IEnableable : IEnable, IDisable
+                public interface IActivatable : IuvoInterfaceBase, IActivate, IDeactivate
                 {
-                    public abstract void OnEnable(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnDisable(IuvoEntity.IuvoEntity entity);
+
                 }
 
-                public interface ITogglable : IEnableable, IActivatable
+                public interface IEnable : IuvoInterfaceBase
+                {
+                    public abstract void OnEnable(IuvoEntity entity);
+                }
+                public interface IDisable : IuvoInterfaceBase
+                {
+                    public abstract void OnDisable(IuvoEntity entity);
+                }
+                public interface IEnableable : IuvoInterfaceBase, IEnable, IDisable
+                {
+
+                }
+
+                public interface ITogglable : IuvoInterfaceBase, IEnableable, IActivatable
                 {
                     public bool IsEnabled { get; set; }
                     public bool IsActive { get; set; }
-                    public abstract void OnEnable(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnDisable(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnActivate(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnDeactivate(IuvoEntity.IuvoEntity entity);
+
                 }
-                public interface Pausable : ITogglable
+                public interface Pausable : IuvoInterfaceBase, ITogglable
                 {
                     public bool IsPaused { get; set; }
-                    public abstract void OnPause(IuvoEntity.IuvoEntity entity);
-                    public abstract void OnResume(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnPause(IuvoEntity entity);
+                    public abstract void OnResume(IuvoEntity entity);
                 }
 
-                public interface IReset
+                public interface IReset : IuvoInterfaceBase
                 {
-                    public abstract void OnReset(IuvoEntity.IuvoEntity entity);
+                    public abstract void OnReset(IuvoEntity entity);
                 }
-                public interface IResetData
+                public interface IResetData : IuvoInterfaceBase
                 {
                     public Type resetData { get; set; }
                 }
-                public interface IResetable : IReset, IResetData
+                public interface IResetable : IuvoInterfaceBase, IReset, IResetData
                 {
-                    public abstract void OnReset(IuvoEntity.IuvoEntity entity);
-                    public Type resetData { get; set; }
                 }
 
 
-                public interface IRegister
+                public interface IRegister : IuvoInterfaceBase
                 {
-                    public abstract void Register(IuvoEntity.IuvoEntity entity);
+                    public abstract void Register(IuvoEntity entity);
                 }
-                public interface IUnregister
+                public interface IUnregister : IuvoInterfaceBase
                 {
-                    public abstract void Unregister(IuvoEntity.IuvoEntity entity);
+                    public abstract void Unregister(IuvoEntity entity);
                 }
-                public interface IRegisterable : IRegister, IUnregister
+                public interface IRegisterable : IuvoInterfaceBase, IRegister, IUnregister
                 {
-                    public abstract void Register(IuvoEntity.IuvoEntity entity);
-                    public abstract void Unregister(IuvoEntity.IuvoEntity entity);
                 }
-            
+
+            }
         }
     }
 }

@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace IuvoUnity
 {
-    namespace IuvoECS
+    namespace _BaseClasses
     {
-        namespace IuvoSystem
+        namespace _ECS
         {
             public class IuvoSystemRegistry
             {

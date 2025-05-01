@@ -2,17 +2,18 @@ using IuvoUnity.IuvoTime;
 
 namespace IuvoUnity
 {
-    namespace IuvoECS.IuvoComponents
+    namespace _BaseClasses
     {
-        namespace IuvoTimerComponents
+        namespace _ECS
         {
-            public abstract class TimerComponent : IuvoComponent
+
+            public abstract class TimerComponent : IuvoComponentBase
             {
 
             }
 
 #nullable enable
-            public abstract class TimerConfiguration : Configuration
+            public abstract class TimerConfiguration : IuvoConfigurationBase
             {
                 // All possible IuvoTimerComponets shuld be nullable variables here
                 protected StartOfLife? _startOfLife;

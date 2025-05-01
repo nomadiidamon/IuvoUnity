@@ -1,8 +1,10 @@
+using IuvoUnity._ECS;
+
 namespace IuvoUnity
 {
-    namespace IuvoECS
+    namespace _BaseClasses  
     {
-        namespace IuvoEntity
+        namespace _ECS
         {
             public class IuvoTimer
             {
@@ -11,7 +13,7 @@ namespace IuvoUnity
                 public IuvoTimer()
                 {
                     var timer = IuvoEntityRegistry.CreateTimerEntity(true);
-                    timer._ComponentManager.TryGetComponent<IuvoComponents.IuvoWorldID>(out var id);
+                    timer._ComponentManager.TryGetComponent<IuvoWorldID>(out var id);
                     _myIuvoEntity = id._entity;
                 }
 

@@ -1,14 +1,19 @@
-﻿using IuvoUnity.IuvoECS.IuvoEntity;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace IuvoUnity
 {
-    namespace IuvoRPG.IuvoECS
+    namespace _BaseClasses
     {
-        public interface IDealDamage
+        namespace _ECS
         {
-            public List<DamageValueComponent> totalDamage { get; set; }
-            void DealDamage(IuvoEntity damagable);
+            namespace _RPG
+            {
+                public interface IDealDamage
+                {
+                    public List<DamageValueComponent> totalDamage { get; set; }
+                    void DealDamage(IuvoEntity damagable);
+                }
+            }
         }
     }
 }

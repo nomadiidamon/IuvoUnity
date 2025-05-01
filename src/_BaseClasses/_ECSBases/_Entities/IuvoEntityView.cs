@@ -1,16 +1,19 @@
 using UnityEngine;
 
-namespace IuvoUnity.IuvoECS
+namespace IuvoUnity
 {
-    namespace IuvoEntity
+    namespace _BaseClasses
     {
-        public class EntityView : MonoBehaviour
+        namespace _ECS
         {
-            public IuvoEntity _Entity { get; private set; }
-
-            public void Initialize(IuvoEntity entity)
+            public class EntityView : MonoBehaviour
             {
-                _Entity = entity;
+                public IuvoEntity _Entity { get; private set; }
+
+                public void Initialize(IuvoEntity entity)
+                {
+                    _Entity = entity;
+                }
             }
         }
     }

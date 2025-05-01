@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
-using IuvoUnity.IuvoECS.IuvoComponents;
+using IuvoUnity._ECS;
 
 namespace IuvoUnity
 {
-    namespace IuvoECS
+    namespace _BaseClasses
     {
-        namespace IuvoEntity
+        namespace _ECS
         {
+
             public class ComponentFilter
             {
                 public IEnumerable<Type> archetype;
@@ -19,7 +20,7 @@ namespace IuvoUnity
 
                 public static Type[] GetAllComponentsArray(IuvoEntity entity)
                 {
-                    List<IuvoComponent> result = new List<IuvoComponent>();
+                    List<IuvoComponentBase> result = new List<IuvoComponentBase>();
                     result = entity._ComponentManager.GetAllComponents();
 
                     Type[] archetype = new Type[result.Count];
@@ -64,9 +65,9 @@ namespace IuvoUnity
                     // Register in entity database
                     _myRegisteredEntities.Add(entity._ID, entity);
 
-                    // Add other default components... 
-                    IuvoDebug.Debugger debugger = new IuvoDebug.Debugger();         // default # 1
-                    entity.AddComponent<IuvoDebug.Debugger>(debugger);
+                    //// Add other default components... 
+                    //IuvoDebug.Debugger debugger = new IuvoDebug.Debugger();         // default # 1
+                    //entity.AddComponent<IuvoDebug.Debugger>(debugger);
 
                     // Maps this entity to the creating registry
                     IuvoRegistryID identification = new IuvoRegistryID();           // default # 2
@@ -139,7 +140,7 @@ namespace IuvoUnity
 
                 public static void InitializeDefaultComponents(IuvoEntity entity)
                 {
-                    List<IuvoComponent> comps = entity._ComponentManager.GetAllComponents();
+                    List<IuvoComponentBase> comps = entity._ComponentManager.GetAllComponents();
                     for (int i = 0; i < comps.Count; i++)
                     {
 
@@ -148,7 +149,7 @@ namespace IuvoUnity
 
                 public static void BreakdownRemovableComponents(IuvoEntity entity)
                 {
-                    List<IuvoComponent> comps = entity._ComponentManager.GetAllComponents();
+                    List<IuvoComponentBase> comps = entity._ComponentManager.GetAllComponents();
                     for (int i = 0; i < comps.Count; i++)
                     {
 
@@ -172,8 +173,9 @@ namespace IuvoUnity
                 }
 
             }
+
         }
     }
+
+
 }
-
-

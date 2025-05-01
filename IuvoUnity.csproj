@@ -124,17 +124,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoComponent\ComponentManager.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoComponent\IuvoComponentInterfaces.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoComponent\IuvoComponents.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoEntity\IuvoEntity.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoEntity\IuvoEntityRegistry.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoEntity\IuvoEntityView.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoSystem\IuvoSystem.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\IuvoSystem\IuvoSystemRegistry.cs" />
+    <Compile Include="src\_BaseClasses\IuvoInterfaceBase.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\ComponentManager.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentBase.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentInterfaces.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentLayout.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponents.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoConfigurationBase.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntity.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntityRegistry.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntityView.cs" />
@@ -154,20 +150,6 @@
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralShapes\ProceduralCylinder.cs" />
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralStripMesh.cs" />
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\TerrainGenerator.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\Corridor.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\CorridorFactory.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\DungeonManager.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\GridDungeonManager.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\RandomDungeonManager.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\Room.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\RoomFactory.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\Version 2 - Testudo\Wall.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\_ProceduralMesh\ProceduralGridMesh.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\_ProceduralMesh\ProceduralMazeGeneration.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\_ProceduralMesh\ProceduralMesh.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\_ProceduralMesh\ProceduralShapes\ProceduralCylinder.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\_ProceduralMesh\ProceduralStripMesh.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGeneration\_ProceduralMesh\TerrainGenerator.cs" />
     <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_CommandPattern\Command.cs" />
     <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_ObserverPattern\ObservableClass.cs" />
     <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_ObserverPattern\ObserverClass.cs" />
@@ -182,17 +164,6 @@
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IReactable.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IStunnable.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\ISurface.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\IuvoRPGComponents_ECS.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_AbilitySystem\AbilityController.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_AbilitySystem\BaseAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_AbilitySystem\DashAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_AbilitySystem\IAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_AbilitySystem\JumpAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_RPGInterfaces\ICauseReaction.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_RPGInterfaces\IDealDamage.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_RPGInterfaces\IReactable.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_RPGInterfaces\IStunnable.cs" />
-    <Compile Include="src\_BaseClasses\_RPG\_RPGInterfaces\ISurface.cs" />
     <Compile Include="src\_BaseClasses\_StateMachineBases\IStateMachineCondition.cs" />
     <Compile Include="src\_BaseClasses\_StateMachineBases\StateMachineAnalyzer.cs" />
     <Compile Include="src\_BaseClasses\_StateMachineBases\_StateMachine\GenericStateMachine.cs" />
@@ -200,19 +171,9 @@
     <Compile Include="src\_BaseClasses\_StateMachineBases\_States\GenericState.cs" />
     <Compile Include="src\_BaseClasses\_StateMachineBases\_States\IdleStates\GenericIdleState.cs" />
     <Compile Include="src\_BaseClasses\_StateMachineBases\_States\MoveStates\GenericMoveState.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachine\IStateMachineCondition.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachine\StateMachineAnalyzer.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachine\_StateMachine\GenericStateMachine.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachine\_StateMachine\HumanoidStateMachine.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachine\_States\GenericState.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachine\_States\IdleStates\GenericIdleState.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachine\_States\MoveStates\GenericMoveState.cs" />
     <Compile Include="src\_BaseClasses\_TimeBases\IuvoTime.cs" />
     <Compile Include="src\_BaseClasses\_TimeBases\IuvoTimer.cs" />
     <Compile Include="src\_BaseClasses\_TimeBases\IuvoTimerComponents.cs" />
-    <Compile Include="src\_BaseClasses\_Time\IuvoTime.cs" />
-    <Compile Include="src\_BaseClasses\_Time\IuvoTimer.cs" />
-    <Compile Include="src\_BaseClasses\_Time\IuvoTimerComponents.cs" />
     <Compile Include="src\_DataStructs\RangeDataComponent.cs" />
     <Compile Include="src\_ExtensionMethods\AnimatorExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\GameObjectExtensions.cs" />
@@ -241,8 +202,6 @@
     <Compile Include="src\_Interfaces\_UtilityInterfaces\IProximityCondition.cs" />
     <Compile Include="src\_Interfaces\_UtilityInterfaces\IThresholdCondition.cs" />
     <Compile Include="src\_Animation\AnimationComponents.cs" />
-    <Compile Include="src\_BaseClasses\_ObserverPattern\ObservableClass.cs" />
-    <Compile Include="src\_BaseClasses\_ObserverPattern\ObserverClass.cs" />
     <Compile Include="src\_Camera\CameraExtensions.cs" />
     <Compile Include="src\_Camera\_Cinemachine\CinemachineExtensions.cs" />
     <Compile Include="src\_Collider\BoxColliderExtensions.cs" />
@@ -267,16 +226,11 @@
   <ItemGroup>
     <Folder Include="src\_AI\" />
     <Folder Include="src\_Audio\" />
-    <Folder Include="src\_BaseClasses\_ECSBases\IuvoEntity\_Entities\" />
-    <Folder Include="src\_BaseClasses\_ECSBases\IuvoSystem\_Systems\" />
-    <Folder Include="src\_BaseClasses\_ECS\IuvoComponent\" />
-    <Folder Include="src\_BaseClasses\_ECS\IuvoEntity\_Entities\" />
-    <Folder Include="src\_BaseClasses\_ECS\IuvoSystem\_Systems\" />
     <Folder Include="src\_BaseClasses\_InputBases\" />
     <Folder Include="src\_BaseClasses\_SingletonBases\" />
     <Folder Include="src\_Constants\" />
     <Folder Include="src\_Coroutines\" />
-    <Folder Include="src\_ECS\" />
+    <Folder Include="src\_ECS\_Components\" />
     <Folder Include="src\_Events\" />
     <Folder Include="src\_Input\_Controllers\" />
     <Folder Include="src\_Math\" />
@@ -304,7 +258,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\_BaseClasses\_ProceduralGenerationBases\Version 3 - ProceduralGeneration\rows and rand bit working.png" />
-    <Content Include="src\_BaseClasses\_ProceduralGeneration\Version 3 - ProceduralGeneration\rows and rand bit working.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

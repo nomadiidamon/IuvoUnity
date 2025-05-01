@@ -3,9 +3,9 @@ using IuvoUnity._Interfaces;
 
 namespace IuvoUnity
 {
-    namespace IuvoECS
+    namespace _BaseClasses 
     {
-        namespace IuvoEntity
+        namespace _ECS
         {
             public class ObservableClass : EntityView, IObservable
             {
