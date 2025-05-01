@@ -5,13 +5,12 @@ namespace IuvoUnity
 {
     namespace _Interfaces
     {
-        namespace _UtilityInterfaces
+
+        public interface IProximityCondition : IStateACondition
         {
-            public interface IProximityCondition : IStateACondition
-            {
-                float GetDistance();
-                object GetTarget();
-            }
+            float GetDistance();
+            object GetTarget();
         }
     }
+
 }

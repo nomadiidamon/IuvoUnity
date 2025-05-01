@@ -1,7 +1,8 @@
-﻿using IuvoUnity._Interfaces;
+﻿using IuvoUnity._BaseClasses._RPG;
+
 namespace IuvoUnity
 {
-    namespace IuvoRPG
+    namespace _RPG
     {
         public class DashAbility : BaseAbility
         {

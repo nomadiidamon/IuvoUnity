@@ -1,10 +1,11 @@
-﻿using IuvoUnity.IuvoStateMachine;
+﻿using IuvoUnity;
+using IuvoUnity._BaseClasses;
 
 namespace IuvoUnity
 {
-	namespace IuvoStateMachine
+	namespace _StateMachine
 	{
-		public interface IStateMachineCondition
+		public interface IStateMachineCondition : IuvoInterfaceBase
 		{
 			bool IsConditionMet(GenericStateMachine stateMachine);
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace IuvoStateMachine
+    namespace _StateMachine
     {
         [CreateAssetMenu(fileName = "IdleState", menuName = "StateMachine/States/IdleStates")]
         public class GenericIdleState : GenericState

@@ -1,37 +1,40 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using IuvoUnity._Interfaces._UtilityInterfaces;
+using IuvoUnity._Interfaces;
 
 
 namespace IuvoUnity
 {
-    namespace IuvoRPG
+    namespace _BaseClasses
     {
-        public class AbilityController : MonoBehaviour
+        namespace _RPG
         {
-            private Dictionary<string, IAbility> abilities = new Dictionary<string, IAbility>();
-
-            public void AddAbility(IAbility ability)
+            public class AbilityController : MonoBehaviour
             {
-                if (!abilities.ContainsKey(ability.AbilityName))
+                private Dictionary<string, IAbility> abilities = new Dictionary<string, IAbility>();
+
+                public void AddAbility(IAbility ability)
                 {
-                    abilities.Add(ability.AbilityName, ability);
+                    if (!abilities.ContainsKey(ability.AbilityName))
+                    {
+                        abilities.Add(ability.AbilityName, ability);
+                    }
                 }
-            }
 
-            public void RemoveAbility(string abilityName)
-            {
-                if (abilities.ContainsKey(abilityName))
+                public void RemoveAbility(string abilityName)
                 {
-                    abilities.Remove(abilityName);
+                    if (abilities.ContainsKey(abilityName))
+                    {
+                        abilities.Remove(abilityName);
+                    }
                 }
-            }
 
-            public void ActivateAbility(string abilityName)
-            {
-                if (abilities.TryGetValue(abilityName, out var ability))
+                public void ActivateAbility(string abilityName)
                 {
-                    ability.Activate();
+                    if (abilities.TryGetValue(abilityName, out var ability))
+                    {
+                        ability.Activate();
+                    }
                 }
             }
         }

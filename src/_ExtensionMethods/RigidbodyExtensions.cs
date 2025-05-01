@@ -1,232 +1,190 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-using IuvoUnity._Interfaces._RPG;
 
 
 namespace IuvoUnity
 {
     namespace _ExtensionMethods
     {
+
+        /// <summary>
+        /// Extension methods for Unity's Rigidbody component, providing utility methods for velocity, forces, rotation, and movement control.
+        /// </summary>
         public static class RigidbodyExtensions
         {
-            public static void ApplyLocalForce(this Rigidbody rb, Vector3 force)
-            {
-                rb.AddForce(rb.transform.TransformDirection(force));
-            }
+            #region Velocity Setters
 
-            public static void ApplyLocalTorque(this Rigidbody rb, Vector3 torque)
-            {
-                rb.AddTorque(rb.transform.TransformDirection(torque));
-            }
-
+            /// <summary>
+            /// Sets the X component of the Rigidbody's velocity.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="velocity">The X velocity to set.</param>
             public static void SetVelocityX(this Rigidbody rb, float velocity)
             {
-                rb.linearVelocity = new Vector3(velocity, rb.linearVelocity.y, rb.linearVelocity.z);
+                rb.velocity = new Vector3(velocity, rb.velocity.y, rb.velocity.z);
             }
 
+            /// <summary>
+            /// Sets the Y component of the Rigidbody's velocity.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="velocity">The Y velocity to set.</param>
             public static void SetVelocityY(this Rigidbody rb, float velocity)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, velocity, rb.linearVelocity.z);
+                rb.velocity = new Vector3(rb.velocity.x, velocity, rb.velocity.z);
             }
 
+            /// <summary>
+            /// Sets the Z component of the Rigidbody's velocity.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="velocity">The Z velocity to set.</param>
             public static void SetVelocityZ(this Rigidbody rb, float velocity)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, velocity);
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, velocity);
             }
 
-
-            public static void AddDampedForce(this Rigidbody rb, Vector3 force, float damping)
-            {
-                rb.AddForce(force * damping);
-            }
-
-            public static float GetSquaredVelocityMagnitude(this Rigidbody rb)
-            {
-                return rb.linearVelocity.sqrMagnitude;
-            }
-
-            public static void ApplyForceDelayed(this Rigidbody rb, Vector3 force, float delay)
-            {
-                rb.GetComponent<MonoBehaviour>().StartCoroutine(ApplyForceAfterDelay(rb, force, delay));
-            }
-
-            private static IEnumerator ApplyForceAfterDelay(Rigidbody rb, Vector3 force, float delay)
-            {
-                yield return new WaitForSeconds(delay);
-                rb.AddForce(force);
-            }
-
-            public static void SetAngularVelocity(this Rigidbody rb, Vector3 angularVelocity)
-            {
-                rb.angularVelocity = angularVelocity;
-            }
-
-            public static float GetAngularVelocityMagnitude(this Rigidbody rb)
-            {
-                return rb.angularVelocity.magnitude;
-            }
-
-            public static void RotateToAngle(this Rigidbody rb, Vector3 targetRotation, float speed)
-            {
-                Vector3 rotation = Vector3.RotateTowards(rb.transform.forward, targetRotation, speed * Time.deltaTime, 0.0f);
-                rb.rotation = Quaternion.LookRotation(rotation);
-            }
-
+            /// <summary>
+            /// Sets the Rigidbody's velocity to a target vector.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="targetVelocity">The new velocity vector.</param>
             public static void SetVelocityTo(this Rigidbody rb, Vector3 targetVelocity)
             {
-                rb.linearVelocity = targetVelocity;
+                rb.velocity = targetVelocity;
             }
 
-            public static void ApplyImpulseAtPoint(this Rigidbody rb, Vector3 impulse, Vector3 point)
-            {
-                rb.AddForceAtPosition(impulse, point, ForceMode.Impulse);
-            }
-
-            public static void SetPositionDirectly(this Rigidbody rb, Vector3 position)
-            {
-                rb.position = position;
-            }
-
-            public static void ApplyExplosionForce(this Rigidbody rb, float explosionForce, Vector3 explosionPosition, float radius)
-            {
-                rb.AddExplosionForce(explosionForce, explosionPosition, radius);
-            }
-
-
-            public static void ApplyDragForce(this Rigidbody rb, float dragCoefficient)
-            {
-                rb.linearDamping = dragCoefficient;
-            }
-
-
-
-            public static void ApplyAngularDrag(this Rigidbody rb, float angularDragCoefficient)
-            {
-                rb.angularDamping = angularDragCoefficient;
-            }
-
-            public static void Sleep(this Rigidbody rb)
-            {
-                rb.Sleep();
-            }
-
-            public static void WakeUp(this Rigidbody rb)
-            {
-                rb.WakeUp();
-            }
-
-
-            public static bool IsSleeping(this Rigidbody rb)
-            {
-                return rb.IsSleeping();
-            }
-
-
+            /// <summary>
+            /// Sets a random velocity with speed between the specified minimum and maximum.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="minSpeed">Minimum speed.</param>
+            /// <param name="maxSpeed">Maximum speed.</param>
             public static void SetRandomVelocity(this Rigidbody rb, float minSpeed, float maxSpeed)
             {
                 float speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
-                rb.linearVelocity = UnityEngine.Random.onUnitSphere * speed;
+                rb.velocity = UnityEngine.Random.onUnitSphere * speed;
             }
 
+            /// <summary>
+            /// Resets the Rigidbody's linear velocity to zero.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
             public static void ResetVelocity(this Rigidbody rb)
             {
-                rb.linearVelocity = Vector3.zero;
+                rb.velocity = Vector3.zero;
             }
 
-
+            /// <summary>
+            /// Resets the Rigidbody's angular velocity to zero.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
             public static void ResetAngularVelocity(this Rigidbody rb)
             {
                 rb.angularVelocity = Vector3.zero;
             }
 
-            public static void ApplyForceThroughRaycast(this Rigidbody rb, Vector3 direction, float distance)
+            #endregion
+
+            #region Force and Impulse
+
+            /// <summary>
+            /// Applies a damped force to the Rigidbody.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to apply force to.</param>
+            /// <param name="force">The base force vector.</param>
+            /// <param name="damping">The damping factor to reduce the force.</param>
+            public static void AddDampedForce(this Rigidbody rb, Vector3 force, float damping)
             {
-                RaycastHit hit;
-                if (Physics.Raycast(rb.position, direction, out hit, distance))
-                {
-                    rb.AddForceAtPosition(direction * hit.distance, hit.point);
-                }
+                rb.AddForce(force * damping);
             }
 
-            public static void ApplyImpulseByDistance(this Rigidbody rb, float force, float distance)
+            /// <summary>
+            /// Applies an impulse force at a specific point.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to apply the impulse to.</param>
+            /// <param name="impulse">The impulse vector.</param>
+            /// <param name="point">The world position where the impulse is applied.</param>
+            public static void ApplyImpulseAtPoint(this Rigidbody rb, Vector3 impulse, Vector3 point)
             {
-                Vector3 direction = (rb.transform.position - Camera.main.transform.position).normalized;
-                rb.AddForce(direction * force * distance, ForceMode.Impulse);
+                rb.AddForceAtPosition(impulse, point, ForceMode.Impulse);
             }
 
-            public static void MoveTowardsPoint(this Rigidbody rb, Vector3 targetPoint, float speed)
-            {
-                Vector3 direction = (targetPoint - rb.position).normalized;
-                rb.AddForce(direction * speed);
-            }
-
-            public static void ApplyForceForDuration(this Rigidbody rb, Vector3 force, float duration)
-            {
-                rb.AddForce(force, ForceMode.Force);
-                rb.GetComponent<MonoBehaviour>().StartCoroutine(StopForceAfterDuration(rb, duration));
-            }
-
-            private static IEnumerator StopForceAfterDuration(Rigidbody rb, float duration)
-            {
-                yield return new WaitForSeconds(duration);
-                rb.linearVelocity = Vector3.zero;
-            }
-
-            public static void IgnoreGravityForTime(this Rigidbody rb, float time)
-            {
-                rb.useGravity = false;
-                rb.GetComponent<MonoBehaviour>().StartCoroutine(RestoreGravityAfterTime(rb, time));
-            }
-
-            private static IEnumerator RestoreGravityAfterTime(Rigidbody rb, float time)
-            {
-                yield return new WaitForSeconds(time);
-                rb.useGravity = true;
-            }
-
-            public static float GetSpeedInForwardDirection(this Rigidbody rb)
-            {
-                return Vector3.Dot(rb.linearVelocity, rb.transform.forward);
-            }
-
+            /// <summary>
+            /// Applies a force scaled by the Rigidbody's mass.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to apply force to.</param>
+            /// <param name="force">The base force vector.</param>
             public static void ApplyForceByMass(this Rigidbody rb, Vector3 force)
             {
                 rb.AddForce(force * rb.mass, ForceMode.Force);
             }
 
-
-            public static void StopAtPosition(this Rigidbody rb, Vector3 position)
-            {
-                if (Vector3.Distance(rb.position, position) < 0.1f)
-                {
-                    rb.linearVelocity = Vector3.zero;
-                }
-            }
-
-            public static void ApplyStopImpulse(this Rigidbody rb)
-            {
-                rb.AddForce(-rb.linearVelocity, ForceMode.Impulse);
-            }
-
-            public static void SmoothMoveToPoint(this Rigidbody rb, Vector3 targetPosition, float smoothTime)
-            {
-                Vector3 velocity = rb.linearVelocity;
-                rb.position = Vector3.SmoothDamp(rb.position, targetPosition, ref velocity, smoothTime);
-                rb.linearVelocity = velocity;
-            }
-
-            public static bool IsMoving(this Rigidbody rb)
-            {
-                return rb.linearVelocity.magnitude > 0.1f;
-            }
-
-
+            /// <summary>
+            /// Applies an upward impulse to simulate a jump.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to apply the force to.</param>
+            /// <param name="jumpForce">The magnitude of the jump force.</param>
             public static void ApplyJumpForce(this Rigidbody rb, float jumpForce)
             {
                 rb.AddForce(Vector3.up * jumpForce * rb.mass, ForceMode.Impulse);
             }
 
+            /// <summary>
+            /// Applies force in the direction of current velocity.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="forceAmount">The magnitude of the force to apply.</param>
+            public static void ApplyForceInDirectionOfVelocity(this Rigidbody rb, float forceAmount)
+            {
+                if (rb.velocity.sqrMagnitude > 0.01f)
+                    rb.AddForce(rb.velocity.normalized * forceAmount, ForceMode.VelocityChange);
+            }
+
+            /// <summary>
+            /// Applies a knockback impulse away from a given impact point.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to knock back.</param>
+            /// <param name="impactPoint">The point of impact.</param>
+            /// <param name="knockbackStrength">The strength of the knockback.</param>
+            public static void ApplyKnockbackForce(this Rigidbody rb, Vector3 impactPoint, float knockbackStrength)
+            {
+                Vector3 direction = (rb.position - impactPoint).normalized;
+                rb.AddForce(direction * knockbackStrength, ForceMode.Impulse);
+            }
+
+            /// <summary>
+            /// Applies random rotational torque to the Rigidbody.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to apply torque to.</param>
+            /// <param name="torqueAmount">The amount of torque to apply.</param>
+            public static void ApplyRandomTorque(this Rigidbody rb, float torqueAmount)
+            {
+                rb.AddTorque(UnityEngine.Random.onUnitSphere * torqueAmount, ForceMode.Impulse);
+            }
+
+            #endregion
+
+            #region Rotation and Orientation
+
+            /// <summary>
+            /// Rotates the Rigidbody to face a target direction over time.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to rotate.</param>
+            /// <param name="targetDirection">The world direction to face.</param>
+            /// <param name="speed">Rotation speed in radians per second.</param>
+            public static void RotateToAngle(this Rigidbody rb, Vector3 targetDirection, float speed)
+            {
+                Vector3 newDirection = Vector3.RotateTowards(rb.transform.forward, targetDirection, speed * Time.deltaTime, 0f);
+                rb.rotation = Quaternion.LookRotation(newDirection);
+            }
+
+            /// <summary>
+            /// Rotates the Rigidbody using torque to align with a target position.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to rotate.</param>
+            /// <param name="targetPosition">The world position to look at.</param>
+            /// <param name="torqueAmount">The torque strength to apply.</param>
             public static void RotateToAlignWithTarget(this Rigidbody rb, Vector3 targetPosition, float torqueAmount)
             {
                 Vector3 directionToTarget = (targetPosition - rb.position).normalized;
@@ -234,283 +192,128 @@ namespace IuvoUnity
                 rb.AddTorque(torque * torqueAmount);
             }
 
-            public static void FreezeMovementInDirection(this Rigidbody rb, Vector3 direction)
-            {
-                rb.linearVelocity = Vector3.Project(rb.linearVelocity, direction);
-            }
-
-            public static void ResetAll(this Rigidbody rb)
-            {
-                rb.position = Vector3.zero;
-                rb.linearVelocity = Vector3.zero;
-            }
-
-            public static void ApplyWindResistance(this Rigidbody rb, float windForce)
-            {
-                rb.AddForce(-rb.linearVelocity.normalized * windForce, ForceMode.Force);
-            }
-
-            public static void ApplyRandomTorque(this Rigidbody rb, float torqueAmount)
-            {
-                rb.AddTorque(UnityEngine.Random.onUnitSphere * torqueAmount, ForceMode.Impulse);
-            }
-
-            public static void ApplyPushForce(this Rigidbody rb, float forceAmount)
-            {
-                rb.AddForce(rb.transform.forward * forceAmount, ForceMode.Impulse);
-            }
-
-            public static void ApplyReverseForce(this Rigidbody rb, float forceAmount)
-            {
-                rb.AddForce(-rb.transform.forward * forceAmount, ForceMode.Impulse);
-            }
-
-            public static bool IsMovingDown(this Rigidbody rb)
-            {
-                return rb.linearVelocity.y < 0;
-            }
-
-            public static void ApplySimpleGravity(this Rigidbody rb, float gravity)
-            {
-                rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
-            }
-
-            public static void ApplyBounceForce(this Rigidbody rb, float bounceAmount)
-            {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, -rb.linearVelocity.y * bounceAmount, rb.linearVelocity.z);
-            }
-
-            public static void ApplyAirResistance(this Rigidbody rb, float dragAmount)
-            {
-                rb.linearVelocity *= 1 - dragAmount * Time.deltaTime;
-            }
-
-            public static bool IsMovingUp(this Rigidbody rb)
-            {
-                return rb.linearVelocity.y > 0;
-            }
-
+            /// <summary>
+            /// Applies continuous torque around the Y-axis.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to spin.</param>
+            /// <param name="torqueAmount">The amount of Y-axis torque to apply.</param>
             public static void ApplySpin(this Rigidbody rb, float torqueAmount)
             {
                 rb.AddTorque(Vector3.up * torqueAmount, ForceMode.VelocityChange);
             }
 
-            public static void ApplyImpulseAtHeight(this Rigidbody rb, float impulseForce, float height)
+            #endregion
+
+            #region Utility and Control
+
+            /// <summary>
+            /// Directly sets the Rigidbody's position.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to move.</param>
+            /// <param name="position">The new world position.</param>
+            public static void SetPositionDirectly(this Rigidbody rb, Vector3 position)
             {
-                Vector3 position = new Vector3(rb.position.x, height, rb.position.z);
-                rb.AddForceAtPosition(Vector3.up * impulseForce, position, ForceMode.Impulse);
+                rb.position = position;
             }
 
-
-            public static void ApplyThrustForce(this Rigidbody rb, float thrustAmount)
+            /// <summary>
+            /// Checks whether the Rigidbody is currently moving.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to check.</param>
+            /// <returns>True if velocity magnitude is greater than 0.1.</returns>
+            public static bool IsMoving(this Rigidbody rb)
             {
-                rb.AddForce(rb.transform.forward * thrustAmount, ForceMode.Acceleration);
+                return rb.velocity.magnitude > 0.1f;
             }
 
-            public static void ApplyReverseThrust(this Rigidbody rb, float thrustAmount)
+            /// <summary>
+            /// Checks whether the Rigidbody is currently moving downwards.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to check.</param>
+            /// <returns>True if Y velocity is less than 0.</returns>
+            public static bool IsMovingDown(this Rigidbody rb)
             {
-                rb.AddForce(-rb.transform.forward * thrustAmount, ForceMode.Acceleration);
+                return rb.velocity.y < 0;
             }
 
-            public static void ApplyMagneticForce(this Rigidbody rb, Vector3 targetPosition, float magneticStrength)
+            /// <summary>
+            /// Gets the speed in the forward direction of the Rigidbody.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to evaluate.</param>
+            /// <returns>The speed in forward direction (dot product).</returns>
+            public static float GetSpeedInForwardDirection(this Rigidbody rb)
             {
-                Vector3 direction = (targetPosition - rb.position).normalized;
-                rb.AddForce(direction * magneticStrength, ForceMode.Force);
+                return Vector3.Dot(rb.velocity, rb.transform.forward);
             }
 
-            public static void ApplyRandomDirectionalForce(this Rigidbody rb, float forceMagnitude)
+            /// <summary>
+            /// Restricts Rigidbody movement to a single direction.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="direction">The direction to allow movement in.</param>
+            public static void FreezeMovementInDirection(this Rigidbody rb, Vector3 direction)
             {
-                Vector3 randomDirection = UnityEngine.Random.onUnitSphere;
-                rb.AddForce(randomDirection * forceMagnitude, ForceMode.Impulse);
+                rb.velocity = Vector3.Project(rb.velocity, direction.normalized);
             }
 
-            public static void ApplyConstantForce(this Rigidbody rb, Vector3 direction, float forceMagnitude)
+            /// <summary>
+            /// Stops the Rigidbody when it reaches a specified position.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to stop.</param>
+            /// <param name="position">The target position.</param>
+            public static void StopAtPosition(this Rigidbody rb, Vector3 position)
             {
-                rb.AddForce(direction.normalized * forceMagnitude, ForceMode.Force);
-            }
-
-            public static void ApplyUpwardThrust(this Rigidbody rb, float thrustAmount)
-            {
-                rb.AddForce(Vector3.up * thrustAmount, ForceMode.VelocityChange);
-            }
-
-            public static void SetVelocityByDirection(this Rigidbody rb, Vector3 direction, float speed)
-            {
-                rb.linearVelocity = direction.normalized * speed;
-            }
-
-            public static void ApplyShakeForce(this Rigidbody rb, float shakeMagnitude)
-            {
-                Vector3 shakeForce = new Vector3(UnityEngine.Random.Range(-shakeMagnitude, shakeMagnitude), 0, UnityEngine.Random.Range(-shakeMagnitude, shakeMagnitude));
-                rb.AddForce(shakeForce, ForceMode.Impulse);
-            }
-
-            public static void ApplyGroundSlamForce(this Rigidbody rb, float slamForce)
-            {
-                rb.AddForce(Vector3.down * slamForce, ForceMode.Impulse);
-            }
-
-            public static void ApplyLiftOffForce(this Rigidbody rb, float liftForce)
-            {
-                rb.AddForce(Vector3.up * liftForce, ForceMode.VelocityChange);
-            }
-
-            public static void ApplyForceInDirectionOfVelocity(this Rigidbody rb, float forceAmount)
-            {
-                rb.AddForce(rb.linearVelocity.normalized * forceAmount, ForceMode.VelocityChange);
-            }
-
-            public static void ApplyForceTowardsCamera(this Rigidbody rb, float forceAmount)
-            {
-                Vector3 direction = (Camera.main.transform.position - rb.position).normalized;
-                rb.AddForce(direction * forceAmount, ForceMode.Force);
-            }
-
-            public static void ApplyRadialForce(this Rigidbody rb, Vector3 point, float forceAmount)
-            {
-                Vector3 direction = (rb.position - point).normalized;
-                rb.AddForce(direction * forceAmount, ForceMode.Force);
-            }
-
-            public static void ApplyImpulseBySpeed(this Rigidbody rb, float speedMultiplier)
-            {
-                rb.AddForce(rb.linearVelocity.normalized * speedMultiplier, ForceMode.Impulse);
-            }
-
-            public static void ApplyReverseForceBasedOnVelocity(this Rigidbody rb, float forceAmount)
-            {
-                rb.AddForce(-rb.linearVelocity.normalized * forceAmount, ForceMode.VelocityChange);
-
-
-            }
-
-
-            public static void ApplyKnockbackForce(this Rigidbody rb, Vector3 impactPoint, float knockbackStrength)
-            {
-                Vector3 direction = (rb.position - impactPoint).normalized;
-                rb.AddForce(direction * knockbackStrength, ForceMode.Impulse);
-            }
-
-            public static void ApplyCustomGravity(this Rigidbody rb, float gravityAmount)
-            {
-                rb.AddForce(Vector3.down * gravityAmount, ForceMode.Acceleration);
-            }
-
-            public static void ApplyShockwaveForce(this Rigidbody rb, float shockwaveStrength, Vector3 center)
-            {
-                Vector3 direction = (rb.position - center).normalized;
-                rb.AddForce(direction * shockwaveStrength, ForceMode.Impulse);
-
-            }
-
-            public static void ApplyExplosionForce(this Rigidbody rb, float explosionStrength, Vector3 explosionPoint)
-            {
-                Vector3 direction = (rb.position - explosionPoint).normalized;
-                rb.AddForce(direction * explosionStrength, ForceMode.Impulse);
-            }
-
-            public static void ApplySpringForce(this Rigidbody rb, Vector3 targetPosition, float springStrength)
-            {
-                Vector3 direction = (targetPosition - rb.position);
-                rb.AddForce(direction * springStrength, ForceMode.Force);
-            }
-
-            public static void ApplyImpactForce(this Rigidbody rb, float impactMultiplier)
-            {
-                rb.AddForce(-rb.linearVelocity.normalized * impactMultiplier, ForceMode.Impulse);
-            }
-
-            public static void ApplyAcceleratingForce(this Rigidbody rb, float acceleration)
-            {
-                rb.AddForce(rb.transform.forward * acceleration * Time.deltaTime, ForceMode.Acceleration);
-            }
-
-
-            public static void ApplyUpwardForce(this Rigidbody rb, float upwardStrength)
-            {
-                rb.AddForce(Vector3.up * upwardStrength, ForceMode.Impulse);
-            }
-
-            public static void ApplyGravitationalAnomalyForce(this Rigidbody rb, Vector3 anomalyCenter, float anomalyStrength)
-            {
-                Vector3 direction = (rb.position - anomalyCenter).normalized;
-                rb.AddForce(direction * anomalyStrength, ForceMode.Acceleration);
-            }
-
-            public static void ApplyRandomPushForce(this Rigidbody rb, float forceStrength)
-            {
-                Vector3 randomDirection = UnityEngine.Random.onUnitSphere;
-                rb.AddForce(randomDirection * forceStrength, ForceMode.Force);
-            }
-
-            public static void ApplyHeavyLandingForce(this Rigidbody rb, float landingStrength)
-            {
-                rb.AddForce(Vector3.down * landingStrength, ForceMode.Impulse);
-            }
-
-            public static void ApplySlipperySurfaceForce(this Rigidbody rb, float frictionFactor)
-            {
-                rb.linearVelocity *= 1 - frictionFactor * Time.deltaTime;
-            }
-
-
-
-
-
-
-            // Extension method to make the Rigidbody always walk on any surface with flexible surface detection
-            public static void WalkOnSurface(this Rigidbody rb, float downwardForce = 9.81f, float maxRaycastDistance = 1.5f,
-                                             ISurface surfaceHelper = null, bool useCustomSurface = false)
-            {
-                // Raycast hit information
-                RaycastHit hit;
-
-                // Perform the raycast downward to check the surface directly below the object
-                if (Physics.Raycast(rb.position, Vector3.down, out hit, maxRaycastDistance))
+                if (Vector3.Distance(rb.position, position) < 0.1f)
                 {
-                    // Check if custom surface logic is needed
-                    if (useCustomSurface && surfaceHelper != null)
-                    {
-                        // Use the custom surface logic from the helper interface
-                        Vector3 surfaceNormal = surfaceHelper.GetSurfaceNormal(rb.position);
-                        float gravityStrength = surfaceHelper.GetGravityStrength();
-
-                        // Apply custom gravity based on the surface's normal and strength
-                        Vector3 forceDirection = -surfaceNormal * gravityStrength;
-                        rb.AddForce(forceDirection, ForceMode.Acceleration);
-                    }
-                    else
-                    {
-                        // Default behavior: Apply standard gravity or downward force based on surface normal
-                        Vector3 forceDirection = Vector3.zero;
-
-                        // Use the surface normal from the raycast hit
-                        if (hit.normal != Vector3.up) // Surface is not flat, so consider the normal
-                        {
-                            forceDirection = -hit.normal * downwardForce;
-                        }
-                        else
-                        {
-                            // Standard gravity pull when on a flat surface
-                            forceDirection = Vector3.down * downwardForce;
-                        }
-
-                        // Apply the force to simulate gravity
-                        rb.AddForce(forceDirection, ForceMode.Acceleration);
-                    }
+                    rb.velocity = Vector3.zero;
                 }
             }
 
+            /// <summary>
+            /// Applies an impulse opposite to current velocity to bring Rigidbody to a stop.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to stop.</param>
+            public static void ApplyStopImpulse(this Rigidbody rb)
+            {
+                rb.AddForce(-rb.velocity, ForceMode.Impulse);
+            }
 
+            /// <summary>
+            /// Resets the Rigidbody's position, velocity, and angular velocity.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to reset.</param>
+            public static void ResetAll(this Rigidbody rb)
+            {
+                rb.position = Vector3.zero;
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
 
+            #endregion
 
+            #region Special and Coroutine Helpers
 
+            /// <summary>
+            /// Temporarily disables gravity on a Rigidbody for a set duration.
+            /// </summary>
+            /// <param name="rb">The Rigidbody to modify.</param>
+            /// <param name="time">Duration in seconds before restoring gravity.</param>
+            /// <param name="context">A MonoBehaviour context to start the coroutine.</param>
+            /// <remarks>This method requires a MonoBehaviour to start the coroutine.</remarks>
+            public static void IgnoreGravityForTime(this Rigidbody rb, float time, MonoBehaviour context)
+            {
+                context.StartCoroutine(RestoreGravityAfterTime(rb, time));
+            }
 
+            private static IEnumerator RestoreGravityAfterTime(Rigidbody rb, float time)
+            {
+                rb.useGravity = false;
+                yield return new WaitForSeconds(time);
+                rb.useGravity = true;
+            }
 
+            #endregion
         }
     }
-
-
-
 
 }

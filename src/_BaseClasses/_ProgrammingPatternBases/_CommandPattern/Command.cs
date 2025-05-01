@@ -5,10 +5,13 @@ namespace IuvoUnity
 {
     namespace _BaseClasses
     {
-        public abstract class Command
+        namespace _ProgrammingPatterns
         {
-            public abstract void Execute();
-            public abstract void Undo();
+            public abstract class Command
+            {
+                public abstract void Execute();
+                public abstract void Undo();
+            }
         }
     }
 }

@@ -7,56 +7,18 @@ namespace IuvoUnity
 {
     namespace _ExtensionMethods
     {
+        /// <summary>
+        /// Provides generic extension methods for safe invocation, dictionary operations, and string formatting.
+        /// </summary>
         public static class GenericExtensions
         {
-
-            public static bool IsSubclassOf<T, TBase>(this T obj) where T : TBase
-            {
-                return obj is TBase;
-            }
-
-            public static string GetTypeName<T>(this T obj)
-            {
-                return typeof(T).Name;
-            }
-
-            public static bool IsInterface<T>(this T obj)
-            {
-                return typeof(T).IsInterface;
-            }
-
-            public static bool IsOfType<T>(this object obj)
-            {
-                return obj is T;
-            }
-
-            public static bool IsNull<T>(this T obj)
-            {
-                return obj == null;
-            }
-
-            public static bool IsNotNull<T>(this T obj)
-            {
-                return obj != null;
-            }
-
-            public static bool IsNullOrEmpty<T>(this T obj)
-            {
-                return obj == null || obj.Equals("");
-            }
-
-            public static void RemoveAll<T>(this List<T> collection, System.Func<T, bool> predicate)
-            {
-                collection.RemoveAll(new System.Predicate<T>(predicate));
-            }
-
-            public static T Clone<T>(this T obj)
-            {
-                var serializedObj = JsonUtility.ToJson(obj);
-                return JsonUtility.FromJson<T>(serializedObj);
-            }
-
-            public static void SafeInvoke<T>(this T obj, System.Action<T> action)
+            /// <summary>
+            /// Safely invokes the specified action if the object is not null.
+            /// </summary>
+            /// <typeparam name="T">The type of the object.</typeparam>
+            /// <param name="obj">The object to invoke the action on.</param>
+            /// <param name="action">The action to invoke.</param>
+            public static void SafeInvoke<T>(this T obj, Action<T> action)
             {
                 if (obj != null)
                 {
@@ -64,68 +26,43 @@ namespace IuvoUnity
                 }
             }
 
-            public static bool IsEqualTo<T>(this T obj, T otherObj)
-            {
-                return obj.Equals(otherObj);
-            }
-
-
+            /// <summary>
+            /// Adds a key-value pair to the dictionary or updates the value if the key already exists.
+            /// </summary>
+            /// <typeparam name="TKey">The type of keys in the dictionary.</typeparam>
+            /// <typeparam name="TValue">The type of values in the dictionary.</typeparam>
+            /// <param name="dictionary">The dictionary to update.</param>
+            /// <param name="key">The key to add or update.</param>
+            /// <param name="value">The value to set.</param>
             public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
             {
                 dictionary[key] = value;
             }
 
-
-
-            public static System.Collections.Specialized.OrderedDictionary ToOrderedDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> collection)
-            {
-                var orderedDict = new System.Collections.Specialized.OrderedDictionary();
-                foreach (var kvp in collection)
-                {
-                    orderedDict.Add(kvp.Key, kvp.Value);
-                }
-                return orderedDict;
-            }
-
-            public static void ForEach<T>(this IEnumerable<T> collection, Action<T> action)
-            {
-                foreach (var item in collection)
-                {
-                    action(item);
-                }
-            }
-
-  
-            public static bool AreEqual<T>(this T obj, T otherObj)
-            {
-                return EqualityComparer<T>.Default.Equals(obj, otherObj);
-            }
-
+            /// <summary>
+            /// Joins a collection of strings into a single string, separated by the specified separator.
+            /// Returns a single space if the collection is null.
+            /// </summary>
+            /// <param name="collection">The string collection to join.</param>
+            /// <param name="separator">The separator to use.</param>
+            /// <returns>A separated string or a space if the collection is null.</returns>
             public static string ToSeparatedString(this IEnumerable<string> collection, string separator = ", ")
             {
-                return string.Join(separator, collection);
+                return collection == null ? " " : string.Join(separator, collection);
             }
 
-            public static string ToJson<T>(this T obj)
+            /// <summary>
+            /// Joins a collection of generic objects into a single string, separated by the specified separator.
+            /// Returns a single space if the collection is null.
+            /// </summary>
+            /// <typeparam name="T">The type of items in the collection.</typeparam>
+            /// <param name="collection">The collection to join.</param>
+            /// <param name="separator">The separator to use.</param>
+            /// <returns>A separated string or a space if the collection is null.</returns>
+            public static string ToSeparatedString<T>(this IEnumerable<T> collection, string separator = ", ")
             {
-                return JsonUtility.ToJson(obj);
+                return collection == null ? " " : string.Join(separator, collection);
             }
-
-            public static T FromJson<T>(this string json)
-            {
-                return JsonUtility.FromJson<T>(json);
-            }
-
-
-            public static string ToConcatenatedString(this IEnumerable<string> collection, string separator = ", ")
-            {
-                return string.Join(separator, collection);
-            }
-
-
-
-
-
         }
     }
 }

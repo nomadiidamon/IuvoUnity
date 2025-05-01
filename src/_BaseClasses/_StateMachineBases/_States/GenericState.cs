@@ -2,7 +2,7 @@
 
 namespace IuvoUnity
 {
-    namespace IuvoStateMachine
+    namespace _StateMachine
     {
         [System.Serializable]
         public abstract class GenericState : ScriptableObject, IStateMachineCondition

@@ -3,32 +3,38 @@ using IuvoUnity._Interfaces;
 
 namespace IuvoUnity
 {
-    public class ObserverClass : MonoBehaviour, IObserver
+    namespace _BaseClasses
     {
-
-        public void Start()
+        namespace _ProgrammingPatterns
         {
-        }
+            public class ObserverClass : MonoBehaviour, IObserver
+            {
 
-        public void Update()
-        {
-  
-        }
+                public void Start()
+                {
+                }
 
-        public void Observe(IObservable subject)
-        {
+                public void Update()
+                {
 
-        }
+                }
 
-        public virtual bool IsConditionMet(IObservable subject)
-        {
-            // noop
-            return true;
-        }
+                public void Observe(IObservable subject)
+                {
 
-        public virtual void OnNotify(IObservable subject)
-        {
-            // noop
+                }
+
+                public virtual bool IsConditionMet(IObservable subject)
+                {
+                    // noop
+                    return true;
+                }
+
+                public virtual void OnNotify(IObservable subject)
+                {
+                    // noop
+                }
+            }
         }
     }
 }

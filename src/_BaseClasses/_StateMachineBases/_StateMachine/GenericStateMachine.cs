@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace IuvoUnity
 {
-    namespace IuvoStateMachine
+    namespace _StateMachine
     {
         [System.Serializable]
         public class GenericStateMachine : MonoBehaviour

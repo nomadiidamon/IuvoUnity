@@ -1,336 +1,554 @@
-//UnityHelperLibrary Folder and Namespace Layout Document
+// UnityHelperLibrary Folder and Namespace Layout Document
 
-enum STATUS {
+STATUS {
 
-[Release],
-[Testing],
-[Implemented],
-[Experimental],
-[InProgress]
+// [Release] Has been fully implemented and tested across projects
+// [Implemented] Has been lightly tested in projects
+// [Experimental] Has been written but not tested
+// [TODO]	In the process of being written
 
 }
 
-		// TODO [InProgress]:
-
+// Anything with the "Iuvo" prefix, is a special type unique to this namespace. Iuvo means "I help".
+// Anything with the "_" prefix is a Category of code within the namespace. "_" stands for "with" or "and".
+// Example 1: IuvoUnity.AI = "I help with AI."
+// Example 2: IuvoUnity._BaseClasses._ECS = "I help with Base Classes and with ECS."
 
 namespace UnityHelperLibrary
 {
 	namespace _AI 
 	{
-		// TODO [InProgress]: Sound detection
-		// TODO [InProgress]: Line of Sight detection 
-		// TODO [InProgress]: In Range Of (IRO) detection
-			// TODO [InProgress]: IRO Ally detection
-			// TODO [InProgress]: IRO Enemy detection
-			// TODO [InProgress]: IRO Interactable detection
-		
-		// TODO [InProgress]: ai sensor base class or template
-			// TODO [InProgress]: AI Sensor (sound, sight, or IRO)
-				// Todo [InProgress]: Multi-AI Sensor 
-			// TODO [InProgress]: Spehere Sensor (sound, sight, or IRO)
-				// TODO [InProgress]: Multi-Sphere Sensor (sound, sight, or IRO)
-			// TODO [InProgress]: Capsule Sensor (sound, sight, or IRO)
-				// TODO [InProgress]: Multi-Capsule Sensor (sound, sight, or IRO)
-			// TODO [InProgress]: Box Sensor (sound, sight, or IRO)
-				// TODO [InProgress]: Multi-Box Sensor (sound, sight, or IRO)
-			// TODO [InProgress]: Custom Sensor (sound, sight, or IRO)
-				// TODO [InProgress]: Multi-Custom Sensor (sound, sight, or IRO)
+		// [TODO]: AIDecisionTree
+			// [TODO]: AIAction
+				// [TODO]: AIConsequence
+				// [TODO]: AIReaction
+			// [TODO]: AIBelief
+			// [TODO]: AIContext
+			// [TODO]: AIDecision
+			// [TODO]: AIGoal
+			// [TODO]: AIIncentive
+				// [TODO]: AIScore
+			// [TODO]: AIMemory
 
-		// TODO [InProgress]: AI Sensor Manager
-		// TODO [InProgress]: AI Sensor Manager (multi-sensor)
-		// TODO [InProgress]: AI registry to create and manage all active AI and their sensors
+		// [TODO]: AI Sensor Manager
+		// [TODO]: AI Sensor Manager (multi-sensor)
+		// [TODO]: AI registry to create and manage all active AI and their sensors
 		
-		// TODO [InProgress]: BaseAIBehavior
-			// TODO [InProgress]: Patrol Behavior
-		// TODO [InProgress]: AIDecisionTree
-			// TODO [InProgress]: AIMemory
-			// TODO [InProgress]: AIContext
-			// TODO [InProgress]: AIGoal
-			// TODO [InProgress]: AIBelief
-			// TODO [InProgress]: AIAction
-				// TODO [InProgress]: AIConsequence
-				// TODO [InProgress]: AIReaction
-			// TODO [InProgress]: AIDecision
-			// TODO [InProgress]: AIIncentive
-				// Todo [InProgress]: AIScore
-		
-		}
+		// [TODO]: ai sensor base class or template
+			// [TODO]: AI Sensor (sound, sight, or IRO)
+				// Todo [TODO]: Multi-AI Sensor 
+			// [TODO]: Box Sensor (sound, sight, or IRO)
+				// [TODO]: Multi-Box Sensor (sound, sight, or IRO)
+			// [TODO]: Capsule Sensor (sound, sight, or IRO)
+				// [TODO]: Multi-Capsule Sensor (sound, sight, or IRO)
+			// [TODO]: Custom Sensor (sound, sight, or IRO)
+				// [TODO]: Multi-Custom Sensor (sound, sight, or IRO)
+			// [TODO]: Spehere Sensor (sound, sight, or IRO)
+				// [TODO]: Multi-Sphere Sensor (sound, sight, or IRO)
+
+		// [TODO]: BaseAIBehavior
+			// [TODO]: Patrol Behavior
+
+		// [TODO]: In Range Of (IRO) detection
+			// [TODO]: IRO Ally detection
+			// [TODO]: IRO Enemy detection
+			// [TODO]: IRO Interactable detection
+		// [TODO]: Line of Sight detection 
+		// [TODO]: Sound detection
+	}
+
 	namespace _Animation 
 	{
-		// [NEED_TO_MOVE]
-
-		// TODO [InProgress]: PlaySoundOnEvent
-		// TODO [InProgress]: Playables
-		// TODO [InProgress]: IKPosition/ all changes
-		// TODO [InProgress]: IKTarget / where the changes take place
-		// TODO [InProgress]: IKPair (IKPosition & IKTarget)
-		// TODO [InProgress]: AnimationCurve
-
+		// [TODO]: AnimationCurve
+		// [TODO]: IKPair (IKPosition & IKTarget)
+		// [TODO]: IKPosition/ all changes
+		// [TODO]: IKTarget / where the changes take place
+		// [TODO]: PlaySoundOnEvent
+		// [TODO]: Playables
 	}
+
 	namespace _Audio 
 	{
-		// TODO [InProgress]: Audio pooling
-		// TODO [InProgress]: Global volume manager
-		// TODO [InProgress]: 3d Spatial Audio
-		// TODO [InProgress]: Music Transition
-		// TODO [InProgress]: Musical Environment
-		
+		// [TODO]: 3d Spatial Audio
+		// [TODO]: Audio pooling
+		// [TODO]: Global volume manager
+		// [TODO]: Music Transition
+		// [TODO]: Musical Environment
 	}
-    namespace _BaseClasses
-    {
-        namespace _ECSBases 
+
+	namespace _BaseClasses
+	{
+		namespace _ECS
 		{
-		
-			namespace _Components 
+			/// Component
+				// [Experimental]: ComponentManager
+				// [TODO]: ComponentRegistry
+				// [Experimental]: IuvoComponentBase
+				// [Experimental]: IuvoComponentLayout : IuvoComponentBase, IAddable, IInitialize, IUpdatable
+				// [Experimental]: IuvoConfigurationBase : IuvoComponentBase, IConfigurable
+
+			/// Component Interfaces
 			{
-				// TODO [InProgress]: IComponent
-				// TODO [Implemented]: Component manager 
-				// TODO [Experimental]: Component interfaces
-					 {
-						// TODO [Experimental]: ICreate - OnCreate()
-						// TODO [Experimental]: IDestroy - OnDestroy()
-						// TODO [Experimental]: ICreateable : ICreate, IDestroy
-
-						// TODO [Experimental]: IAwake - OnAwake()
-						// TODO [Experimental]: IInitialize - Initialize()
-						// TODO [Experimental]: IStart - OnStart()
-
-						// TODO [Experimental]: IUpdatable - Update()
-						// TODO [Experimental]: IUpdate - OnUpdate()
-						// TODO [Experimental]: IFixedUpdate - OnFixedUpdate()
-						// TODO [Experimental]: ILateUpdate - OnLateUpdate()
-
-						// TODO [Experimental]: IAdd - OnAdd()
-						// TODO [Experimental]: IRemove - OnRemove()
-						// TODO [Experimental]: IAddable : IAdd, IRemove
-
-						// TODO [Experimental]: IConfigure - OnConfigure()
-						// TODO [Experimental]: IReconfigure - OnReconfigure()
-						// TODO [Experimental]: IConfigurable : IConfigure, IReconfigure
-
-						// TODO [Experimental]: IChange - OnChange()
-						// TODO [Experimental]: INotifyOfChange - OnNotifyOfChange()
-						// TODO [Experimental]: INotifiable : INotifyOfChange, IChange
-
-						// TODO [Experimental]: IActivate - OnActivate()
-						// TODO [Experimental]: IDeactivate - OnDeactivate()
-						// TODO [Experimental]: IActivatable : IActivate, IDeactivate
-
-						// TODO [Experimental]: IEnable - OnEnable()
-						// TODO [Experimental]: IDisable - OnDisable()
-						// TODO [Experimental]: IEnableable : IEnable, IDisable
-
-						// TODO [Experimental]: IToggleable : IEnableable, IActivatable
-						// TODO [Experimental]: IPausable : IToggleable
-
-						// TODO [Experimental]: IReset - OnReset()
-						// TODO [Experimental]: IResetData - current data = resetData
-						// TODO [Experimental]: IResetable : IReset, IResetData
-
-						// TODO [Experimental]: IRegister
-						// TODO [Experimental]: IUnregister
-						// TODO [Experimental]: IRegisterable : IRegister, IUnregister
-					 }
+				// [Experimental]: IActivate - OnActivate()
+				// [Experimental]: IActivatable : IActivate, IDeactivate
+				// [Experimental]: IAdd - OnAdd()
+				// [Experimental]: IAddable : IAdd, IRemove
+				// [Experimental]: IAwake - OnAwake()
+				// [Experimental]: IChange - OnChange()
+				// [Experimental]: IConfigurable : IConfigure, IReconfigure
+				// [Experimental]: IConfigure - OnConfigure()
+				// [Experimental]: ICreate - OnCreate()
+				// [Experimental]: ICreateable : ICreate, IDestroy
+				// [Experimental]: IDeactivate - OnDeactivate()
+				// [Experimental]: IDestroy - OnDestroy()
+				// [Experimental]: IDisable - OnDisable()
+				// [Experimental]: IEnable - OnEnable()
+				// [Experimental]: IEnableable : IEnable, IDisable
+				// [Experimental]: IFixedUpdate - OnFixedUpdate()
+				// [Experimental]: IInitialize - Initialize()
+				// [Experimental]: IInterfaceBase
+				// [Experimental]: ILateUpdate - OnLateUpdate()
+				// [Experimental]: INotifiable : INotifyOfChange, IChange
+				// [Experimental]: INotifyOfChange - OnNotifyOfChange()
+				// [Experimental]: IPausable : IToggleable
+				// [Experimental]: IRegister
+				// [Experimental]: IRegisterable : IRegister, IUnregister
+				// [Experimental]: IRemove - OnRemove()
+				// [Experimental]: IReconfigure - OnReconfigure()
+				// [Experimental]: IReset - OnReset()
+				// [Experimental]: IResetData - current data = resetData
+				// [Experimental]: IResetable : IReset, IResetData
+				// [Experimental]: IStart - OnStart()
+				// [Experimental]: IToggleable : IEnableable, IActivatable
+				// [Experimental]: IUnregister
+				// [Experimental]: IUpdate - OnUpdate()
+				// [Experimental]: IUpdatable - Update()
 			}
 
-			namespace _Entitites 
-			{
-				// TODO [InProgress]: Entity
-				// TODO [InProgress]: EntityManager
-			}
+			/// Entity
+				// [Experimental]: EntityBase
+				// [TODO]: EntityManager
+				// [TODO]: Monobehavior Entity Base
+				// [Experimental]: EntityRegistry
 
-			namespace _Registry
-			{
-				// TODO [InProgress]: EntityRegistry
-					// TODO [InProgress]: EntityManager
-				// TODO [InProgress]: ComponentRegistry
-					// TODO [Experimental]: ComponentManager
-				// TODO [InProgress]: SystemRegistry
-					// TODO [InProgress]: SystemManager
-			}
-
-			namespace _Systems 
-			{
-				// TODO [InProgress]: ISystem
-				// TODO [InProgress]: 
-				// TODO [InProgress]:
-				// TODO [InProgress]:
-			}
-
-
+			/// System
+				// [TODO]: ISystemBase
+				// [TODO]: SystemManager
+				// [TODO]: SystemRegistry
 		}
-		namespace _EventBases {}
-        namespace _InputBases {}
-        namespace _ProceduralGenerationBases {}
-        namespace _ProgrammingPatternBases 
+
+		namespace _DataStructBases
 		{
-			// TODO [InProgress]: object pooling
-			// TODO [InProgress]: factory pattern
-			// TODO [InProgress]: fluent builder
+			// [Experimental]: DataStructBase (marker interface)
 		}
-        namespace _RPGBases {}
-        namespace _SingletonBases {}
-        namespace _StateMachineBases {}
-        namespace _TimeBases {}
-		namespace _UIBases {}
-    }
+
+		namespace _EventBases 
+		{
+			// [TODO]: Will house event related bases
+		}
+
+		namespace _InputBases 
+		{
+			// [TODO]: Will house Input related bases
+		}
+
+		namespace _ProceduralGenerationBases 
+		{
+			// [TODO]: Will house Proc Gen related bases
+		}
+
+		namespace _ProgrammingPatternBases 
+		{
+			// [TODO]: factory pattern
+			// [TODO]: fluent builder
+			// [TODO]: object pooling
+			// [Experimental]: Command
+			// [Experimental]: Observable Class (ECS)
+			// [Experimental]: Observer Class (Monobehavior)
+			// [TODO]: Observable Class (Monobehavior) -- "MonoObserver"
+		}
+
+		namespace _RPGBases 
+		{
+			/// Ability System
+				// [Experimental]: AbilityController (Monobehavior)
+				// [Experimental]: BaseAbility : IAbility
+
+			/// RPG Interfaces
+				// [Experimental]: IAbility
+				// [Experimental]: ICauseReaction
+				// [Experimental]: IDealDamage
+				// [Experimental]: IReactable
+				// [Experimental]: IStunnable
+				// [Experimental]: ISurface
+
+			// [Experimental]: RPGComponent : IuvoComponentBase
+		}
+
+		namespace _SingletonBases 
+		{
+			// [TODO]: Will house Singleton related bases
+		}
+
+		namespace _StateMachineBases 
+		{
+			/// Interfaces
+				// [Experimental]: IStateMachineCOndition : IuvoInterfaceBase
+
+			/// State Machines
+				// [Experimental]: GenericStateMachine (Monobehavior)
+				// [Experimental]: HumanoidStateMachine : GenericStateMachine
+				// [Experimental]: StateMachineAnalyzer (Monobehavior)
+
+			/// States
+				// [Experimental]: GenericState (ScriptableObject)
+				/// Idle States
+					// [Experimental]: GenericIdleState : GenericState
+				/// Move States
+					// [Experimental]: GenericMoveState :GenericState
+		}
+
+		namespace _TimeBases 
+		{
+			// [TODO]: Will house Time related bases
+		}
+
+		namespace _UIBases 
+		{
+			// [TODO]: Will house UI related bases
+		}
+	}
+
 	namespace _Camera 
 	{
-		// TODO [InProgress]: camera collision handler
-		// TODO [InProgress]: camera shake
-		// TODO [InProgress]: camera follow
-		// TODO [InProgress]: Dynamic Zoom
-		// TODO [InProgress]: Arc out
-		// TODO [InProgress]: Arc in
-		
+		// [TODO]: Arc in
+		// [TODO]: Arc out
+		// [TODO]: camera collision handler
+		// [TODO]: camera follow
+		// [TODO]: camera shake
+		// [TODO]: Dynamic Zoom
 	}
-	namespace _Collider {}
-	namespace _Color {}
+
+	namespace _Collider 
+	{
+		// [TODO]: Will house Collider related objects and helpers
+	}
+
+	namespace _Color 
+	{
+		// [TODO]: Will house Color related objects and helpers
+	}
+
 	namespace _Constants 
 	{
-		// TODO [InProgress]: tag
-		// TODO [InProgress]: layer
-		// TODO [InProgress]: input actions
-		// TODO [InProgress]: Scene names
-		// TODO [InProgress]: UI Elements
+		// [TODO]: input actions
+		// [TODO]: layer
+		// [TODO]: Scene names
+		// [TODO]: tag
+		// [TODO]: UI Elements
 	}
+
 	namespace _Coroutines 
 	{
-		// TODO [InProgress]: Coroutine Runner -> singleton
-		// TODO [InProgress]: Wait for Seconds dictionary
-		
+		// [TODO]: Coroutine Runner -> singleton
+		// [TODO]: Wait for Seconds dictionary
 	}
-    namespace _DataStructs 
-	{
-		// TODO [InProgress]: Object State Tracker
-	}
-    namespace _Debug 
-	{
-		// TODO [InProgress]: DrawDebugBox(Vector3 center, Vector3 size);
-	}
-    namespace _ECS 
-	{
-		// TODO [InProgress]:
-		// TODO [InProgress]:
-		// TODO [InProgress]:
-		// TODO [InProgress]:
-		// TODO [InProgress]:
-		// TODO [InProgress]:
-		// TODO [InProgress]:
-		// TODO [InProgress]:
 
+	namespace _DataStructs 
+	{
+		// [TODO]: make all derived from DataStructBase serializable
+		// [TODO]: Object State Tracker
+		// [Experimental]: RangeDouble : DataStructBase
+		// [Experimental]: RangeFloat : DataStructBase
+		// [Experimental]: RangeInt : DataStructBase
 	}
+
+	namespace _Debug 
+	{
+		// [TODO]: DrawDebugBox(Vector3 center, Vector3 size);
+	}
+
+	namespace _ECS 
+	{
+		// [Experimental]: DescriptionComponent : IuvoComponentBase
+		// [Experimental]: EasyRotationComponent : IuvoComponentBase
+		// [Experimental]: EasyTransformComponent : IuvoComponentBase
+		// [Experimental]: IDNumberComponent : IuvoComponentBase
+		// [Experimental]: InteractionComponent : IuvoComponentBase
+		// [Experimental]: IuvoRegistryID : IDNumberComponent
+		// [Experimental]: IuvoTimerID : IDNumberComponent
+		// [Experimental]: IuvoWorldID : IuvoComponentBase
+		// [Experimental]: MagnetizeComponent : IuvoComponentBase
+		// [Experimental]: NameComponent : IuvoComponentBase
+		// [Experimental]: Name_DescriptionComponent : IuvoComponentBase
+		// [Experimental]: PatrolRouteComponent : IuvoComponentBase
+		// [Experimental]: PositionComponent : IuvoComponentBase
+		// [Experimental]: RotationComponent : IuvoComponentBase
+		// [Experimental]: ScaleComponent : IuvoComponentBase
+		// [Experimental]: TagComponent : IuvoComponentBase
+		// [Experimental]: TargetComponent : IuvoComponentBase
+		// [Experimental]: TransformComponent : IuvoComponentBase
+		// [Experimental]: VelocityComponent : IuvoComponentBase
+
+		/// _RPG
+		// [Experimental]: AccessorySlotComponent : EquipmentTagComponent
+		// [Experimental]: AccuracyComponent : RPGComponent		
+		// [Experimental]: ArmorSlotComponent : EquipmentTagComponent
+		// [Experimental]: CanBeTwoHandedComponent : EquipmentTagComponent
+		// [Experimental]: CurrencyComponent : RPGComponent
+		// [Experimental]: CurrencyMultiplierComponent : ValueMultiplier
+		// [Experimental]: CurrencyValueComponent : RPGComponent
+		// [Experimental]: DamageMultiplierComponent : ValueMultiplier
+		// [Experimental]: DamageTypeComponent : RPGComponent
+		// [Experimental]: DensityValueComponent : RPGComponent
+		// [Experimental]: DurabilityComponent : RPGComponent
+		// [Experimental]: EquipmentTagComponent : ItemComponent
+		// [Experimental]: ExperienceGaugeComponent : RPGComponent
+		// [Experimental]: ExperienceGiftComponent : RPGComponent
+		// [Experimental]: ExperienceLevelMultiplier : ValueMultiplier
+		// [Experimental]: ExperienceValueComponent : RPGComponent
+		// [Experimental]: Health : StatComponent
+		// [Experimental]: ItemComponent : RPGComponent
+		// [Experimental]: ItemTypeComponent : RPGComponent
+		// [Experimental]: LeftHandComponent : WeaponSlotComponent
+		// [Experimental]: LevelValueComponent : RPGComponent
+		// [Experimental]: RangeComponent : RPGComponent
+		// [Experimental]: RechargeMaxPercentage : ValueMultiplier
+		// [Experimental]: RechargeMaxValue : RPGComponent
+		// [Experimental]: RechargeRateComponent : RPGComponent
+		// [Experimental]: RightHandComponent : WeaponSlotComponent
+		// [Experimental]: RPGComponent : IuvoComponentBase
+		// [Experimental]: ShieldSlotComponent : CanBeTwoHandedComponent
+		// [Experimental]: Stamina : StatComponent
+		// [Experimental]: StaminaCost
+		// [Experimental]: StatBonusComponent : RPGComponent
+		// [Experimental]: StatBonusMultiplierComponent : ValueMultiplier
+		// [Experimental]: StatComponent : LevelValueComponent
+		// [Experimental]: StunComponent : RPGComponent
+		// [Experimental]: ValueMultiplier : RPGComponent
+		// [Experimental]: WeaponSlotComponent : CanBeTwoHandedComponent
+		// [Experimental]: WeightValueComponent : RPGComponent
+	}
+
 	namespace _Editor 
 	{
-		namespace _EditorTools {}
+		namespace _EditorTools 
+		{
+			// [TODO]: Will house Editor tools
+		}
 		namespace _EditorUtilities 
 		{
-			// TODO [InProgress]: property drawers
-			// TODO [InProgress]: custom class/object serializtion/inspection
+			// [TODO]: property drawers
+			// [TODO]: custom class/object serializtion/inspection
 		}
 	}
-	namespace _Events {}
-    namespace _ExtensionMethods {}
-    namespace _Input
-    {
-		// TODO: Button hold, tap, double-tap abstraction
-		// TODO: Input rebinding helper
-        namespace _Controllers {}
-    }
-    namespace _Interfaces 
+
+	namespace _Events 
 	{
-		// TODO [InProgress]: IAwake
-		// TODO [InProgress]: IInitialize
-		// TODO [InProgress]: IUpdate
-		
-		// TODO [InProgress]: INotifiable
-		// TODO [InProgress]: INotify
-		// TODO [InProgress]: INotifyOnChange
-		
-		// TODO [InProgress]: IFixedUpdate	
-		
-		// TODO [InProgress]: IRegenerate
-		// TODO [InProgress]: IDebelitate
-		
-		// TODO [InProgress]: ISavable
-		
-		// TODO [Testing]: IConfigure
-		// TODO [InProgress]: IReconfigure
-		// TODO [InProgress]: IConfigurable
-		
-		
+		// [TODO]: Will house events
 	}
-	namespace _Math {}
-	namespace _Networking {}
-    namespace _OverrideClasses {}
-    namespace _Physics 
+
+	namespace _ExtensionMethods 
 	{
-		// TODO [InProgress]: Physics Overlap Helper
-		// TODO [InProgress]: Raycast All Sorted By Distance
-		// TODO [InProgress]: Explosive Force Distributor
-		// TODO [InProgress]: Step height check
-		// TODO [InProgress]: easily influential gravity (world gravity and constant weight scale)
-		// TODO [InProgress]: gravity flipper (takes a vector as new world up)
-		// TODO [InProgress]: magnetic force (attract and repel)
-		// TODO [InProgress]: arc projectile (throw strength and weight based)
-		// TODO [InProgress]: 
+	
+		// [Experimental]:	
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
 		
-	}
-    namespace _ProceduralGeneration 
-	{
-		// TODO [InProgress]: random template		
-		// TODO [Experimental]: object grid
-		// TODO [Experimental]: multi-layerd object grid
-		// TODO [InProgress]: object grid with effect
-		// TODO [InProgress]: object grid with perlin noise
-		// TODO [InProgress]: heightmap
-		// TODO [InProgress]: world
-		// TODO [InProgress]: cave
-		// TODO [Experimental]: dungeon
-		// TODO [Experimental]: building / structure (made of smaller pieces for modular behavior)
-	}
-    namespace _ProgrammingPatterns {}
-    namespace _RPG 
-	{
-		// TODO [InProgress]: Dialogue system
+		/// GameObject Extensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
 		
+		/// Generic Extensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		
+		/// Light Extensions
+			// [Experimental]:
+			// [Experimental]:
+			
+		// [Experimental]:
+		// [Experimental]:
+		// [Experimental]:
+		
+		
+		/// RigidbodyExtensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+		
+			
+		/// TransformExtensions
+			// [Experimental]:
+			// [Experimental]:
+			// [Experimental]:
+		
+		
+		/// Vector3 Extensions
+			// [Experimental]:
+			// [Experimental]:
 	}
+
+	namespace _Input
+	{
+		// [TODO]: Button hold, tap, double-tap abstraction
+		// [TODO]: Input rebinding helper
+		namespace _Controllers 
+		{
+			// [TODO]: Will house Controllers
+		}
+	}
+
+	namespace _Interfaces 
+	{
+		// [TODO]: IAwake
+		// [TODO]: IConfigurable
+		// [TODO]: IInitialize
+		// [TODO]: INotifiable
+		// [TODO]: INotify
+		// [TODO]: INotifyOnChange
+		// [TODO]: IReconfigure
+		// [TODO]: IRegenerate
+		// [TODO]: ISavable
+		// [TODO]: IUpdate
+		// [TODO]: IFixedUpdate	
+		// [TODO]: IDebelitate
+		// [Testing]: IConfigure
+	}
+
+	namespace _Math 
+	{
+		// [TODO]: Will house Math related objects and helpers
+	}
+
+	namespace _Networking 
+	{
+		// [TODO]: Will house Networking related objects and helpers
+	}
+
+	namespace _OverrideClasses 
+	{
+		// [TODO]: Will house Math related objects and helpers
+	}
+
+	namespace _Physics 
+	{
+		// [TODO]: Physics Overlap Helper
+		// [TODO]: Raycast All Sorted By Distance
+		// [TODO]: Explosive Force Distributor
+		// [TODO]: Step height check
+		// [TODO]: easily influential gravity (world gravity and constant weight scale)
+		// [TODO]: gravity flipper (takes a vector as new world up)
+		// [TODO]: magnetic force (attract and repel)
+		// [TODO]: arc projectile (throw strength and weight based)
+		// [TODO]: 
+	}
+
+	namespace _ProceduralGeneration 
+	{
+		// [TODO]: cave
+		// [TODO]: heightmap
+		// [TODO]: object grid with effect
+		// [TODO]: object grid with perlin noise
+		// [TODO]: random template
+		// [TODO]: world
+		// [Experimental]: building / structure (made of smaller pieces for modular behavior)
+		// [Experimental]: dungeon
+		// [Experimental]: multi-layerd object grid
+		// [Experimental]: object grid
+	}
+
+	namespace _ProgrammingPatterns 
+	{
+		// [TODO]: Will house ProgrammingPattern related objects and helpers
+	}
+
+	namespace _RPG 
+	{
+		// [TODO]: Dialogue system
+	}
+
 	namespace _Saving 
 	{
-		// TODO [InProgress]: binary saving
-		// TODO [InProgress]: json saving
-		// TODO [InProgress]: auto save trigger
-		// TODO [InProgress]: preference saves
-		// TODO [InProgress]: profile saves
+		// [TODO]: auto save trigger
+		// [TODO]: binary saving
+		// [TODO]: json saving
+		// [TODO]: preference saves
+		// [TODO]: profile saves
 	}
+
 	namespace _Scene 
 	{
-		// TODO [InProgress]: Scene transition
-		// TODO [InProgress]: async scene loader
-		// TODO [InProgress]: loading scene
-		// TODO [InProgress]: scene progress and configuration are savable
+		// [TODO]: Scene transition
+		// [TODO]: async scene loader
+		// [TODO]: loading scene
+		// [TODO]: scene progress and configuration are savable
 	}
-	namespace _ScriptableObjects {}
-    namespace _Singletons {}
-    namespace _StateMachine {}
-	namespace _Testing {}
-    namespace _Time {}
+
+	namespace _ScriptableObjects 
+	{
+		// [TODO]: Will house ScriptableObject related objects and helpers	
+	}
+
+	namespace _Singletons 
+	{
+		// [TODO]: Will house Singleton related objects and helpers
+	}
+
+	namespace _StateMachine 
+	{
+		// [TODO]: Will house State Machine related objects and helpers
+	}
+
+	namespace _Testing 
+	{
+		// [TODO]: Will house Testing related objects and helpers
+	}
+
+	namespace _Time 
+	{
+		// [TODO]: Will house Time related objects and helpers
+	}
+
 	namespace _UI 
 	{
-		// TODO [InProgress]: Tooltip system 
-		// TODO [InProgress]: fade transitions
-		// TODO [InProgress]: hud
-		// TODO [InProgress]: hud layout
-		// TODO [InProgress]: hud preferences
-		// TODO [InProgress]: save preferences
-		// TODO [InProgress]: Locallized text
+		// [TODO]: Locallized text
+		// [TODO]: Tooltip system 
+		// [TODO]: fade transitions
+		// [TODO]: hud
+		// [TODO]: hud layout
+		// [TODO]: hud preferences
+		// [TODO]: save preferences
 	}
+
 	namespace _Utility
 	{
-		// TODO [InProgress]: IsInLayerMask(GameObject obj, LayerMask mask);
-		// TODO [InProgress]: object life time tracker
-		// TODO [InProgress]: object life time manager
-		// TODO [InProgress]: Localization Manager
-		namespace _UtilityInterfaces {}
+		// [TODO]: IsInLayerMask(GameObject obj, LayerMask mask);
+		// [TODO]: Localization Manager
+		// [TODO]: object life time manager
+		// [TODO]: object life time tracker
+
+		namespace _UtilityInterfaces 
+		{
+			// [TODO]: Will house Utility interfaces
+		}
 	}
+
+
 }

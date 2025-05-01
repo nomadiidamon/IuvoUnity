@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace IuvoUnity
 {
-    namespace IuvoStateMachine
+    namespace _StateMachine
     {
         [CreateAssetMenu(fileName = "GenericMoveState", menuName = "StateMachine/States/MoveStates")]
         public class GenericMoveState : GenericState

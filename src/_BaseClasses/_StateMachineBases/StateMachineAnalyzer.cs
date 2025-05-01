@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace IuvoStateMachine
+    namespace _StateMachine
     {
         public class StateMachineAnalyzer : MonoBehaviour
         {

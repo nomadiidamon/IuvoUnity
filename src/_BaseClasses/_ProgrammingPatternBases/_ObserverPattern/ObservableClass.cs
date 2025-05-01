@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using IuvoUnity._BaseClasses._ECS;
 using IuvoUnity._Interfaces;
 
 namespace IuvoUnity
 {
     namespace _BaseClasses 
     {
-        namespace _ECS
+        namespace _ProgrammingPatterns
         {
             public class ObservableClass : EntityView, IObservable
             {

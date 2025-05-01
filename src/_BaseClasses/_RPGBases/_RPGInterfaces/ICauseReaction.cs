@@ -4,9 +4,12 @@ namespace IuvoUnity
 {
     namespace _Interfaces
     {
-        public interface ICauseReaction
+        namespace _RPG
         {
-            void CauseReaction();
+            public interface ICauseReaction
+            {
+                void CauseReaction();
+            }
         }
     }
 }

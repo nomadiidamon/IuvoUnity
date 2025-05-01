@@ -1,6 +1,4 @@
 ﻿using IuvoUnity._ECS;
-using IuvoUnity.IuvoECS.IuvoComponents;
-using System.Runtime.InteropServices;
 
 namespace IuvoUnity
 {

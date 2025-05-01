@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -7,138 +6,142 @@ namespace IuvoUnity
 {
     namespace _ExtensionMethods
     {
+
+        /// <summary>
+        /// Provides extension methods for Unity's <see cref="Transform"/> component,
+        /// enabling simplified manipulation and queries of transforms in the scene.
+        /// </summary>
         public static class TransformExtensions
         {
+            /// <summary>Finds a direct child of the transform by name.</summary>
             public static Transform FindChildByName(this Transform transform, string name)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name == name)
-                        return child;
+                    if (child.name == name) return child;
                 }
                 return null;
             }
 
+            /// <summary>Recursively searches for a child transform by name.</summary>
+            public static Transform FindChildByNameRecursive(this Transform transform, string name)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name == name) return child;
+                    Transform found = child.FindChildByNameRecursive(name);
+                    if (found != null) return found;
+                }
+                return null;
+            }
+
+            /// <summary>Sets the transform's rotation to face the given direction.</summary>
             public static void SetRotationToTargetDirection(this Transform transform, Vector3 direction)
             {
                 transform.rotation = Quaternion.LookRotation(direction);
             }
 
-            public static void RotateTowardsTarget(this Transform transform, Transform target, float speed)
+            /// <summary>Smoothly rotates the transform to face a target transform.</summary>
+            public static void RotateTowardsTarget(this Transform transform, Transform target, float speed, float deltaTime)
             {
-                Vector3 direction = (target.position - transform.position).normalized;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
+                Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * deltaTime);
             }
 
-            public static bool IsAbove(this Transform transform, Transform other)
-            {
-                return transform.position.y > other.position.y;
-            }
+            /// <summary>Returns true if this transform is above the other transform.</summary>
+            public static bool IsAbove(this Transform transform, Transform other) => transform.position.y > other.position.y;
 
-            public static bool IsBelow(this Transform transform, Transform other)
-            {
-                return transform.position.y < other.position.y;
-            }
+            /// <summary>Returns true if this transform is below the other transform.</summary>
+            public static bool IsBelow(this Transform transform, Transform other) => transform.position.y < other.position.y;
 
-            public static bool IsLeftOf(this Transform transform, Transform other)
-            {
-                return transform.position.x < other.position.x;
-            }
+            /// <summary>Returns true if this transform is to the left of the other transform.</summary>
+            public static bool IsLeftOf(this Transform transform, Transform other) => transform.position.x < other.position.x;
 
-            public static bool IsRightOf(this Transform transform, Transform other)
-            {
-                return transform.position.x > other.position.x;
-            }
+            /// <summary>Returns true if this transform is to the right of the other transform.</summary>
+            public static bool IsRightOf(this Transform transform, Transform other) => transform.position.x > other.position.x;
 
-            public static bool IsInFrontOf(this Transform transform, Transform other)
-            {
-                return transform.position.z > other.position.z;
-            }
+            /// <summary>Returns true if this transform is in front of the other transform.</summary>
+            public static bool IsInFrontOf(this Transform transform, Transform other) => transform.position.z > other.position.z;
 
-            public static bool IsBehind(this Transform transform, Transform other)
-            {
-                return transform.position.z < other.position.z;
-            }
+            /// <summary>Returns true if this transform is behind the other transform.</summary>
+            public static bool IsBehind(this Transform transform, Transform other) => transform.position.z < other.position.z;
 
-            public static float CalculateDistanceTo(this Transform transform, Transform target)
-            {
-                return Vector3.Distance(transform.position, target.position);
-            }
-
-            public static Vector3 CalculateDirectionTo(this Transform transform, Transform target)
-            {
-                return (target.position - transform.position).normalized;
-            }
-
+            /// <summary>Sets this transform's rotation to match the target's rotation.</summary>
             public static void RotateToMatch(this Transform transform, Transform target)
             {
                 transform.rotation = target.rotation;
             }
 
-            public static void SetUniformScale(this Transform transform, float scale)
-            {
-                transform.localScale = Vector3.one * scale;
-            }
-
+            /// <summary>Multiplies the transform's local scale by the given vector.</summary>
             public static void MultiplyLocalScale(this Transform transform, Vector3 multiplier)
             {
                 transform.localScale = Vector3.Scale(transform.localScale, multiplier);
             }
 
+            /// <summary>Sets this transform's local scale to match the target's.</summary>
             public static void ScaleToMatch(this Transform transform, Transform target)
             {
                 transform.localScale = target.localScale;
             }
 
+            /// <summary>Moves the transform along a given axis by a specified distance.</summary>
             public static void TranslateAlongAxis(this Transform transform, Vector3 axis, float distance)
             {
                 transform.position += axis.normalized * distance;
             }
 
-            public static void MoveTowardsPosition(this Transform transform, Vector3 targetPosition, float speed)
+            /// <summary>Moves the transform towards a target position at a specified speed.</summary>
+            public static void MoveTowardsPosition(this Transform transform, Vector3 targetPosition, float speed, float deltaTime)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * deltaTime);
             }
 
+            /// <summary>Gets the world rotation of the transform.</summary>
             public static Quaternion GetWorldRotation(this Transform transform)
             {
                 return transform.rotation;
             }
 
+            /// <summary>Sets the world rotation of the transform.</summary>
             public static void SetWorldRotation(this Transform transform, Quaternion rotation)
             {
                 transform.rotation = rotation;
             }
 
+            /// <summary>Rotates the transform around a world axis by a specified angle.</summary>
             public static void RotateAroundWorldAxis(this Transform transform, Vector3 worldAxis, float angle)
             {
                 transform.Rotate(worldAxis, angle, Space.World);
             }
 
+            /// <summary>Rotates the transform around a local axis by a specified angle.</summary>
             public static void RotateAroundLocalAxis(this Transform transform, Vector3 localAxis, float angle)
             {
                 transform.Rotate(localAxis, angle, Space.Self);
             }
 
+            /// <summary>Aligns this transform's position and rotation with the target.</summary>
             public static void AlignWith(this Transform transform, Transform target)
             {
                 transform.position = target.position;
                 transform.rotation = target.rotation;
             }
 
+            /// <summary>Aligns this transform with the target using a position offset.</summary>
             public static void AlignWith(this Transform transform, Transform target, Vector3 offset)
             {
                 transform.position = target.position + offset;
                 transform.rotation = target.rotation;
             }
 
+            /// <summary>Aligns this transform with the target using position and rotation offsets.</summary>
             public static void AlignWith(this Transform transform, Transform target, Vector3 positionOffset, Vector3 rotationOffset)
             {
                 transform.position = target.position + positionOffset;
                 transform.rotation = target.rotation * Quaternion.Euler(rotationOffset);
             }
 
+            /// <summary>Aligns this transform with the target using position, rotation offsets, and absolute scale.</summary>
             public static void AlignWith(this Transform transform, Transform target, Vector3 positionOffset, Vector3 rotationOffset, Vector3 scale)
             {
                 transform.position = target.position + positionOffset;
@@ -146,85 +149,39 @@ namespace IuvoUnity
                 transform.localScale = scale;
             }
 
+            /// <summary>Aligns this transform with the target using position, rotation offsets, and uniform scale.</summary>
             public static void AlignWith(this Transform transform, Transform target, Vector3 positionOffset, Vector3 rotationOffset, float scale)
             {
-                transform.position = target.position + positionOffset;
-                transform.rotation = target.rotation * Quaternion.Euler(rotationOffset);
-                transform.localScale = Vector3.one * scale;
+                AlignWith(transform, target, positionOffset, rotationOffset, new Vector3(scale, scale, scale));
             }
 
+            /// <summary>Detaches this transform from its parent and destroys the associated GameObject.</summary>
             public static void DetachAndDestroy(this Transform transform)
             {
                 transform.SetParent(null);
-                GameObject.Destroy(transform.gameObject);
+                Object.Destroy(transform.gameObject);
             }
 
-            public static void LerpPosition(this Transform transform, Vector3 targetPosition, float t)
-            {
-                transform.position = Vector3.Lerp(transform.position, targetPosition, t);
-            }
-
-
-            public static void LerpRotation(this Transform transform, Quaternion targetRotation, float t)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, t);
-            }
-
-            public static void LerpScale(this Transform transform, Vector3 targetScale, float t)
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, targetScale, t);
-            }
-
-            public static void LerpLocalPosition(this Transform transform, Vector3 targetPosition, float t)
-            {
-                transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, t);
-            }
-
-            public static void LerpLocalRotation(this Transform transform, Quaternion targetRotation, float t)
-            {
-                transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, t);
-            }
-
-            public static void LerpLocalScale(this Transform transform, Vector3 targetScale, float t)
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, targetScale, t);
-            }
-
-            public static void SlerpRotation(this Transform transform, Quaternion targetRotation, float t)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, t);
-            }
-
-            public static float GetDistanceTo(this Transform transform, Transform target)
-            {
-                return Vector3.Distance(transform.position, target.position);
-            }
-
-            public static void MirrorAcrossAxis(this Transform transform, Vector3 axis)
-            {
-                transform.position = Vector3.Reflect(transform.position, axis.normalized);
-            }
-
-            public static void MirrorAcrossPlane(this Transform transform, Plane plane)
-            {
-                transform.position = plane.ClosestPointOnPlane(transform.position) + (transform.position - plane.ClosestPointOnPlane(transform.position));
-            }
-
+            /// <summary>Rotates this transform around another object's position along the given axis.</summary>
             public static void RotateAroundObject(this Transform transform, Transform target, Vector3 axis, float angle)
             {
                 transform.RotateAround(target.position, axis, angle);
             }
 
+            /// <summary>Rotates the transform around a point along the given axis.</summary>
             public static void RotateAround(this Transform transform, Vector3 point, Vector3 axis, float angle)
             {
                 transform.RotateAround(point, axis, angle);
             }
 
-            public static void RotateAroundAxisWithDuration(this Transform transform, Vector3 axis, float angle, float duration)
+            /// <summary>Smoothly rotates around a given axis over a set duration.</summary>
+            public static void RotateAroundAxisWithDuration(this Transform transform, Vector3 axis, float angle, float duration, float deltaTime)
             {
-                transform.Rotate(axis, angle * (Time.deltaTime / duration), Space.World);
+                float angleStep = angle * (deltaTime / duration);
+                transform.Rotate(axis, angleStep, Space.Self);
             }
 
+            /// <summary>Swaps the position of this transform with another.</summary>
             public static void SwapPositionWith(this Transform transform, Transform target)
             {
                 Vector3 temp = transform.position;
@@ -232,6 +189,7 @@ namespace IuvoUnity
                 target.position = temp;
             }
 
+            /// <summary>Swaps the rotation of this transform with another.</summary>
             public static void SwapRotationWith(this Transform transform, Transform target)
             {
                 Quaternion temp = transform.rotation;
@@ -239,6 +197,7 @@ namespace IuvoUnity
                 target.rotation = temp;
             }
 
+            /// <summary>Swaps the local scale of this transform with another.</summary>
             public static void SwapScaleWith(this Transform transform, Transform target)
             {
                 Vector3 temp = transform.localScale;
@@ -246,71 +205,42 @@ namespace IuvoUnity
                 target.localScale = temp;
             }
 
+            /// <summary>Projects the transform's position onto a plane defined by the normal.</summary>
             public static Vector3 GetFlattenedPosition(this Transform transform, Vector3 planeNormal)
             {
                 return Vector3.ProjectOnPlane(transform.position, planeNormal);
             }
 
-            public static void RotateSmoothlyTowards(this Transform transform, Vector3 targetPosition, float rotationSpeed)
+            /// <summary>Smoothly rotates the transform to face a world position.</summary>
+            public static void RotateSmoothlyTowards(this Transform transform, Vector3 targetPosition, float rotationSpeed, float deltaTime)
             {
-                Vector3 direction = (targetPosition - transform.position).normalized;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                Vector3 direction = targetPosition - transform.position;
+                if (direction != Vector3.zero)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * deltaTime);
+                }
             }
 
-            public static void RotateSmoothlyTowards(this Transform transform, Transform target, float rotationSpeed)
+            /// <summary>Smoothly rotates the transform to face another transform.</summary>
+            public static void RotateSmoothlyTowards(this Transform transform, Transform target, float rotationSpeed, float deltaTime)
             {
-                Vector3 direction = (target.position - transform.position).normalized;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                RotateSmoothlyTowards(transform, target.position, rotationSpeed, deltaTime);
             }
 
-            public static void RotateSmoothlyTowards(this Transform transform, Vector3 targetPosition, float rotationSpeed, float maxDegreesDelta)
+            /// <summary>Recursively gets all descendant GameObjects of the transform.</summary>
+            public static IEnumerable<GameObject> GetAllChildren(this Transform transform)
             {
-                Vector3 direction = (targetPosition - transform.position).normalized;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDegreesDelta);
-            }
-
-            public static void SetXPositionOnly(this Transform transform, float x)
-            {
-                transform.position = new Vector3(x, transform.position.y, transform.position.z);
-            }
-
-            public static void SetYPositionOnly(this Transform transform, float y)
-            {
-                transform.position = new Vector3(transform.position.x, y, transform.position.z);
-            }
-
-            public static void SetZPositionOnly(this Transform transform, float z)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, z);
-            }
-
-            public static Vector3 GetWorldPosition(this Transform transform)
-            {
-                return transform.position;
-            }
-
-            public static List<GameObject> GetAllChildren(this Transform transform)
-            {
-                List<GameObject> children = new List<GameObject>();
-
-                // Loop through all child transforms and add their game objects to the list
                 foreach (Transform child in transform)
                 {
-                    children.Add(child.gameObject);
+                    yield return child.gameObject;
 
-                    // Recursively add children of children (if any)
-                    children.AddRange(child.GetAllChildren());
+                    foreach (var descendant in child.GetAllChildren())
+                    {
+                        yield return descendant;
+                    }
                 }
-
-                return children;
             }
-
-
-
-
         }
     }
 }

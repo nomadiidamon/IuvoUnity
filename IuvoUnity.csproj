@@ -124,12 +124,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="src\_BaseClasses\DataStructBases.cs" />
     <Compile Include="src\_BaseClasses\IuvoInterfaceBase.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\ComponentManager.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentBase.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentInterfaces.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentLayout.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponents.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoConfigurationBase.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntity.cs" />
     <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntityRegistry.cs" />
@@ -156,9 +156,7 @@
     <Compile Include="src\_BaseClasses\_RPGBases\IuvoRPGComponents_ECS.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\AbilityController.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\BaseAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\DashAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\IAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\JumpAbility.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IAbility.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\ICauseReaction.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IDealDamage.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IReactable.cs" />
@@ -175,6 +173,7 @@
     <Compile Include="src\_BaseClasses\_TimeBases\IuvoTimer.cs" />
     <Compile Include="src\_BaseClasses\_TimeBases\IuvoTimerComponents.cs" />
     <Compile Include="src\_DataStructs\RangeDataComponent.cs" />
+    <Compile Include="src\_ECS\_Components\IuvoComponents.cs" />
     <Compile Include="src\_ExtensionMethods\AnimatorExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\GameObjectExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\GenericExtensions.cs" />
@@ -192,7 +191,6 @@
     <Compile Include="src\_Input\PlayerAbilityInput.cs" />
     <Compile Include="src\_Interfaces\ICloneable.cs" />
     <Compile Include="src\_Interfaces\IConditional.cs" />
-    <Compile Include="src\_Interfaces\InterfaceExtensions.cs" />
     <Compile Include="src\_Interfaces\IObservable.cs" />
     <Compile Include="src\_Interfaces\IObserver.cs" />
     <Compile Include="src\_Interfaces\IStateACondition.cs" />
@@ -217,6 +215,8 @@
     <Compile Include="src\_Input\PlayerMoveAction.cs" />
     <Compile Include="src\_Physics\GroundCheck.cs" />
     <Compile Include="src\_Physics\PhysicsHelpers.cs" />
+    <Compile Include="src\_RPG\DashAbility.cs" />
+    <Compile Include="src\_RPG\JumpAbility.cs" />
     <Compile Include="src\_Singletons\_Managers\CameraManager.cs" />
     <Compile Include="src\_Singletons\_Managers\EnemyManager.cs" />
     <Compile Include="src\_Singletons\_Managers\PlayerManager.cs" />
@@ -230,7 +230,6 @@
     <Folder Include="src\_BaseClasses\_SingletonBases\" />
     <Folder Include="src\_Constants\" />
     <Folder Include="src\_Coroutines\" />
-    <Folder Include="src\_ECS\_Components\" />
     <Folder Include="src\_Events\" />
     <Folder Include="src\_Input\_Controllers\" />
     <Folder Include="src\_Math\" />
@@ -238,7 +237,6 @@
     <Folder Include="src\_OverrideClasses\" />
     <Folder Include="src\_ProceduralGeneration\" />
     <Folder Include="src\_ProgrammingPatterns\" />
-    <Folder Include="src\_RPG\" />
     <Folder Include="src\_Saving\" />
     <Folder Include="src\_Scene\" />
     <Folder Include="src\_ScriptableObjects\" />

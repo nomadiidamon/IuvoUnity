@@ -3,9 +3,12 @@ namespace IuvoUnity
 {
     namespace _Interfaces
     {
-        public interface IReactable
+        namespace _RPG
         {
-            public void React();
+            public interface IReactable
+            {
+                public void React();
+            }
         }
     }
 }

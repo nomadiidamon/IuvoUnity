@@ -4,11 +4,15 @@ namespace IuvoUnity
 {
     namespace _Interfaces
     {
-        public interface IStunnable
-        {
 
-            void Stun(float time);
-            bool isStunned { get; set; }
+        namespace _RPG
+        {
+            public interface IStunnable
+            {
+
+                void Stun(float time);
+                bool isStunned { get; set; }
+            }
         }
     }
 }
