@@ -68,7 +68,7 @@ namespace IuvoUnity
 
                 public interface IConfigure : IuvoInterfaceBase
                 {
-                    public abstract void OnConfigure(IuvoEntity enity);
+                    public abstract void OnConfigure(IuvoEntity entity);
                 }
                 public interface IReconfigure : IuvoInterfaceBase
                 {
@@ -85,7 +85,7 @@ namespace IuvoUnity
                 }
                 public interface INotifyOfChange : IuvoInterfaceBase
                 {
-                    public abstract void OnNotifyOfChange<T>(IuvoEntity entity);
+                    public abstract void OnNotifyOfChange<T>(IuvoEntity entity) where T: IChange;
                 }
                 public interface INotifiable : IuvoInterfaceBase, INotifyOfChange, IChange
                 {
@@ -124,7 +124,7 @@ namespace IuvoUnity
                     public bool IsActive { get; set; }
 
                 }
-                public interface Pausable : IuvoInterfaceBase, ITogglable
+                public interface IPausable : IuvoInterfaceBase, ITogglable
                 {
                     public bool IsPaused { get; set; }
                     public abstract void OnPause(IuvoEntity entity);
@@ -137,7 +137,7 @@ namespace IuvoUnity
                 }
                 public interface IResetData : IuvoInterfaceBase
                 {
-                    public Type resetData { get; set; }
+                    public Type ResetData { get; set; }
                 }
                 public interface IResetable : IuvoInterfaceBase, IReset, IResetData
                 {
