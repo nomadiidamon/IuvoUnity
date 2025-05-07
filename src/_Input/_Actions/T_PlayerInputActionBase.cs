@@ -1,4 +1,3 @@
-//using UnityEngine.InputSystem;
 //using UnityEngine;
 //using UnityEngine.Events;
 
@@ -9,7 +8,7 @@
 //    public InputAction action;
 
 //    [Tooltip("The name of the action.")]
-//    [SerializeField]public string actionName;
+//    [SerializeField] public string actionName;
 
 //    [Tooltip("Unity Event triggered when the input action is performed.")]
 //    public UnityEvent onInputPerformed; // Trigger when input conditions are met

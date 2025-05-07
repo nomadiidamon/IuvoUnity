@@ -8,7 +8,7 @@ namespace IuvoUnity
     {
         namespace _ProgrammingPatterns
         {
-            public class ObservableClass : EntityView, IObservable
+            public class ObservableClass : IObservable
             {
                 public List<IObserver> Observers { get; } = new List<IObserver>();
 

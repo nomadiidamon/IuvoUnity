@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace IuvoUnity
 {
@@ -6,7 +6,7 @@ namespace IuvoUnity
     {
         namespace _ECS
         {
-            public class EntityView : MonoBehaviour
+            public class MonoEntity : MonoBehaviour
             {
                 public IuvoEntity _Entity { get; private set; }
 
@@ -15,6 +15,9 @@ namespace IuvoUnity
                     _Entity = entity;
                 }
             }
+
         }
+
+
     }
 }

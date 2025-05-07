@@ -8,7 +8,7 @@ namespace IuvoUnity
 {
     namespace _Debug
     {
-        public static class _Debug
+        public static class IuvoDebug
         {
             public static void DebugTransform(Transform toDebug)
             {

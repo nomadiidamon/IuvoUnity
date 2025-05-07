@@ -1,10 +1,22 @@
 ﻿using IuvoUnity._BaseClasses;
-namespace IuvoUniy
+namespace IuvoUnity
 {
 
     namespace _DataStructs
     {
-        public struct RangeFloat : DataStructBases
+        public interface IRange : IDataStructBases
+        {
+
+        }
+
+    
+
+
+
+
+
+
+        public struct RangeFloat : IRange
         {
             public float min;
             public float max;
@@ -19,8 +31,10 @@ namespace IuvoUniy
                 return UnityEngine.Random.Range(min, max);
             }
         }
+        
 
-        public struct RangeDouble : DataStructBases
+
+        public struct RangeDouble : IRange
         {
             public double min;
             public double max;
@@ -35,7 +49,9 @@ namespace IuvoUniy
             }
         }
 
-        public class RangeInt : DataStructBases
+
+
+        public class RangeInt : IRange
         {
             public int min;
             public int max;
@@ -53,5 +69,9 @@ namespace IuvoUniy
 
 
         }
+
+
+
+
     }
 }

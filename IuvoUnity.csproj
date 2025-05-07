@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExCSS.Unity">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\ExCSS.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -80,6 +83,19 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.InputForUIModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputForUIModule.dll</HintPath>
     </Reference>
@@ -91,6 +107,9 @@
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.MultiplayerModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.MultiplayerModule.dll</HintPath>
@@ -113,8 +132,17 @@
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.VFXModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -124,18 +152,42 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="src\_BaseClasses\DataStructBases.cs" />
-    <Compile Include="src\_BaseClasses\IuvoInterfaceBase.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Components\ComponentManager.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentBase.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentInterfaces.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoComponentLayout.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Components\IuvoConfigurationBase.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntity.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntityRegistry.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Entities\IuvoEntityView.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Systems\IuvoSystem.cs" />
-    <Compile Include="src\_BaseClasses\_ECSBases\_Systems\IuvoSystemRegistry.cs" />
+    <Compile Include="src\_AI\T_AIBehaviorBase.cs" />
+    <Compile Include="src\_AI\T_AIBelief.cs" />
+    <Compile Include="src\_AI\T_AIContext.cs" />
+    <Compile Include="src\_AI\T_AIDecision.cs" />
+    <Compile Include="src\_AI\T_AIDecisionTree.cs" />
+    <Compile Include="src\_AI\T_AIGoal.cs" />
+    <Compile Include="src\_AI\T_AIIncentive.cs" />
+    <Compile Include="src\_AI\T_AIMemory.cs" />
+    <Compile Include="src\_AI\T_AIMultiSensorManager.cs" />
+    <Compile Include="src\_AI\T_AIRegistry.cs" />
+    <Compile Include="src\_AI\T_AISensorManager.cs" />
+    <Compile Include="src\_Animation\T_AnimationCurve.cs" />
+    <Compile Include="src\_Animation\T_AnimationIKPair.cs" />
+    <Compile Include="src\_Animation\T_AnimationIKPosition.cs" />
+    <Compile Include="src\_Animation\T_AnimationIKTarget.cs" />
+    <Compile Include="src\_Animation\T_AnimationPlayables.cs" />
+    <Compile Include="src\_Animation\T_AnimationSoundOnEvent.cs" />
+    <Compile Include="src\_Audio\T_Audio.cs" />
+    <Compile Include="src\_BaseClasses\E_IuvoInterfaceBase.cs" />
+    <Compile Include="src\_BaseClasses\_DataStructBases\E_DataStructBases.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\E_ComponentManager.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\E_IuvoComponentBase.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\E_IuvoComponentInterfaces.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\E_IuvoComponentLayout.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Components\E_IuvoConfigurationBase.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Entities\E_IuvoEntity.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Entities\E_IuvoEntityRegistry.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Entities\E_MonoEntity.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Entities\T_EntityManager.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Systems\E_IuvoSystemBase.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Systems\E_IuvoSystemRegistry.cs" />
+    <Compile Include="src\_BaseClasses\_ECSBases\_Systems\T_IuvoSystemManager.cs" />
+    <Compile Include="src\_BaseClasses\_EventBases\T_EventBase.cs" />
+    <Compile Include="src\_BaseClasses\_EventBases\T_MonoEventBase.cs" />
+    <Compile Include="src\_BaseClasses\_InputBases\T_InputBase.cs" />
+    <Compile Include="src\_BaseClasses\_InputBases\T_InputBaseLegacy.cs" />
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\Version 2 - Testudo\Corridor.cs" />
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\Version 2 - Testudo\CorridorFactory.cs" />
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\Version 2 - Testudo\DungeonManager.cs" />
@@ -144,36 +196,44 @@
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\Version 2 - Testudo\Room.cs" />
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\Version 2 - Testudo\RoomFactory.cs" />
     <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\Version 2 - Testudo\Wall.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralGridMesh.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralMazeGeneration.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralMesh.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralShapes\ProceduralCylinder.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralStripMesh.cs" />
-    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\TerrainGenerator.cs" />
-    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_CommandPattern\Command.cs" />
-    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_ObserverPattern\ObservableClass.cs" />
-    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_ObserverPattern\ObserverClass.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\IuvoRPGComponents_ECS.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\AbilityController.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\BaseAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\ICauseReaction.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IDealDamage.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IReactable.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\IStunnable.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\ISurface.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachineBases\IStateMachineCondition.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachineBases\StateMachineAnalyzer.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachineBases\_StateMachine\GenericStateMachine.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachineBases\_StateMachine\HumanoidStateMachine.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachineBases\_States\GenericState.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachineBases\_States\IdleStates\GenericIdleState.cs" />
-    <Compile Include="src\_BaseClasses\_StateMachineBases\_States\MoveStates\GenericMoveState.cs" />
-    <Compile Include="src\_BaseClasses\_TimeBases\IuvoTime.cs" />
-    <Compile Include="src\_BaseClasses\_TimeBases\IuvoTimer.cs" />
-    <Compile Include="src\_BaseClasses\_TimeBases\IuvoTimerComponents.cs" />
-    <Compile Include="src\_DataStructs\RangeDataComponent.cs" />
-    <Compile Include="src\_ECS\_Components\IuvoComponents.cs" />
+    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\E_ProceduralGridMesh.cs" />
+    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\E_ProceduralMazeGeneration.cs" />
+    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\E_ProceduralMesh.cs" />
+    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\E_ProceduralStripMesh.cs" />
+    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\E_TerrainGenerator.cs" />
+    <Compile Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMesh\ProceduralShapes\E_ProceduralCylinder.cs" />
+    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_Command\E_Command.cs" />
+    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_Factory\T_Factory.cs" />
+    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_FluentBuilder\T_FluentBuilder.cs" />
+    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_ObjectPooling\T_ObjectPooling.cs" />
+    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_Observer\E_ObservableClass.cs" />
+    <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_Observer\E_ObserverClass.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\E_IuvoRPGComponents_ECS.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_AbilityController.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_BaseAbility.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IAbility.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_ICauseReaction.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IDealDamage.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IReactable.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IStunnable.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_ISurface.cs" />
+    <Compile Include="src\_BaseClasses\_SingletonBases\T_SingletonBase.cs" />
+    <Compile Include="src\_BaseClasses\_StateMachineBases\E_IStateMachineCondition.cs" />
+    <Compile Include="src\_BaseClasses\_StateMachineBases\E_StateMachineAnalyzer.cs" />
+    <Compile Include="src\_BaseClasses\_StateMachineBases\_StateMachine\E_GenericStateMachine.cs" />
+    <Compile Include="src\_BaseClasses\_StateMachineBases\_StateMachine\E_HumanoidStateMachine.cs" />
+    <Compile Include="src\_BaseClasses\_StateMachineBases\_States\E_GenericState.cs" />
+    <Compile Include="src\_BaseClasses\_StateMachineBases\_States\IdleStates\E_GenericIdleState.cs" />
+    <Compile Include="src\_BaseClasses\_StateMachineBases\_States\MoveStates\E_GenericMoveState.cs" />
+    <Compile Include="src\_BaseClasses\_TimeBases\E_IuvoTime.cs" />
+    <Compile Include="src\_BaseClasses\_TimeBases\E_IuvoTimer.cs" />
+    <Compile Include="src\_BaseClasses\_TimeBases\E_IuvoTimerComponents.cs" />
+    <Compile Include="src\_BaseClasses\_UIBases\T_UIBases.cs" />
+    <Compile Include="src\_Constants\T_Constants.cs" />
+    <Compile Include="src\_Coroutines\T_Coroutines.cs" />
+    <Compile Include="src\_DataStructs\E_ComparableData.cs" />
+    <Compile Include="src\_DataStructs\E_RangeData.cs" />
+    <Compile Include="src\_ECS\_Components\E_IuvoComponents.cs" />
     <Compile Include="src\_ExtensionMethods\AnimatorExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\GameObjectExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\GenericExtensions.cs" />
@@ -188,7 +248,14 @@
     <Compile Include="src\_ExtensionMethods\UICanvasExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\Vector3Extensions.cs" />
     <Compile Include="src\_ExtensionMethods\VisualEffectExtensions.cs" />
-    <Compile Include="src\_Input\PlayerAbilityInput.cs" />
+    <Compile Include="src\_Input\_Actions\T_PlayerControls.cs" />
+    <Compile Include="src\_Input\_Actions\T_PlayerInputActionBase.cs" />
+    <Compile Include="src\_Input\_Actions\T_PlayerMoveAction.cs" />
+    <Compile Include="src\_Input\_Controllers\E_GravityController.cs" />
+    <Compile Include="src\_Input\_Controllers\T_MovementController.cs" />
+    <Compile Include="src\_Input\_Controllers\T_PlayerController.cs" />
+    <Compile Include="src\_Input\_Input\T_PlayerAbilityInput.cs" />
+    <Compile Include="src\_Input\_Input\T_PlayerInputManager.cs" />
     <Compile Include="src\_Interfaces\ICloneable.cs" />
     <Compile Include="src\_Interfaces\IConditional.cs" />
     <Compile Include="src\_Interfaces\IObservable.cs" />
@@ -205,14 +272,7 @@
     <Compile Include="src\_Collider\BoxColliderExtensions.cs" />
     <Compile Include="src\_Collider\ColliderExtensions.cs" />
     <Compile Include="src\_Color\LerpColor.cs" />
-    <Compile Include="src\_Debug\IuvoDebug.cs" />
-    <Compile Include="src\_Input\GravityController.cs" />
-    <Compile Include="src\_Input\MovementController.cs" />
-    <Compile Include="src\_Input\PlayerController.cs" />
-    <Compile Include="src\_Input\PlayerControls.cs" />
-    <Compile Include="src\_Input\PlayerInputActionBase.cs" />
-    <Compile Include="src\_Input\PlayerInputManager.cs" />
-    <Compile Include="src\_Input\PlayerMoveAction.cs" />
+    <Compile Include="src\_Debug\E_IuvoDebug.cs" />
     <Compile Include="src\_Physics\GroundCheck.cs" />
     <Compile Include="src\_Physics\PhysicsHelpers.cs" />
     <Compile Include="src\_RPG\DashAbility.cs" />
@@ -224,14 +284,11 @@
     <Compile Include="src\_Singletons\_Managers\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\_AI\" />
-    <Folder Include="src\_Audio\" />
-    <Folder Include="src\_BaseClasses\_InputBases\" />
-    <Folder Include="src\_BaseClasses\_SingletonBases\" />
-    <Folder Include="src\_Constants\" />
-    <Folder Include="src\_Coroutines\" />
+    <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralDungeon\" />
+    <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMaze\" />
+    <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralStructures\" />
+    <Folder Include="src\_Editor\" />
     <Folder Include="src\_Events\" />
-    <Folder Include="src\_Input\_Controllers\" />
     <Folder Include="src\_Math\" />
     <Folder Include="src\_Networking\" />
     <Folder Include="src\_OverrideClasses\" />
