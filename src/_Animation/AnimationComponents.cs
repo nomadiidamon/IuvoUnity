@@ -1,47 +1,46 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using IuvoUnity._BaseClasses;
 
 namespace IuvoUnity
-{   
-    namespace IuvoECS
+{
+    namespace _DataStructs
     {
-        namespace IuvoComponents
+
+        public class AnimationStateData : IDataStructBase
         {
-
-                public class AnimationStateData
-                {
-                    int hashID;
-                    string name;
-                }
-
-                public class AnimationBlendData
-                {
-                    float _blendSpeed;
-                    float _blenTime;
-                }
-
-                public class AnimationTransitionData
-                {
-                    float _transitionSpeed;
-                    float _transitionTime;
-                }
-
-                public class AnimationClipData
-                {
-                    AnimationClip _animationClip { get; set; }
-                }
-
-                public class AnimationClipsData
-                {
-                    List<AnimationClipData> _clips;
-                }
-
-                public class AnimationEventData
-                {
-                    AnimationEvent _animationEvent { get; set; }
-                }
-
-            
+            int hashID;
+            string name;
         }
+
+        public class AnimationBlendData : IDataStructBase
+        {
+            float _blendSpeed;
+            float _blendTime;
+        }
+
+        public class AnimationTransitionData : IDataStructBase
+        {
+            float _transitionSpeed;
+            float _transitionTime;
+        }
+
+        public class AnimationClipData : IDataStructBase
+        {
+            AnimationClip _animationClip { get; set; }
+        }
+
+        public class AnimationClipsData : IDataStructBase
+        {
+            List<AnimationClipData> _clips;
+        }
+
+        public class AnimationEventData : IDataStructBase
+        {
+            AnimationEvent _animationEvent { get; set; }
+        }
+
+
+
     }
 }

@@ -1,4 +1,3 @@
-using IuvoUnity.IuvoECS.IuvoComponents;
 using System.Collections.Generic;
 
 namespace IuvoUnity

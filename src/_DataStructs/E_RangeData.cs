@@ -4,7 +4,7 @@ namespace IuvoUnity
 
     namespace _DataStructs
     {
-        public interface IRange : IDataStructBases
+        public interface IRange : IDataStructBase
         {
 
         }

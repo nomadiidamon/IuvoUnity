@@ -7,7 +7,7 @@ namespace IuvoUnity
 
     namespace _DataStructs
     {
-        public interface ComparableData : IDataStructBases
+        public interface ComparableData : IDataStructBase
         {
             bool LessThan();
             bool LessThanOrEqual();
