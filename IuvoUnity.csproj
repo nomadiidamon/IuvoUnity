@@ -208,9 +208,11 @@
     <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_ObjectPooling\T_ObjectPooling.cs" />
     <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_Observer\E_ObservableClass.cs" />
     <Compile Include="src\_BaseClasses\_ProgrammingPatternBases\_Observer\E_ObserverClass.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\E_IuvoRPGComponents_ECS.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\E_RPGComponentBase.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_AbilityController.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_BaseAbility.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Level\E_LevelBase.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Level\E_StatBase.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IAbility.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_ICauseReaction.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IDealDamage.cs" />
@@ -235,7 +237,9 @@
     <Compile Include="src\_Coroutines\T_Coroutines.cs" />
     <Compile Include="src\_DataStructs\E_BasicTImer.cs" />
     <Compile Include="src\_DataStructs\E_ComparableData.cs" />
+    <Compile Include="src\_DataStructs\E_Description.cs" />
     <Compile Include="src\_DataStructs\E_InteractableData.cs" />
+    <Compile Include="src\_DataStructs\E_Name.cs" />
     <Compile Include="src\_DataStructs\E_RangeData.cs" />
     <Compile Include="src\_DataStructs\E_SpawnData.cs" />
     <Compile Include="src\_DataStructs\E_TransformData.cs" />
@@ -293,6 +297,8 @@
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralDungeon\" />
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMaze\" />
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralStructures\" />
+    <Folder Include="src\_BaseClasses\_RPGBases\_Level\_Maps\" />
+    <Folder Include="src\_BaseClasses\_RPGBases\_Level\_Stats\" />
     <Folder Include="src\_Editor\" />
     <Folder Include="src\_Events\" />
     <Folder Include="src\_Math\" />
