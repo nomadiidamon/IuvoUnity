@@ -229,10 +229,16 @@
     <Compile Include="src\_BaseClasses\_TimeBases\E_IuvoTimer.cs" />
     <Compile Include="src\_BaseClasses\_TimeBases\E_IuvoTimerComponents.cs" />
     <Compile Include="src\_BaseClasses\_UIBases\T_UIBases.cs" />
+    <Compile Include="src\_Color\E_ComparableColor.cs" />
+    <Compile Include="src\_Constants\E_ConstantTags.cs" />
     <Compile Include="src\_Constants\T_Constants.cs" />
     <Compile Include="src\_Coroutines\T_Coroutines.cs" />
+    <Compile Include="src\_DataStructs\E_BasicTImer.cs" />
     <Compile Include="src\_DataStructs\E_ComparableData.cs" />
+    <Compile Include="src\_DataStructs\E_InteractableData.cs" />
     <Compile Include="src\_DataStructs\E_RangeData.cs" />
+    <Compile Include="src\_DataStructs\E_SpawnData.cs" />
+    <Compile Include="src\_DataStructs\E_TransformData.cs" />
     <Compile Include="src\_ECS\_Components\E_IuvoComponents.cs" />
     <Compile Include="src\_ExtensionMethods\AnimatorExtensions.cs" />
     <Compile Include="src\_ExtensionMethods\GameObjectExtensions.cs" />
@@ -271,7 +277,7 @@
     <Compile Include="src\_Camera\_Cinemachine\CinemachineExtensions.cs" />
     <Compile Include="src\_Collider\BoxColliderExtensions.cs" />
     <Compile Include="src\_Collider\ColliderExtensions.cs" />
-    <Compile Include="src\_Color\LerpColor.cs" />
+    <Compile Include="src\_Color\E_LerpColor.cs" />
     <Compile Include="src\_Debug\E_IuvoDebug.cs" />
     <Compile Include="src\_Physics\GroundCheck.cs" />
     <Compile Include="src\_Physics\PhysicsHelpers.cs" />
