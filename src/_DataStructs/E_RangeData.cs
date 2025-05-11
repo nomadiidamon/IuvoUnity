@@ -6,7 +6,8 @@ namespace IuvoUnity
 {
 
     namespace _DataStructs
-    {        
+    {
+        [System.Serializable]
         public abstract class Range<T> : IDataStructBase where T : struct
         {
             public abstract T Min { get; set; }
@@ -34,6 +35,7 @@ namespace IuvoUnity
 
             public RangeF(float min, float max)
             {
+
                 this.min = min;
                 this.max = max;
             }

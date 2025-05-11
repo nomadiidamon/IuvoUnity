@@ -211,8 +211,8 @@
     <Compile Include="src\_BaseClasses\_RPGBases\E_RPGComponentBase.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_AbilityController.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_BaseAbility.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_Level\E_LevelBase.cs" />
-    <Compile Include="src\_BaseClasses\_RPGBases\_Level\E_StatBase.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Level\_Stats\E_LevelBase.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Level\_Stats\E_StatBase.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IAbility.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_ICauseReaction.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IDealDamage.cs" />
@@ -236,6 +236,7 @@
     <Compile Include="src\_Constants\T_Constants.cs" />
     <Compile Include="src\_Coroutines\T_Coroutines.cs" />
     <Compile Include="src\_DataStructs\E_BasicTImer.cs" />
+    <Compile Include="src\_DataStructs\E_ClampedValue.cs" />
     <Compile Include="src\_DataStructs\E_ComparableData.cs" />
     <Compile Include="src\_DataStructs\E_Description.cs" />
     <Compile Include="src\_DataStructs\E_InteractableData.cs" />
@@ -285,8 +286,12 @@
     <Compile Include="src\_Debug\E_IuvoDebug.cs" />
     <Compile Include="src\_Physics\GroundCheck.cs" />
     <Compile Include="src\_Physics\PhysicsHelpers.cs" />
-    <Compile Include="src\_RPG\DashAbility.cs" />
-    <Compile Include="src\_RPG\JumpAbility.cs" />
+    <Compile Include="src\_RPG\E_DashAbility.cs" />
+    <Compile Include="src\_RPG\E_Health.cs" />
+    <Compile Include="src\_RPG\E_Item.cs" />
+    <Compile Include="src\_RPG\E_JumpAbility.cs" />
+    <Compile Include="src\_RPG\E_Mana.cs" />
+    <Compile Include="src\_RPG\E_Stamina.cs" />
     <Compile Include="src\_Singletons\_Managers\CameraManager.cs" />
     <Compile Include="src\_Singletons\_Managers\EnemyManager.cs" />
     <Compile Include="src\_Singletons\_Managers\PlayerManager.cs" />
@@ -298,7 +303,6 @@
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMaze\" />
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralStructures\" />
     <Folder Include="src\_BaseClasses\_RPGBases\_Level\_Maps\" />
-    <Folder Include="src\_BaseClasses\_RPGBases\_Level\_Stats\" />
     <Folder Include="src\_Editor\" />
     <Folder Include="src\_Events\" />
     <Folder Include="src\_Math\" />
