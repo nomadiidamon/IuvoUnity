@@ -25,6 +25,7 @@ namespace IuvoUnity
                 }
                 return false;
             }
+            public override string ToString() => $"[{Min} .. {Max}]";
         }
 
         [System.Serializable]

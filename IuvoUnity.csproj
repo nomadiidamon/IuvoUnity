@@ -238,9 +238,9 @@
     <Compile Include="src\_DataStructs\E_BasicTImer.cs" />
     <Compile Include="src\_DataStructs\E_ClampedValue.cs" />
     <Compile Include="src\_DataStructs\E_ComparableData.cs" />
-    <Compile Include="src\_DataStructs\E_Description.cs" />
+    <Compile Include="src\_DataStructs\E_DataDescription.cs" />
     <Compile Include="src\_DataStructs\E_InteractableData.cs" />
-    <Compile Include="src\_DataStructs\E_Name.cs" />
+    <Compile Include="src\_DataStructs\E_DataName.cs" />
     <Compile Include="src\_DataStructs\E_RangeData.cs" />
     <Compile Include="src\_DataStructs\E_SpawnData.cs" />
     <Compile Include="src\_DataStructs\E_TransformData.cs" />

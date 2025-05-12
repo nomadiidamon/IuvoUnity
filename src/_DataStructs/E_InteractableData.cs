@@ -8,8 +8,8 @@ namespace IuvoUnity
         [System.Serializable]
         public struct InteractableData : IDataStructBase
         {
-            public string displayName;
-            public string tooltip;
+            public DataName displayName;
+            public DataDescription tooltip;
             public bool isEnabled;
         }
     }

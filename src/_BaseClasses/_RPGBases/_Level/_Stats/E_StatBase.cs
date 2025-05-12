@@ -9,7 +9,7 @@ namespace IuvoUnity
             [System.Serializable]
             public class StatBase : AttributeLevel
             {
-                public Name _statName; 
+                public DataName _statName; 
                 public LevelValueComponent _levelValue;
                 private ExperienceData _expValue;
                 public ExperienceGaugeComponent _experienceGauge;

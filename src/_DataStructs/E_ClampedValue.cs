@@ -28,6 +28,9 @@ namespace IuvoUnity
             public bool IsAtMin => EqualityComparer<T>.Default.Equals(_value, Range.Min);
             public bool IsAtMax => EqualityComparer<T>.Default.Equals(_value, Range.Max);
             public bool IsWithinRange => Range.Contains(_value);
+
+            public override string ToString() => $"[{Range.Min}...{_value}...{Range.Max}]";
+
         }
 
         [System.Serializable]
@@ -35,11 +38,6 @@ namespace IuvoUnity
         {
             public ClampedFloat(RangeF range, float initialValue) : base(range, initialValue) { }
 
-            public new RangeF Range
-            {
-                get => (RangeF)base.Range;
-                set => base.Range = value;
-            }
         }
 
         [System.Serializable]
@@ -47,11 +45,6 @@ namespace IuvoUnity
         {
             public ClampedInt(RangeInt range, int initialValue) : base(range, initialValue) { }
 
-            public new RangeInt Range
-            {
-                get => (RangeInt)base.Range;
-                set => base.Range = value;
-            }
         }
     }
 }

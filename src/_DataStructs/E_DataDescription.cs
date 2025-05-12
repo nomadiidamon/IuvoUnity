@@ -6,12 +6,12 @@ namespace IuvoUnity
 {
     namespace _DataStructs
     {
-        public class Description : IDataStructBase
+        public class DataDescription : IDataStructBase
         {
             public string _description;
         }
 
-        public class LongDescription : IDataStructBase
+        public class DataLongDescription : IDataStructBase
         {
             public List<string> _sentences;
         }

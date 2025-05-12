@@ -4,7 +4,7 @@ namespace IuvoUnity
 {
     namespace _DataStructs
     {
-        public class Name : IDataStructBase
+        public class DataName : IDataStructBase
         {
             public string _name;
         }

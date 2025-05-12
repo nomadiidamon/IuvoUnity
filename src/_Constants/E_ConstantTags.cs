@@ -43,7 +43,6 @@ namespace IuvoUnity
             {
                 NONE = 0,
                 BUTTON,
-                HIGHLIGHTED_BUTTON,
                 COLOR_PICKER,
                 HUD,
                 HUD_COMPONENT,
@@ -116,6 +115,15 @@ namespace IuvoUnity
             {
                 uiTags.Remove(tag);
             }
+
+
+
+            public bool HasTagType(TagType type) => tagTypes.Contains(type);
+            public bool HasAppTag(ApplicationTag tag) => appTags.Contains(tag);
+            public bool HasGameTag(GameTag tag) => gameTags.Contains(tag);
+            public bool HasUITag(UITag tag) => uiTags.Contains(tag);
+
+
 
             public IReadOnlyList<TagType> GetTagTypes() => tagTypes.AsReadOnly();
             public IReadOnlyList<ApplicationTag> GetAppTags() => appTags.AsReadOnly();
