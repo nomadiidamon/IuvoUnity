@@ -41,6 +41,16 @@ namespace IuvoUnity
                             triangles.Add(i + width + 2);
                         }
                     }
+
+                    if (mesh == null)
+                    {
+                        mesh = new Mesh();
+                        mesh.vertices = vertices.ToArray();
+                        mesh.triangles = triangles.ToArray();
+                        mesh.uv = uvs.ToArray();
+                        mesh.RecalculateBounds();
+                        mesh.RecalculateNormals();
+                    }
                 }
             }
         }

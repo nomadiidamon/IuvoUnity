@@ -12,11 +12,11 @@ namespace IuvoUnity
             [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
             public abstract class ProceduralMesh : MonoBehaviour
             {
-                protected List<Vector3> vertices = new List<Vector3>();
-                protected List<int> triangles = new List<int>();
-                protected List<Vector2> uvs = new List<Vector2>();
-                protected List<Vector3> normals = new List<Vector3>();
-                protected Mesh mesh;
+                public List<Vector3> vertices = new List<Vector3>();
+                public List<int> triangles = new List<int>();
+                public List<Vector2> uvs = new List<Vector2>();
+                public List<Vector3> normals = new List<Vector3>();
+                public Mesh mesh;
 
                 protected virtual void Awake() => Generate();
 

@@ -1,284 +1,347 @@
 ﻿using System;
 using UnityEngine;
 
-
-namespace IuvoUnity
+namespace IuvoUnity._ExtensionMethods
 {
-    namespace _ExtensionMethods
+    public static class ParticleSystemExtensions
     {
-        public static class ParticleSystemExtensions
+        public static void WithEmissionRate(this ParticleSystem ps, float emissionRate)
         {
-
-
-            public static void SetEmissionRate(this ParticleSystem particleSystem, float emissionRate)
-            {
-                var emission = particleSystem.emission;
-                emission.rateOverTime = emissionRate;
-            }
-            public static void SetEmissionRate(this ParticleSystem particleSystem, float emissionRate, float duration)
-            {
-                var emission = particleSystem.emission;
-                emission.rateOverTime = emissionRate;
-                emission.enabled = true;
-            }
-
-            public static void StartEmission(this ParticleSystem particleSystem)
-            {
-                var emission = particleSystem.emission;
-                emission.enabled = true;
-            }
-
-            public static void StopEmission(this ParticleSystem particleSystem)
-            {
-                var emission = particleSystem.emission;
-                emission.enabled = false;
-            }
-
-            public static void SetColorOverLifetime(this ParticleSystem particleSystem, Gradient colorGradient)
-            {
-                var colorOverLifetime = particleSystem.colorOverLifetime;
-                colorOverLifetime.color = colorGradient;
-            }
-
-            public static void SetSizeOverLifetime(this ParticleSystem particleSystem, AnimationCurve sizeCurve)
-            {
-                var sizeOverLifetime = particleSystem.sizeOverLifetime;
-                sizeOverLifetime.size = new ParticleSystem.MinMaxCurve(1, sizeCurve);
-            }
-
-            public static void SetSizeOverLifetime(this ParticleSystem particleSystem, AnimationCurve sizeCurve, float duration)
-            {
-                var sizeOverLifetime = particleSystem.sizeOverLifetime;
-                sizeOverLifetime.size = new ParticleSystem.MinMaxCurve(1, sizeCurve);
-                sizeOverLifetime.enabled = true;
-            }
-
-            public static void SetRotationOverLifetime(this ParticleSystem particleSystem, AnimationCurve rotationCurve)
-            {
-                var rotationOverLifetime = particleSystem.rotationOverLifetime;
-                rotationOverLifetime.z = new ParticleSystem.MinMaxCurve(0, rotationCurve);
-            }
-
-            public static void SetRotationOverLifetime(this ParticleSystem particleSystem, AnimationCurve rotationCurve, float duration)
-            {
-                var rotationOverLifetime = particleSystem.rotationOverLifetime;
-                rotationOverLifetime.z = new ParticleSystem.MinMaxCurve(0, rotationCurve);
-                rotationOverLifetime.enabled = true;
-            }
-
-            public static void SetSpeedOverLifetime(this ParticleSystem particleSystem, AnimationCurve speedCurve)
-            {
-                var speedOverLifetime = particleSystem.velocityOverLifetime;
-                speedOverLifetime.x = new ParticleSystem.MinMaxCurve(1, speedCurve);
-            }
-
-            public static void SetSpeedOverLifetime(this ParticleSystem particleSystem, AnimationCurve speedCurve, float duration)
-            {
-                var speedOverLifetime = particleSystem.velocityOverLifetime;
-                speedOverLifetime.x = new ParticleSystem.MinMaxCurve(1, speedCurve);
-                speedOverLifetime.enabled = true;
-            }
-
-            public static void SetGravityOverLifetime(this ParticleSystem particleSystem, AnimationCurve gravityCurve)
-            {
-                var forceOverLifetime = particleSystem.forceOverLifetime;
-                forceOverLifetime.y = new ParticleSystem.MinMaxCurve(1, gravityCurve);
-            }
-
-            public static void SetGravityOverLifetime(this ParticleSystem particleSystem, AnimationCurve gravityCurve, float duration)
-            {
-                var forceOverLifetime = particleSystem.forceOverLifetime;
-                forceOverLifetime.y = new ParticleSystem.MinMaxCurve(1, gravityCurve);
-                forceOverLifetime.enabled = true;
-            }
-
-            public static void SetColorBySpeed(this ParticleSystem particleSystem, Gradient colorGradient)
-            {
-                var colorBySpeed = particleSystem.colorBySpeed;
-                colorBySpeed.color = colorGradient;
-            }
-
-            public static void SetSizeBySpeed(this ParticleSystem particleSystem, AnimationCurve sizeCurve)
-            {
-                var sizeBySpeed = particleSystem.sizeBySpeed;
-                sizeBySpeed.size = new ParticleSystem.MinMaxCurve(1, sizeCurve);
-            }
-
-            public static void SetRotationBySpeed(this ParticleSystem particleSystem, AnimationCurve rotationCurve)
-            {
-                var rotationBySpeed = particleSystem.rotationBySpeed;
-                rotationBySpeed.z = new ParticleSystem.MinMaxCurve(0, rotationCurve);
-            }
-
-            public static void SetSpeedBySpeed(this ParticleSystem particleSystem, AnimationCurve speedCurve)
-            {
-                var speedBySpeed = particleSystem.velocityOverLifetime;
-                speedBySpeed.x = new ParticleSystem.MinMaxCurve(1, speedCurve);
-            }
-
-            public static void SetGravityBySpeed(this ParticleSystem particleSystem, AnimationCurve gravityCurve)
-            {
-                var forceBySpeed = particleSystem.forceOverLifetime;
-                forceBySpeed.y = new ParticleSystem.MinMaxCurve(1, gravityCurve);
-            }
-
-            public static void StartWithDelay(this ParticleSystem ps, float delay)
-            {
-                ps.gameObject.SetActive(true);
-                ps.Play();
-                ps.time = -delay;
-            }
-
-            public static void StopWithDelay(this ParticleSystem ps, float delay)
-            {
-                ps.Stop();
-                ps.time = delay;
-            }
-
-            public static void StopImmediately(this ParticleSystem ps)
-            {
-                ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            }
-
-            public static void ClearAllParticles(this ParticleSystem ps)
-            {
-                ps.Clear();
-            }
-
-            public static void SetStartColor(this ParticleSystem ps, Color color)
-            {
-                var main = ps.main;
-                main.startColor = color;
-            }
-
-            public static void SetStartSize(this ParticleSystem ps, float size)
-            {
-                var main = ps.main;
-                main.startSize = size;
-            }
-
-            public static void SetStartLifetime(this ParticleSystem ps, float lifetime)
-            {
-                var main = ps.main;
-                main.startLifetime = lifetime;
-            }
-
-            public static void SetStartSpeed(this ParticleSystem ps, float speed)
-            {
-                var main = ps.main;
-                main.startSpeed = speed;
-            }
-
-            public static void SetStartRotation(this ParticleSystem ps, float rotation)
-            {
-                var main = ps.main;
-                main.startRotation = rotation;
-            }
-
-            public static void SetGravityModifier(this ParticleSystem ps, float modifier)
-            {
-                var main = ps.main;
-                main.gravityModifier = modifier;
-            }
-
-            public static void SetLooping(this ParticleSystem ps, bool loop)
-            {
-                var main = ps.main;
-                main.loop = loop;
-            }
-
-            public static void SetMaxParticles(this ParticleSystem ps, int maxParticles)
-            {
-                var main = ps.main;
-                main.maxParticles = maxParticles;
-            }
-
-            public static int GetParticleCount(this ParticleSystem ps)
-            {
-                ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.main.maxParticles];
-                return ps.GetParticles(particles);
-            }
-
-            public static void SetStartRotationRandomness(this ParticleSystem ps, float randomness)
-            {
-                var main = ps.main;
-                main.startRotationZ = new ParticleSystem.MinMaxCurve(randomness);
-            }
-
-            public static void SetStartSizeRandomness(this ParticleSystem ps, float randomness)
-            {
-                var main = ps.main;
-                main.startSize = new ParticleSystem.MinMaxCurve(1, randomness);
-            }
-
-            public static void SetStartSpeedRandomness(this ParticleSystem ps, float randomness)
-            {
-                var main = ps.main;
-                main.startSpeed = new ParticleSystem.MinMaxCurve(1, randomness);
-            }
-
-            public static void SetStartLifetimeRandomness(this ParticleSystem ps, float randomness)
-            {
-                var main = ps.main;
-                main.startLifetime = new ParticleSystem.MinMaxCurve(1, randomness);
-            }
-
-            public static void PauseSystem(this ParticleSystem ps)
-            {
-                ps.Pause();
-            }
-
-            public static void ResumeSystem(this ParticleSystem ps)
-            {
-                ps.Play();
-            }
-
-            public static void SetDirectionalGravity(this ParticleSystem ps, Vector3 direction, float strength)
-            {
-                var main = ps.main;
-                main.gravityModifier = strength;
-                ps.transform.up = direction;
-            }
-
-            public static void SetStartRotationAxis(this ParticleSystem ps, Vector3 axis)
-            {
-                var main = ps.main;
-                main.startRotation = new ParticleSystem.MinMaxCurve(0f, axis.magnitude);
-            }
-
-            public static void SetEmissionRateOverTime(this ParticleSystem ps, AnimationCurve curve)
-            {
-                var emission = ps.emission;
-                emission.rateOverTime = new ParticleSystem.MinMaxCurve(1f, curve);
-            }
-
-            public static void ToggleLoop(this ParticleSystem ps)
-            {
-                var main = ps.main;
-                main.loop = !main.loop;
-            }
-
-            public static void SetSimulationSpeed(this ParticleSystem ps, float speed)
-            {
-                var main = ps.main;
-                main.simulationSpeed = speed;
-            }
-
-            public static void StopWithFadeOut(this ParticleSystem ps, float fadeDuration)
-            {
-                var main = ps.main;
-                main.startLifetime = new ParticleSystem.MinMaxCurve(main.startLifetime.constant - fadeDuration);
-                ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            }
-
-            public static void Reset(this ParticleSystem ps)
-            {
-                ps.Clear();
-                ps.Play();
-            }
-
-
-
+            if (ps == null) return;
+            var emission = ps.emission;
+            emission.rateOverTime = emissionRate;
         }
+
+        public static void WithColorOverLifetime(this ParticleSystem ps, Gradient gradient)
+        {
+            if (ps == null || gradient == null) return;
+            var col = ps.colorOverLifetime;
+            col.enabled = true;
+            col.color = gradient;
+        }
+
+        public static void WithSizeOverLifetime(this ParticleSystem ps, AnimationCurve curve)
+        {
+            if (ps == null || curve == null) return;
+            var size = ps.sizeOverLifetime;
+            size.enabled = true;
+            size.size = new ParticleSystem.MinMaxCurve(1, curve);
+        }
+
+        public static void WithStartColor(this ParticleSystem ps, Color color)
+        {
+            if (ps == null) return;
+            var main = ps.main;
+            main.startColor = color;
+        }
+
+        public static void WithStartSize(this ParticleSystem ps, float size)
+        {
+            if (ps == null) return;
+            var main = ps.main;
+            main.startSize = size;
+        }
+
+        public static void WithStartLifetime(this ParticleSystem ps, float lifetime)
+        {
+            if (ps == null) return;
+            var main = ps.main;
+            main.startLifetime = lifetime;
+        }
+
+        public static void WithStartSpeed(this ParticleSystem ps, float speed)
+        {
+            if (ps == null) return;
+            var main = ps.main;
+            main.startSpeed = speed;
+        }
+
+        public static void WithLooping(this ParticleSystem ps, bool loop)
+        {
+            if (ps == null) return;
+            var main = ps.main;
+            main.loop = loop;
+        }
+
+        public static void WithDuration(this ParticleSystem ps, float duration)
+        {
+            if (ps == null) return;
+            var main = ps.main;
+            main.duration = duration;
+        }
+
+        public static void WithShape(this ParticleSystem ps, ParticleSystemShapeType shapeType)
+        {
+            if (ps == null) return;
+            var shape = ps.shape;
+            shape.enabled = true;
+            shape.shapeType = shapeType;
+        }
+
+        public static void WithCollision(this ParticleSystem ps, LayerMask collisionMask)
+        {
+            if (ps == null) return;
+            var collision = ps.collision;
+            collision.enabled = true;
+            collision.type = ParticleSystemCollisionType.World;
+            collision.collidesWith = collisionMask;
+        }
+
+        public static void WithTrails(this ParticleSystem ps, float lifetimeRatio = 1f)
+        {
+            if (ps == null) return;
+            var trails = ps.trails;
+            trails.enabled = true;
+            trails.lifetime = lifetimeRatio;
+        }
+
+        public static void WithNoise(this ParticleSystem ps, float strength)
+        {
+            if (ps == null) return;
+            var noise = ps.noise;
+            noise.enabled = true;
+            noise.strength = strength;
+        }
+
+        public static void WithVelocityOverLifetime(this ParticleSystem ps, Vector3 velocity)
+        {
+            if (ps == null) return;
+            var velocityModule = ps.velocityOverLifetime;
+            velocityModule.enabled = true;
+            velocityModule.x = velocity.x;
+            velocityModule.y = velocity.y;
+            velocityModule.z = velocity.z;
+        }
+
+        public static void AddSubEmitter(this ParticleSystem ps, ParticleSystem subEmitter, ParticleSystemSubEmitterType type = ParticleSystemSubEmitterType.Birth, ParticleSystemSubEmitterProperties properties = ParticleSystemSubEmitterProperties.InheritNothing)
+        {
+            if (ps == null || subEmitter == null) return;
+            var subEmitters = ps.subEmitters;
+            subEmitters.AddSubEmitter(subEmitter, type, properties);
+        }
+    }
+
+    public class ParticleSystemBuilder
+    {
+        private GameObject go;
+        private ParticleSystem ps;
+
+        public ParticleSystemBuilder(string name = "ParticleSystem")
+        {
+            go = new GameObject(name ?? nameof(ParticleSystem));
+            ps = go.AddComponent<ParticleSystem>();
+            var main = ps.main;
+            main.playOnAwake = false;
+        }
+
+        public ParticleSystemBuilder SetParent(Transform parent)
+        {
+            go.transform.SetParent(parent);
+            return this;
+        }
+
+        public ParticleSystemBuilder SetPosition(Vector3 position)
+        {
+            go.transform.position = position;
+            return this;
+        }
+
+        public ParticleSystemBuilder WithStartColor(Color color) { ps.WithStartColor(color); return this; }
+        public ParticleSystemBuilder WithStartSize(float size) { ps.WithStartSize(size); return this; }
+        public ParticleSystemBuilder WithStartLifetime(float lifetime) { ps.WithStartLifetime(lifetime); return this; }
+        public ParticleSystemBuilder WithStartSpeed(float speed) { ps.WithStartSpeed(speed); return this; }
+        public ParticleSystemBuilder WithEmissionRate(float rate) { ps.WithEmissionRate(rate); return this; }
+        public ParticleSystemBuilder WithColorOverLifetime(Gradient gradient) { ps.WithColorOverLifetime(gradient); return this; }
+        public ParticleSystemBuilder WithSizeOverLifetime(AnimationCurve curve) { ps.WithSizeOverLifetime(curve); return this; }
+        public ParticleSystemBuilder WithLooping(bool loop) { ps.WithLooping(loop); return this; }
+        public ParticleSystemBuilder WithDuration(float duration) { ps.WithDuration(duration); return this; }
+        public ParticleSystemBuilder WithShape(ParticleSystemShapeType shapeType) { ps.WithShape(shapeType); return this; }
+        public ParticleSystemBuilder WithCollision(LayerMask mask) { ps.WithCollision(mask); return this; }
+        public ParticleSystemBuilder WithTrails(float lifetimeRatio = 1f) { ps.WithTrails(lifetimeRatio); return this; }
+        public ParticleSystemBuilder WithNoise(float strength) { ps.WithNoise(strength); return this; }
+        public ParticleSystemBuilder WithVelocityOverLifetime(Vector3 velocity) { ps.WithVelocityOverLifetime(velocity); return this; }
+
+        public ParticleSystemBuilder WithSubEmitter(ParticleSystem subEmitter, ParticleSystemSubEmitterType type = ParticleSystemSubEmitterType.Birth, ParticleSystemSubEmitterProperties properties = ParticleSystemSubEmitterProperties.InheritNothing)
+        {
+            ps.AddSubEmitter(subEmitter, type, properties);
+            return this;
+        }
+
+        public ParticleSystem Build() => ps;
+
+        public ParticleSystem BuildAndPlay()
+        {
+            ps.Play();
+            return ps;
+        }
+
+        public GameObject BuildGameObject() => go;
+    }
+
+    public static class ParticleSystemPresetFactory
+    {
+        public static ParticleSystemBuilder BasicSmoke()
+        {
+            return new ParticleSystemBuilder("Smoke")
+                .WithStartColor(Color.gray)
+                .WithStartSize(1f)
+                .WithStartLifetime(2f)
+                .WithStartSpeed(0.5f)
+                .WithLooping(true)
+                .WithEmissionRate(10f)
+                .WithColorOverLifetime(new Gradient
+                {
+                    colorKeys = new[]
+                    {
+                        new GradientColorKey(Color.gray, 0),
+                        new GradientColorKey(Color.clear, 1)
+                    },
+                    alphaKeys = new[]
+                    {
+                        new GradientAlphaKey(1f, 0),
+                        new GradientAlphaKey(0f, 1)
+                    }
+                });
+        }
+
+        public static ParticleSystemBuilder Fire()
+        {
+            return new ParticleSystemBuilder("Fire")
+                .WithStartColor(new Color(1f, 0.5f, 0f)) // orange
+                .WithStartSize(1f)
+                .WithStartLifetime(1.2f)
+                .WithStartSpeed(0.5f)
+                .WithEmissionRate(30f)
+                .WithLooping(true)
+                .WithShape(ParticleSystemShapeType.Cone)
+                .WithNoise(0.3f)
+                .WithColorOverLifetime(new Gradient
+                {
+                    colorKeys = new[]
+                    {
+                new GradientColorKey(new Color(1f, 0.4f, 0f), 0f),
+                new GradientColorKey(Color.red, 0.5f),
+                new GradientColorKey(Color.black, 1f)
+                    },
+                    alphaKeys = new[]
+                    {
+                new GradientAlphaKey(1f, 0f),
+                new GradientAlphaKey(0.1f, 1f)
+                    }
+                });
+        }
+
+
+        public static ParticleSystemBuilder Sparks()
+        {
+            return new ParticleSystemBuilder("Sparks")
+                .WithStartColor(Color.yellow)
+                .WithStartSize(0.2f)
+                .WithStartLifetime(0.5f)
+                .WithStartSpeed(4f)
+                .WithEmissionRate(100f)
+                .WithLooping(false)
+                .WithShape(ParticleSystemShapeType.Sphere)
+                .WithTrails(1f)
+                .WithVelocityOverLifetime(new Vector3(0, -2, 0))
+                .WithColorOverLifetime(new Gradient
+                {
+                    colorKeys = new[]
+                    {
+                new GradientColorKey(Color.yellow, 0f),
+                new GradientColorKey(Color.red, 1f)
+                    },
+                    alphaKeys = new[]
+                    {
+                new GradientAlphaKey(1f, 0f),
+                new GradientAlphaKey(0f, 1f)
+                    }
+                });
+        }
+
+        public static ParticleSystemBuilder Explosion()
+        {
+            return new ParticleSystemBuilder("Explosion")
+                .WithStartColor(Color.yellow)
+                .WithStartSize(1f)
+                .WithStartLifetime(0.8f)
+                .WithStartSpeed(8f)
+                .WithEmissionRate(500f)
+                .WithLooping(false)
+                .WithDuration(1f)
+                .WithShape(ParticleSystemShapeType.Sphere)
+                .WithNoise(0.2f)
+                .WithColorOverLifetime(new Gradient
+                {
+                    colorKeys = new[]
+                    {
+                new GradientColorKey(Color.yellow, 0f),
+                new GradientColorKey(Color.red, 0.5f),
+                new GradientColorKey(Color.black, 1f)
+                    },
+                    alphaKeys = new[]
+                    {
+                new GradientAlphaKey(1f, 0f),
+                new GradientAlphaKey(0f, 1f)
+                    }
+                });
+        }
+
+        public static ParticleSystemBuilder MagicAura()
+        {
+            return new ParticleSystemBuilder("MagicAura")
+                .WithStartColor(new Color(0.5f, 0f, 1f)) // purple
+                .WithStartSize(0.5f)
+                .WithStartLifetime(2f)
+                .WithStartSpeed(0.2f)
+                .WithEmissionRate(20f)
+                .WithLooping(true)
+                .WithShape(ParticleSystemShapeType.Donut)
+                .WithNoise(0.5f)
+                .WithColorOverLifetime(new Gradient
+                {
+                    colorKeys = new[]
+                    {
+                new GradientColorKey(Color.magenta, 0f),
+                new GradientColorKey(Color.cyan, 1f)
+                    },
+                    alphaKeys = new[]
+                    {
+                new GradientAlphaKey(0.8f, 0f),
+                new GradientAlphaKey(0f, 1f)
+                    }
+                });
+        }
+
+
+        public static ParticleSystemBuilder ElectricArc()
+        {
+            return new ParticleSystemBuilder("ElectricArc")
+                .WithStartColor(Color.cyan)
+                .WithStartSize(0.1f)
+                .WithStartLifetime(0.3f)
+                .WithStartSpeed(10f)
+                .WithEmissionRate(200f)
+                .WithLooping(true)
+                .WithShape(ParticleSystemShapeType.Cone)
+                .WithNoise(1f)
+                .WithTrails(1f)
+                .WithColorOverLifetime(new Gradient
+                {
+                    colorKeys = new[]
+                    {
+                new GradientColorKey(Color.white, 0f),
+                new GradientColorKey(Color.cyan, 1f)
+                    },
+                    alphaKeys = new[]
+                    {
+                new GradientAlphaKey(1f, 0f),
+                new GradientAlphaKey(0f, 1f)
+                    }
+                });
+        }
+
+
+
     }
 }

@@ -162,12 +162,6 @@ namespace IuvoUnity
                 Object.Destroy(transform.gameObject);
             }
 
-            /// <summary>Rotates this transform around another object's position along the given axis.</summary>
-            public static void RotateAroundObject(this Transform transform, Transform target, Vector3 axis, float angle)
-            {
-                transform.RotateAround(target.position, axis, angle);
-            }
-
             /// <summary>Rotates the transform around a point along the given axis.</summary>
             public static void RotateAround(this Transform transform, Vector3 point, Vector3 axis, float angle)
             {
@@ -205,11 +199,6 @@ namespace IuvoUnity
                 target.localScale = temp;
             }
 
-            /// <summary>Projects the transform's position onto a plane defined by the normal.</summary>
-            public static Vector3 GetFlattenedPosition(this Transform transform, Vector3 planeNormal)
-            {
-                return Vector3.ProjectOnPlane(transform.position, planeNormal);
-            }
 
             /// <summary>Smoothly rotates the transform to face a world position.</summary>
             public static void RotateSmoothlyTowards(this Transform transform, Vector3 targetPosition, float rotationSpeed, float deltaTime)

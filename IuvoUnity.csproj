@@ -299,6 +299,7 @@
     <Compile Include="src\_Singletons\_Managers\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\API\" />
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralDungeon\" />
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMaze\" />
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralStructures\" />

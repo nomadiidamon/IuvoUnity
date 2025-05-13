@@ -1,3 +1,5 @@
+using IuvoUnity._BaseClasses;
+
 namespace IuvoUnity
 {
     namespace IuvoTime
@@ -13,7 +15,14 @@ namespace IuvoUnity
         public enum Count_Logic
         {
             TICK_ON_FRAMES,
-            TICK_ON_TIME
+            TICK_ON_TIME_SECONDS,
+            TICK_ON_TIME_MILLISECONDS
+        }
+
+        public class TimeValue : IDataStructBase
+        {
+            public Count_Logic count_logic;
+            public float _amount;
         }
     }
 }
