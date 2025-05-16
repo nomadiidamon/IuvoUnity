@@ -211,6 +211,14 @@
     <Compile Include="src\_BaseClasses\_RPGBases\E_RPGComponentBase.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_AbilityController.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_AbilitySystem\E_BaseAbility.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\E_Item.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\_Weapons\E_Axe.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\_Weapons\E_Hammer.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\_Weapons\E_Polearm.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\_Weapons\E_Ranged.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\_Weapons\E_Sword.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\_Weapons\E_Weapon.cs" />
+    <Compile Include="src\_BaseClasses\_RPGBases\_Items\_Weapons\E_WeaponParts.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_Level\_Stats\E_LevelBase.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_Level\_Stats\E_StatBase.cs" />
     <Compile Include="src\_BaseClasses\_RPGBases\_RPGInterfaces\E_IAbility.cs" />
@@ -288,10 +296,10 @@
     <Compile Include="src\_Physics\PhysicsHelpers.cs" />
     <Compile Include="src\_RPG\E_DashAbility.cs" />
     <Compile Include="src\_RPG\E_Health.cs" />
-    <Compile Include="src\_RPG\E_Item.cs" />
     <Compile Include="src\_RPG\E_JumpAbility.cs" />
     <Compile Include="src\_RPG\E_Mana.cs" />
     <Compile Include="src\_RPG\E_Stamina.cs" />
+    <Compile Include="src\_RPG\IuvoRPG.cs" />
     <Compile Include="src\_Singletons\_Managers\CameraManager.cs" />
     <Compile Include="src\_Singletons\_Managers\EnemyManager.cs" />
     <Compile Include="src\_Singletons\_Managers\PlayerManager.cs" />

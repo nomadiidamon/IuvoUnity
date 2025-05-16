@@ -1,13 +1,11 @@
-﻿using IuvoUnity._BaseClasses._RPG;
-using IuvoUnity._DataStructs;
+﻿using IuvoUnity._DataStructs;
 
 namespace IuvoUnity
 {
-    namespace _RPG
+    namespace _BaseClasses
     {
-        namespace _Item
+        namespace _RPG
         {
-
 
             public class ItemComponent : RPGComponentBase
             {
@@ -81,43 +79,17 @@ namespace IuvoUnity
                 public int _range;
             }
 
-            public class EquipmentTagComponent : ItemComponent
+            public class EquipmentComponent : ItemComponent
             {
             }
 
-            public class CanBeTwoHandedComponent : EquipmentTagComponent
-            {
-                public bool _isTwoHandable;
-            }
-
-            public class WeaponSlotComponent : CanBeTwoHandedComponent
-            {
-                public bool _isTwoHandedWeapon;
-            }
-#nullable enable
-            public class LeftHandComponent : WeaponSlotComponent
-            {
-                CanBeTwoHandedComponent? _leftHand;
-            }
-
-            public class RightHandComponent : WeaponSlotComponent
-            {
-                CanBeTwoHandedComponent? _rightHand;
-            }
-
-#nullable disable
-            public class ShieldSlotComponent : CanBeTwoHandedComponent
-            {
-                public bool _canTwoHandSheild;
-            }
-
-            public class ArmorSlotComponent : EquipmentTagComponent
+            public class ArmorSlotComponent : EquipmentComponent
             {
                 public enum ArmorSlot { HEAD, CHEST, ARMS, LEGS }
                 public ArmorSlot _armorSlot;
             }
 
-            public class AccessorySlotComponent : EquipmentTagComponent
+            public class AccessorySlotComponent : EquipmentComponent
             {
                 public enum AccessorySlot
                 {
