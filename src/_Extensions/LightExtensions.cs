@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace IuvoUnity
 {
-    namespace _ExtensionMethods
+    namespace _Extensions
     {
         /// <summary>
         /// Extension methods for UnityEngine.Light to simplify common property adjustments.

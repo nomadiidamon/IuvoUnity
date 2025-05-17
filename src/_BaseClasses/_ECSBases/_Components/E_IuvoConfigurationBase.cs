@@ -1,11 +1,11 @@
-﻿using IuvoUnity._BaseClasses._ECS._Interfaces;
+﻿using IuvoUnity._Interfaces;
 namespace IuvoUnity
 {
     namespace _BaseClasses
     {
         namespace _ECS
         {
-            public abstract class IuvoConfigurationBase : IuvoComponentBase, IConfigurable
+            public abstract class IuvoConfigurationBase : IuvoComponentBase, IConfigurableEntity
             {
 
                 // base class for the configurations of various objects

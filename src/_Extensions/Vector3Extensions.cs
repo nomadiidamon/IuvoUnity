@@ -3,7 +3,7 @@
 
 namespace IuvoUnity
 {
-    namespace _ExtensionMethods
+    namespace _Extensions
     {
         /// <summary>
         /// Provides extension methods for the <see cref="UnityEngine.Vector3"/> struct to simplify common vector operations.

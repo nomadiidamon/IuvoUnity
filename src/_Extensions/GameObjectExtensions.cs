@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _ExtensionMethods
+    namespace _Extensions
     {
         public static class GameObjectExtensions
         {

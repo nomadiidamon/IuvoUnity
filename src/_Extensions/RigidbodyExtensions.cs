@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _ExtensionMethods
+    namespace _Extensions
     {
 
         /// <summary>

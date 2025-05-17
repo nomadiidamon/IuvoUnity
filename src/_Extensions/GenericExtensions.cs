@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _ExtensionMethods
+    namespace _Extensions
     {
         /// <summary>
         /// Provides generic extension methods for safe invocation, dictionary operations, and string formatting.

@@ -1,12 +1,12 @@
 ﻿using IuvoUnity._BaseClasses._ECS;
-using IuvoUnity._BaseClasses._ECS._Interfaces;
+using IuvoUnity._Interfaces;
 
 
 namespace IuvoUnity
 {
     namespace _ECS
     {
-        public abstract class IuvoComponentLayout : IuvoComponentBase, IAddable, IInitialize, IUpdatable
+        public abstract class IuvoComponentLayout : IuvoComponentBase, IAddableEntity, IInitializeEntity, IUpdatableEntity
         {
             public virtual void Initialize(IuvoEntity entity) { }
             public virtual void OnAdd(IuvoEntity entity) { }

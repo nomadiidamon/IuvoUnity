@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace IuvoUnity
 {
-    namespace _ExtensionMethods
+    namespace _Extensions
     {
 
         /// <summary>
@@ -13,6 +13,31 @@ namespace IuvoUnity
         /// </summary>
         public static class TransformExtensions
         {
+            /// <summary>
+            /// Sets the parent of this transform without modifying its world position, rotation, or scale.
+            /// </summary>
+            public static void SetParentWithoutAffectingTransform(this Transform transform, Transform newParent)
+            {
+                Vector3 worldPosition = transform.position;
+                Quaternion worldRotation = transform.rotation;
+                Vector3 worldScale = transform.lossyScale;
+
+                transform.SetParent(newParent, worldPositionStays: false);
+
+                transform.position = worldPosition;
+                transform.rotation = worldRotation;
+
+                // Manually set scale because Unity doesn't preserve it when reparenting
+                Vector3 parentScale = newParent != null ? newParent.lossyScale : Vector3.one;
+                transform.localScale = new Vector3(
+                    worldScale.x / parentScale.x,
+                    worldScale.y / parentScale.y,
+                    worldScale.z / parentScale.z
+                );
+            }
+
+
+
             /// <summary>Finds a direct child of the transform by name.</summary>
             public static Transform FindChildByName(this Transform transform, string name)
             {

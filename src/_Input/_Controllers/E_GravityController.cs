@@ -1,3 +1,4 @@
+using IuvoUnity._Physics;
 using UnityEngine;
 
 public class GravityController : MonoBehaviour
@@ -11,10 +12,9 @@ public class GravityController : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (groundCheck.isGrounded)
+        if (groundCheck.isGrounded) 
         {
             applyGravity = false;
         }

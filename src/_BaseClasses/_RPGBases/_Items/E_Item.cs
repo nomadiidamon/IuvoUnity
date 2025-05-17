@@ -1,4 +1,5 @@
 ﻿using IuvoUnity._DataStructs;
+using UnityEngine;
 
 namespace IuvoUnity
 {
@@ -82,6 +83,59 @@ namespace IuvoUnity
             public class EquipmentComponent : ItemComponent
             {
             }
+
+            public class AttackSpeedComponent : RPGComponentBase
+            {
+                public float _attacksPerSecond;
+            }
+
+            public class CriticalHitComponent : RPGComponentBase
+            {
+                public float _critChance; // e.g., 0.15f = 15%
+                public float _critMultiplier; // e.g., 2.0x
+            }
+
+            public class KnockbackComponent : RPGComponentBase
+            {
+                public float _force;
+            }
+
+            public class DurabilityDrainRateComponent : RPGComponentBase
+            {
+                public float _drainRate; // e.g., durability lost per swing or hit
+            }
+
+            public class ReloadComponent : RPGComponentBase
+            {
+                public int _maxAmmo;
+                public int _currentAmmo;
+                public float _reloadTime;
+            }
+
+            public class ProjectileComponent : RPGComponentBase
+            {
+                public GameObject _projectilePrefab;
+                public float _speed;
+                public float _lifetime;
+            }
+
+            public class WeaponSkillComponent : RPGComponentBase
+            {
+                public string _skillName;
+                public float _cooldown;
+            }
+
+            public class NoiseLevelComponent : RPGComponentBase
+            {
+                public float _decibels;
+            }
+
+            public enum WeaponTier { COMMON, UNCOMMON, RARE, EPIC, LEGENDARY }
+            public class WeaponTierComponent : RPGComponentBase
+            {
+                public WeaponTier _tier;
+            }
+
 
             public class ArmorSlotComponent : EquipmentComponent
             {

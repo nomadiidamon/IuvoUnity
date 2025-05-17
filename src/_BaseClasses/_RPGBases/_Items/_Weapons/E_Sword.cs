@@ -49,6 +49,11 @@ namespace IuvoUnity
                             HALF_BASKET,    // Partial cage guard
                             SIMPLE_BAR      // Minimalist bar guard
                         }
+                        public class SwordGuardPart : GuardPart<SwordGuard>
+                        {
+                            public SwordGuardPart(SwordGuard guardType, DataName partName, Mesh partShape, TransformData relativeTransformToWeapon)
+                                : base(guardType, partName, partShape, relativeTransformToWeapon) { }
+                        }
 
                         public enum SwordBlade
                         {
@@ -64,6 +69,11 @@ namespace IuvoUnity
                             TRI_SIDE_RAPIER,    // Rapier great at deep wounds 
                             KATANA              // Japanese style curved blade
                         }
+                        public class SwordBladePart : BladePart<SwordBlade>
+                        {
+                            public SwordBladePart(SwordBlade bladeType, DataName partName, Mesh partShape, TransformData relativeTransformToWeapon)
+                                : base(bladeType, partName, partShape, relativeTransformToWeapon) { }
+                        }
 
                         public enum SwordCounterWeight
                         {
@@ -74,6 +84,11 @@ namespace IuvoUnity
                             BLOCK,          // Block shaped weight
                             CUSTOM          // Custom or ornamental shapes
                         }
+                        public class SwordCounterWeightPart : CounterWeightPart<SwordCounterWeight>
+                        {
+                            public SwordCounterWeightPart(SwordCounterWeight weightType, DataName partName, Mesh partShape, TransformData relativeTransformToWeapon)
+                                : base(weightType, partName, partShape, relativeTransformToWeapon) { }
+                        }
 
                         public enum SwordConnector
                         {
@@ -83,14 +98,24 @@ namespace IuvoUnity
                             SPIKED,         // Connector with spikes or projections
                             NONE            // No separate connector piece
                         }
+                        public class SwordConnectorPart : ConnectorPart<SwordConnector>
+                        {
+                            public SwordConnectorPart(SwordConnector connectorType, DataName partName, Mesh partShape, TransformData relativeTransformToWeapon)
+                                : base(connectorType, partName, partShape, relativeTransformToWeapon) { }
+                        }
 
                         public enum SwordSpacer
                         {
-                            METAL_WASHER,
-                            LEATHER_RING,
-                            WOODEN_RING,
-                            DECORATIVE_RING,
-                            NONE
+                            METAL_WASHER,       // Metal washer spacer
+                            LEATHER_RING,       // Leather ring spacer
+                            WOODEN_RING,        // Wooden ring spacer
+                            DECORATIVE_RING,    // Ornamental ring spacer
+                            NONE                // No spacer
+                        }
+                        public class SwordSpacerPart : SpacerPart<SwordSpacer>
+                        {
+                            public SwordSpacerPart(SwordSpacer spacerType, DataName partName, Mesh partShape, TransformData relativeTransformToWeapon)
+                                : base(spacerType, partName, partShape, relativeTransformToWeapon) { }
                         }
 
                         public enum SwordSheathe
@@ -100,6 +125,11 @@ namespace IuvoUnity
                             METAL,              // Metal sheath
                             DECORATED_LEATHER,  // Decorated leather sheath
                             ORNAMENTED_METAL    // Ornamental metal sheath
+                        }
+                        public class SwordSheathePart : SheathePart<SwordSheathe>
+                        {
+                            public SwordSheathePart(SwordSheathe sheatheType, DataName partName, Mesh partShape, TransformData relativeTransformToWeapon)
+                                : base(sheatheType, partName, partShape, relativeTransformToWeapon) { }
                         }
                     }
 

@@ -33,6 +33,20 @@ namespace IuvoUnity
                     public HandType _HandType { get; set; }
                     public WeaponEffects _Effects { get; set; }
 
+                    public StatBonusComponent _StatBonus { get; set; }
+
+                    public StatBonusMultiplierComponent _StatBonusMultiplier { get; set; }
+
+                    public DurabilityComponent _Durability { get; set; }
+
+                    public DurabilityDrainRateComponent _DurabilityDrainRateComponent { get; set; }
+
+                    public WeightValueComponent _WeightValue { get; set; }
+
+                    public DensityValueComponent _DensityValue { get; set; }
+
+                    public List<WeaponPart<TSubType>> _WeaponParts { get; set; }
+
                     public WeaponBase(WeaponCategory<TSubType> category, WeaponActivityType type, HandType handType, WeaponEffects weaponEffects)
                     {
                         _Category = category;
@@ -79,9 +93,7 @@ namespace IuvoUnity
 
                     public static bool IsValidSubType<TSubType>(WeaponMainType mainType, TSubType subType) where TSubType : Enum
                     {
-                        //return GetMainTypeForSubType(typeof(TSubType)) == mainType;
-                        return subTypeToMainMap.TryGetValue(subType.GetType(), out var foundMainType) && foundMainType == mainType;
-
+                        return GetMainTypeForSubType(typeof(TSubType)) == mainType;
                     }
 
                     public static Enum GetDefaultSubType(WeaponMainType mainType)
@@ -105,6 +117,7 @@ namespace IuvoUnity
                     }
 
                 }
+
                 #endregion
 
                 #region BasicWeaponEnums
@@ -294,6 +307,7 @@ namespace IuvoUnity
                     SPACER,
                     SHEATHE
                 }
+
 
                 public abstract class PommelPart<TPommelType> : WeaponPart<TPommelType> where TPommelType : Enum
                 {
