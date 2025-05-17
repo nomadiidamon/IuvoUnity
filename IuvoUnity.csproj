@@ -53,8 +53,44 @@
     <Reference Include="UnityEditor">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.BuildProfileModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.BuildProfileModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.EditorToolbarModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.EditorToolbarModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GraphViewModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphViewModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GridAndSnapModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridAndSnapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GridModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Physics2DModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.PresetsUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.PresetsUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.PropertiesModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.PropertiesModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UIAutomationModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIAutomationModule.dll</HintPath>
@@ -245,26 +281,32 @@
     <Compile Include="src\_DataStructs\E_ClampedValue.cs" />
     <Compile Include="src\_DataStructs\E_ComparableData.cs" />
     <Compile Include="src\_DataStructs\E_DataDescription.cs" />
+    <Compile Include="src\_DataStructs\E_History.cs" />
+    <Compile Include="src\_DataStructs\E_InputBuffer.cs" />
     <Compile Include="src\_DataStructs\E_InteractableData.cs" />
     <Compile Include="src\_DataStructs\E_DataName.cs" />
     <Compile Include="src\_DataStructs\E_RangeData.cs" />
     <Compile Include="src\_DataStructs\E_SpawnData.cs" />
     <Compile Include="src\_DataStructs\E_TransformData.cs" />
     <Compile Include="src\_ECS\_Components\E_IuvoComponents.cs" />
-    <Compile Include="src\_ExtensionMethods\AnimatorExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\GameObjectExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\GenericExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\LightExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\MaterialExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\MeshRendererExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\ParticleSystemExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\RendererExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\RigidbodyExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\SkinnedMeshExtension.cs" />
-    <Compile Include="src\_ExtensionMethods\TransformExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\UICanvasExtensions.cs" />
-    <Compile Include="src\_ExtensionMethods\Vector3Extensions.cs" />
-    <Compile Include="src\_ExtensionMethods\VisualEffectExtensions.cs" />
+    <Compile Include="src\_Editor\E.RequireInterfaceAttribute.cs" />
+    <Compile Include="src\_Editor\E_InterfaceReference.cs" />
+    <Compile Include="src\_Editor\E_InterfaceReferenceDrawer.cs" />
+    <Compile Include="src\_Editor\E_InterfaceReferenceUtils.cs" />
+    <Compile Include="src\_Extensions\AnimatorExtensions.cs" />
+    <Compile Include="src\_Extensions\GameObjectExtensions.cs" />
+    <Compile Include="src\_Extensions\GenericExtensions.cs" />
+    <Compile Include="src\_Extensions\LightExtensions.cs" />
+    <Compile Include="src\_Extensions\MaterialExtensions.cs" />
+    <Compile Include="src\_Extensions\MeshRendererExtensions.cs" />
+    <Compile Include="src\_Extensions\ParticleSystemExtensions.cs" />
+    <Compile Include="src\_Extensions\RendererExtensions.cs" />
+    <Compile Include="src\_Extensions\RigidbodyExtensions.cs" />
+    <Compile Include="src\_Extensions\SkinnedMeshExtension.cs" />
+    <Compile Include="src\_Extensions\TransformExtensions.cs" />
+    <Compile Include="src\_Extensions\UICanvasExtensions.cs" />
+    <Compile Include="src\_Extensions\Vector3Extensions.cs" />
+    <Compile Include="src\_Extensions\VisualEffectExtensions.cs" />
     <Compile Include="src\_Input\_Actions\T_PlayerControls.cs" />
     <Compile Include="src\_Input\_Actions\T_PlayerInputActionBase.cs" />
     <Compile Include="src\_Input\_Actions\T_PlayerMoveAction.cs" />
@@ -311,6 +353,9 @@
     <Compile Include="src\_Singletons\_Managers\PlayerManager.cs" />
     <Compile Include="src\_Singletons\_Managers\PlayerUIManager.cs" />
     <Compile Include="src\_Singletons\_Managers\UIManager.cs" />
+    <Compile Include="src\_Timeline\E_SubtitleTrack.cs" />
+    <Compile Include="src\_VisualEffects\_Particles\E_ParticleSystemBuilder.cs" />
+    <Compile Include="src\_VisualEffects\_Particles\E_ParticleSystemPresetFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\API\" />
@@ -318,7 +363,6 @@
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralMaze\" />
     <Folder Include="src\_BaseClasses\_ProceduralGenerationBases\_ProceduralStructures\" />
     <Folder Include="src\_BaseClasses\_RPGBases\_Level\_Maps\" />
-    <Folder Include="src\_Editor\" />
     <Folder Include="src\_Events\" />
     <Folder Include="src\_Math\" />
     <Folder Include="src\_Networking\" />
@@ -334,6 +378,7 @@
     <Folder Include="src\_Time\" />
     <Folder Include="src\_UI\" />
     <Folder Include="src\_Utility\" />
+    <Folder Include="src\_VisualEffects\_VFXGraph\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
