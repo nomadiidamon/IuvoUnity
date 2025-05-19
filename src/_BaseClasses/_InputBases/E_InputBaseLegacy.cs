@@ -1,4 +1,5 @@
 ﻿
+using IuvoUnity._DataStructs;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -66,7 +67,7 @@ namespace IuvoUnity
             public abstract class HoldInputActionBase : BaseInputActionLegacy
             {
                 public float holdTime = 0.5f;
-                private float holdTimer = 0f;
+                protected float holdTimer = 0f;
                 private bool hasPerformed = false;
 
                 public override void HandleInput()
@@ -94,13 +95,51 @@ namespace IuvoUnity
             {
                 public KeyCode key = KeyCode.LeftShift;
 
+                [Tooltip("Range of hold time (min, max) in seconds.")]
+                public RangeF holdTimeRange = new RangeF(0f, 2f);
+
+                [Tooltip("Clamped hold time value.")]
+                public ClampedFloat holdDuration;
+
+                private bool isHolding = false;
+
+                [Tooltip("Event triggered when key is released, providing clamped hold time.")]
+                public UnityEvent<float> OnHoldReleasedWithDuration;
+
+                private void Awake()
+                {
+                    holdDuration = new ClampedFloat(holdTimeRange, 0f);
+                }
+
                 public override bool IsPressed()
                 {
                     return Input.GetKey(key);
                 }
+
                 public void SetKey(KeyCode newKey)
                 {
                     key = newKey;
+                }
+
+                public override void HandleInput()
+                {
+                    if (IsPressed())
+                    {
+                        isHolding = true;
+                        holdTimer += Time.deltaTime;
+
+                        holdDuration.Value = holdTimer; // Automatically clamps using ClampedFloat
+                    }
+                    else if (isHolding)
+                    {
+                        // Trigger event with clamped value
+                        OnHoldReleasedWithDuration?.Invoke(holdDuration.Value);
+
+                        // Reset state
+                        holdTimer = 0f;
+                        holdDuration.Value = 0f;
+                        isHolding = false;
+                    }
                 }
             }
 
