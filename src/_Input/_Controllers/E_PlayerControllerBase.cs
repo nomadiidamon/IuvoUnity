@@ -83,11 +83,18 @@ namespace IuvoUnity
                     Debug.Log("Sprint started");
                     // Optionally override in subclass
                 }
+                protected virtual void OnAim()
+                {
+                    Debug.Log("Aim performed");
+                    // Override in subclass
+                }
+
                 protected virtual void OnShoot()
                 {
                     Debug.Log("Shoot performed");
                     // Override in subclass
                 }
+
 
                 public void Enable()
                 {

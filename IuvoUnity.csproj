@@ -199,6 +199,7 @@
     <Compile Include="src\_AI\T_AIMultiSensorManager.cs" />
     <Compile Include="src\_AI\T_AIRegistry.cs" />
     <Compile Include="src\_AI\T_AISensorManager.cs" />
+    <Compile Include="src\_Animation\E_IuvoAnimation.cs" />
     <Compile Include="src\_Animation\T_AnimationCurve.cs" />
     <Compile Include="src\_Animation\T_AnimationIKPair.cs" />
     <Compile Include="src\_Animation\T_AnimationIKPosition.cs" />
@@ -310,7 +311,9 @@
     <Compile Include="src\_Input\_Actions\T_PlayerControls.cs" />
     <Compile Include="src\_Input\_Actions\T_PlayerInputActionBase.cs" />
     <Compile Include="src\_Input\_Actions\T_PlayerMoveAction.cs" />
+    <Compile Include="src\_Input\_Controllers\E_BaseGravityBodyController.cs" />
     <Compile Include="src\_Input\_Controllers\E_FirstPersonController.cs" />
+    <Compile Include="src\_Input\_Controllers\E_GravityBodyCharacter.cs" />
     <Compile Include="src\_Input\_Controllers\E_GravityController.cs" />
     <Compile Include="src\_Input\_Controllers\E_ThirdPersonController.cs" />
     <Compile Include="src\_Input\_Controllers\T_MovementController.cs" />

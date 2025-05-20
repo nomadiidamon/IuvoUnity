@@ -1,5 +1,4 @@
-﻿
-using IuvoUnity._DataStructs;
+﻿using IuvoUnity._DataStructs;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,7 +13,11 @@ namespace IuvoUnity
             {
                 public abstract class BaseInputActionLegacy : MonoBehaviour
                 {
+                    [Header("Events")]
+                    [Tooltip("Invoked when the input action is performed.")]
                     public UnityEvent OnPerformedUnity;
+
+                    [Tooltip("Optional C# Action invoked when the input action is performed.")]
                     public Action OnPerformed;
 
                     public abstract void HandleInput();
@@ -32,7 +35,7 @@ namespace IuvoUnity
                     }
                 }
 
-                // tap inputs
+                // Tap inputs
                 public abstract class TapInputActionBase : BaseInputActionLegacy
                 {
                     protected bool wasPressedLastFrame = false;
@@ -49,26 +52,31 @@ namespace IuvoUnity
 
                     public abstract bool IsPressed();
                 }
+
                 public class KeyTapInputAction : TapInputActionBase
                 {
-                    [Tooltip("Key to check for tap input")]
+                    [Header("Tap Input Settings")]
+                    [Tooltip("Key to check for tap input.")]
                     public KeyCode key = KeyCode.Space;
 
                     public override bool IsPressed()
                     {
                         return Input.GetKey(key);
                     }
+
                     public void SetKey(KeyCode newKey)
                     {
                         key = newKey;
                     }
                 }
 
-
-                // hold inputs
+                // Hold inputs
                 public abstract class HoldInputActionBase : BaseInputActionLegacy
                 {
+                    [Header("Hold Input Settings")]
+                    [Tooltip("Time in seconds required to hold before the action triggers.")]
                     public float holdTime = 0.5f;
+
                     protected float holdTimer = 0f;
                     private bool hasPerformed = false;
 
@@ -93,8 +101,11 @@ namespace IuvoUnity
 
                     public abstract bool IsPressed();
                 }
+
                 public class KeyHoldInputAction : HoldInputActionBase
                 {
+                    [Header("Hold Input Settings")]
+                    [Tooltip("Key to check for hold input.")]
                     public KeyCode key = KeyCode.LeftShift;
 
                     [Tooltip("Range of hold time (min, max) in seconds.")]
@@ -106,6 +117,7 @@ namespace IuvoUnity
                     private bool isHolding = false;
                     private bool hasTriggeredHoldThreshold = false;
 
+                    [Header("Events")]
                     [Tooltip("Event triggered when key is released, providing clamped hold time.")]
                     public UnityEvent<float> OnHoldReleasedWithDuration;
 
@@ -151,12 +163,9 @@ namespace IuvoUnity
                             hasTriggeredHoldThreshold = false;
                         }
                     }
-
-
                 }
 
-
-                // composite inputs
+                // Composite inputs
                 public abstract class CompositeInputActionBase : BaseInputActionLegacy
                 {
                     public override void HandleInput()
@@ -169,8 +178,11 @@ namespace IuvoUnity
 
                     protected abstract bool AreAllInputsPressed();
                 }
+
                 public class MultiKeyCompositeInputAction : CompositeInputActionBase
                 {
+                    [Header("Composite Input Settings")]
+                    [Tooltip("Keys that must be pressed simultaneously to perform the action.")]
                     public KeyCode[] keys = new KeyCode[] { KeyCode.W, KeyCode.LeftShift };
 
                     protected override bool AreAllInputsPressed()
@@ -182,15 +194,13 @@ namespace IuvoUnity
                         }
                         return true;
                     }
+
                     public void SetKey(KeyCode[] newKeys)
                     {
                         keys = newKeys;
                     }
                 }
-
             }
-
-
         }
     }
 }
