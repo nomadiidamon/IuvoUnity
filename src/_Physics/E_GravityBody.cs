@@ -1,5 +1,6 @@
 ﻿using IuvoUnity._Physics;
 using IuvoUnity._Singletons._Managers;
+using IuvoUnity._Extensions;
 using UnityEngine;
 
 namespace IuvoUnity
@@ -24,7 +25,6 @@ namespace IuvoUnity
                 public GroundCheck groundCheck;
                 public bool onlyApplyGravityWhenAirborne = true;
 
-
                 protected virtual void Awake()
                 {
                     rb = GetComponent<Rigidbody>();
@@ -32,7 +32,7 @@ namespace IuvoUnity
 
                     if (groundCheck == null)
                     {
-                        groundCheck = GetComponentInChildren<GroundCheck>();
+                        groundCheck = gameObject.GetOrAdd<GroundCheck>();
                     }
                 }
 
@@ -88,7 +88,7 @@ namespace IuvoUnity
                 public void EnterGravityZone(GravityZone zone) => gravZone = zone;
                 public void ExitGravityZone() => gravZone = null;
 
-                protected virtual void OnDrawGizmosSelected()
+                public virtual void OnDrawGizmosSelected()
                 {
                     if (!Application.isPlaying || !useGravity) return;
 

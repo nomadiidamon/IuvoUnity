@@ -1,4 +1,4 @@
-using IuvoUnity._BaseClasses._InputBases;
+using IuvoUnity._BaseClasses._InputBases._Legacy;
 using IuvoUnity._Interfaces;
 using UnityEngine;
 
@@ -29,7 +29,12 @@ namespace IuvoUnity
                 {
                     base.Awake();
                     SetupInputs();
-                    
+
+                    // always start with the inputs enabled and active.
+                    // Derived classes can adjust where needed
+                    IsEnabled = true;
+                    IsActive = true;
+
                 }
                 protected virtual void SetupInputs()
                 {
@@ -55,6 +60,7 @@ namespace IuvoUnity
                     HandleMovement();
                 }
                 protected abstract void HandleMoveInput();  // e.g., get input axis or keys for movement
+
                 protected virtual void HandleMovement()
                 {
                     // Example movement logic based on input move vector and speed

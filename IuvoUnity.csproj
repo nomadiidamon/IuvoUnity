@@ -341,6 +341,7 @@
     <Compile Include="src\_Physics\E_GravityZone.cs" />
     <Compile Include="src\_Physics\E_GroundCheck.cs" />
     <Compile Include="src\_Physics\E_PhysicsHelpers.cs" />
+    <Compile Include="src\_RPG\E_Damage.cs" />
     <Compile Include="src\_RPG\E_DashAbility.cs" />
     <Compile Include="src\_RPG\E_Health.cs" />
     <Compile Include="src\_RPG\E_JumpAbility.cs" />

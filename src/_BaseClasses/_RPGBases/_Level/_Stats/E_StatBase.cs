@@ -14,9 +14,12 @@ namespace IuvoUnity
                 private ExperienceData _expValue;
                 public ExperienceGaugeComponent _experienceGauge;
 
-                public Range<int> softCap;
-                public Range<int> hardCap;
+                public Range<int> levelCaps;
             }
+
+
+            // TODO: Stat Requirement class
+
 
             [System.Serializable]
             public class StatModifier : RPGComponentBase

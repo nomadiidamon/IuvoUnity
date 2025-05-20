@@ -22,7 +22,6 @@ namespace IuvoUnity
             }
 
 
-
             /// <summary>
             /// Gets the component of type T if its exists otherwise adds it to the GameObject.
             /// </summary>

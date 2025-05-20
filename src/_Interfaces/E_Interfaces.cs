@@ -7,20 +7,22 @@ namespace IuvoUnity
     {
         public interface ICreate : IuvoInterfaceBase
         {
+            public abstract void Create();
             public abstract void OnCreate();
         }
         public interface IDestroy : IuvoInterfaceBase
         {
+            public abstract void Destroy();
             public abstract void OnDestroy();
         }
         public interface ICreatable : IuvoInterfaceBase, ICreate, IDestroy
         {
-            public abstract void Create();
-            public abstract void Destroy();
+
         }
 
         public interface IAwake : IuvoInterfaceBase
         {
+            public abstract void Awake();
             public abstract void OnAwake();
         }
         public interface IInitialize : IuvoInterfaceBase
@@ -29,6 +31,7 @@ namespace IuvoUnity
         }
         public interface IStart : IuvoInterfaceBase
         {
+            public abstract void Start();
             public abstract void OnStart();
         }
 
@@ -51,10 +54,12 @@ namespace IuvoUnity
 
         public interface IAdd : IuvoInterfaceBase
         {
+            public abstract void Add();
             public abstract void OnAdd();
         }
         public interface IRemove : IuvoInterfaceBase
         {
+            public abstract void Remove();
             public abstract void OnRemove();
         }
         public interface IAddable : IuvoInterfaceBase, IAdd, IRemove
@@ -63,10 +68,12 @@ namespace IuvoUnity
 
         public interface IConfigure : IuvoInterfaceBase
         {
+            public abstract void Configure();
             public abstract void OnConfigure();
         }
         public interface IReconfigure : IuvoInterfaceBase
         {
+            public abstract void Reconfigure();
             public abstract void OnReconfigure();
         }
         public interface IConfigurable : IuvoInterfaceBase, IConfigure, IReconfigure
@@ -75,6 +82,7 @@ namespace IuvoUnity
 
         public interface IChange : IuvoInterfaceBase
         {
+            public abstract void Change();
             public abstract void OnChange();
         }
         public interface INotifyOfChange : IuvoInterfaceBase

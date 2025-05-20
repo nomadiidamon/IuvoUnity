@@ -1,4 +1,5 @@
 ﻿using IuvoUnity._BaseClasses._ECS;
+using IuvoUnity._BaseClasses._RPG;
 using IuvoUnity._RPG;
 using System.Collections.Generic;
 
