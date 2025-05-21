@@ -1,4 +1,7 @@
 ﻿using IuvoUnity._DataStructs;
+using IuvoUnity._Interfaces;
+using UnityEditor;
+using UnityEngine;
 
 namespace IuvoUnity
 {
@@ -11,6 +14,8 @@ namespace IuvoUnity
             public AnimationTransitionData transitionData;
             public AnimationClipsData animClips;
             public AnimationEventData eventData;
+
+            IAnimationHandler _handler;
 
             public IuvoAnimation()
             {
@@ -31,6 +36,44 @@ namespace IuvoUnity
                 animClips = _animClips;
                 eventData = _eventData;
             }
+
+            public void SetAnimationHandler(IAnimationHandler handler)
+            {
+                _handler = handler;
+            }
+
+            public void Play(string animationName)
+            {
+                _handler?.Play(animationName);
+            }
+
+            public void Play(AnimationClip clip)
+            {
+                _handler?.Play(clip);
+            }
+
+            public void Stop()
+            {
+                _handler?.Stop();
+            }
+
+            public void SetBlend(float blendTime)
+            {
+                _handler?.SetBlend(blendTime);
+            }
+
+            public bool IsPlaying(string animationName)
+            {
+                return _handler != null && _handler.IsPlaying(animationName);
+            }
+
+            public AnimationClip GetCurrentClip()
+            {
+                return _handler?.GetCurrentClip();
+            }
+
+
+
         }
     }
 }

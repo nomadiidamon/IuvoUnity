@@ -235,6 +235,7 @@
     <Compile Include="src\_AI\T_AIMultiSensorManager.cs" />
     <Compile Include="src\_AI\T_AIRegistry.cs" />
     <Compile Include="src\_AI\T_AISensorManager.cs" />
+    <Compile Include="src\_Animation\E_AnimationHandler.cs" />
     <Compile Include="src\_Animation\E_IuvoAnimation.cs" />
     <Compile Include="src\_Animation\T_AnimationCurve.cs" />
     <Compile Include="src\_Animation\T_AnimationIKPair.cs" />
@@ -312,6 +313,7 @@
     <Compile Include="src\_BaseClasses\_UIBases\T_UIBases.cs" />
     <Compile Include="src\_Color\E_ComparableColor.cs" />
     <Compile Include="src\_Constants\E_ConstantTags.cs" />
+    <Compile Include="src\_Constants\E_IuvoGame.cs" />
     <Compile Include="src\_Constants\T_Constants.cs" />
     <Compile Include="src\_Coroutines\T_Coroutines.cs" />
     <Compile Include="src\_DataStructs\E_BasicTImer.cs" />
@@ -356,6 +358,8 @@
     <Compile Include="src\_Input\_Controllers\E_PlayerControllerBase.cs" />
     <Compile Include="src\_Input\_Input\T_PlayerAbilityInput.cs" />
     <Compile Include="src\_Input\_Input\T_PlayerInputManager.cs" />
+    <Compile Include="src\_Interfaces\E_IAnimationHandler.cs" />
+    <Compile Include="src\_Interfaces\E_IGameCondition.cs" />
     <Compile Include="src\_Interfaces\E_Interfaces.cs" />
     <Compile Include="src\_Interfaces\E_IuvoComponentInterfaces.cs" />
     <Compile Include="src\_Interfaces\E_IuvoInterfaceBase.cs" />
@@ -385,6 +389,7 @@
     <Compile Include="src\_RPG\E_Health.cs" />
     <Compile Include="src\_RPG\E_JumpAbility.cs" />
     <Compile Include="src\_RPG\E_Mana.cs" />
+    <Compile Include="src\_RPG\E_Quest.cs" />
     <Compile Include="src\_RPG\E_Stamina.cs" />
     <Compile Include="src\_RPG\IuvoRPG.cs" />
     <Compile Include="src\_Singletons\_Managers\CameraManager.cs" />

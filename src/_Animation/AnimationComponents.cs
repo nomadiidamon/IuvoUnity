@@ -6,29 +6,28 @@ namespace IuvoUnity
 {
     namespace _DataStructs
     {
-
         public class AnimationStateData : IDataStructBase
         {
-            int hashID;
-            string name;
+            public int HashID { get; private set; }
+            public string Name;
 
             public AnimationStateData()
             {
-                name = "animName";
-                hashID = 0;
+                Name = "animName";
+                HashID = Animator.StringToHash(Name);
             }
 
             public AnimationStateData(string name)
             {
-                this.name = name;
-                hashID = name.GetHashCode();
+                Name = name;
+                HashID = Animator.StringToHash(name);
             }
         }
 
         public class AnimationBlendData : IDataStructBase
         {
-            float _blendSpeed;
-            float _blendTime;
+            public float _blendSpeed;
+            public float _blendTime;
 
             public AnimationBlendData()
             {
@@ -45,8 +44,8 @@ namespace IuvoUnity
 
         public class AnimationTransitionData : IDataStructBase
         {
-            float _transitionSpeed;
-            float _transitionTime;
+            public float _transitionSpeed;
+            public float _transitionTime;
 
             public AnimationTransitionData()
             {
@@ -63,7 +62,7 @@ namespace IuvoUnity
 
         public class AnimationClipData : IDataStructBase
         {
-            AnimationClip _animationClip { get; set; }
+            public AnimationClip _animationClip { get; set; }
 
             public AnimationClipData()
             {
@@ -79,7 +78,7 @@ namespace IuvoUnity
 
         public class AnimationClipsData : IDataStructBase
         {
-            List<AnimationClipData> _clips;
+            public List<AnimationClipData> _clips;
 
             public AnimationClipsData()
             {
@@ -94,8 +93,8 @@ namespace IuvoUnity
 
         public class AnimationEventData : IDataStructBase
         {
-            AnimationEvent _unityAnimEvent { get; set; }
-            System.Action _nativeAnimEvent {  get; set; }
+            public AnimationEvent _unityAnimEvent { get; set; }
+            public System.Action _nativeAnimEvent {  get; set; }
 
             public AnimationEventData()
             {
@@ -109,8 +108,6 @@ namespace IuvoUnity
                 _nativeAnimEvent = nativeEvent;
             }
         }
-
-
 
     }
 }
