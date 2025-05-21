@@ -21,9 +21,8 @@ namespace IuvoUnity
                 currentPosition = stateMachine.transform.position;
                 agent = stateMachine.navMeshAgent;
                 agent.speed = speed;
-                animator = stateMachine.GetComponent<Animator>();
-                animator.CrossFade(animationName, crossFadeTime);
-                if (targetPosition != null && agent.destination != targetPosition)
+                stateMachine.animator.CrossFade(animationName, crossFadeTime);
+                if (Vector3.Distance(agent.destination, targetPosition)  > 0.1f)
                 {
                     agent.SetDestination(targetPosition);
                 }

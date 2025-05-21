@@ -25,15 +25,19 @@ namespace IuvoUnity
 
             }
 
-            public new void Update()
+            public override void Update()
             {
-                if (currentState != null)
-                {
-                    currentState.OnUpdate(this);
-                }
+                base.Update();
+                // do human stuff
             }
 
-            public void AssignTargetDestination(Vector3 newDestination)
+            public override void FixedUpdate()
+            {
+                base.FixedUpdate();    
+                // do human stuff
+            }
+
+            public virtual void AssignTargetDestination(Vector3 newDestination)
             {
                 if (move != null && move.targetPosition != newDestination)
                 {

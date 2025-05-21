@@ -25,7 +25,7 @@ namespace IuvoUnity
                 ChangeState(defaultState);
             }
 
-            public void Update()
+            public virtual void Update()
             {
                 if (currentState != null)
                 {
@@ -33,7 +33,15 @@ namespace IuvoUnity
                 }
             }
 
-            public void TryChangeState(GenericState newState)
+            public virtual void FixedUpdate()
+            {
+                if (currentState != null)
+                {
+                    currentState.OnFixedUpdate(this);
+                }
+            }
+
+            public virtual void TryChangeState(GenericState newState)
             {
                 if (newState != null && newState.CanEnter(this))
                 {
@@ -46,7 +54,7 @@ namespace IuvoUnity
 
             }
 
-            public void ChangeState(GenericState newState)
+            public virtual void ChangeState(GenericState newState)
             {
                 if (currentState != null && newState != currentState)
                 {
